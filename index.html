@@ -73,7 +73,6 @@
             cursor: pointer;
         }
 
-        /* Search Container Structure */
         .search-container {
             width: 100%;
             max-width: 680px;
@@ -322,7 +321,6 @@
 
             body { padding-bottom: 74px; background-color: #f4f6f9; }
 
-            /* Two-Row Mobile Sticky Header */
             header {
                 padding: 12px 16px;
                 gap: 12px;
@@ -530,13 +528,13 @@
         const PRODUCTS_DATA = [
             {
                 id: 1,
-                title: "WKSHOP Air 31 Transparent Wireless Earbuds Bluetooth 5.3 TWS Earphones HD Bass Stereo Sound ENC Noise Reduction Gaming Handsfree Touch Control Long Battery Life Charging Case Low Latency Compatible with Android iOS Smartphones Music Ear Buds",
+                title: "aylou LS02 Premium Smart Watch (Full Black)",
                 category: "electronic",
-                price: "749",
-                oldPrice: "1,699",
-                discount: "-56%",
-                image: "https://img.drz.lazcdn.com/g/kf/Sd6cbdf71ac5e4c9dbac840e6db07312aU.png_720x720q80.png",
-                daraz_link: "https://s.daraz.pk/s.cMfHT?cc"
+                price: "2,999",
+                oldPrice: "4,999",
+                discount: "-40%",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80",
+                daraz_web_link: "https://s.daraz.pk/s.cMfHT?cc"
             },
             {
                 id: 2,
@@ -546,7 +544,7 @@
                 oldPrice: "5,499",
                 discount: "-42%",
                 image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80",
-                daraz_link: "https://s.daraz.pk/s.cMfHT?cc"
+                daraz_web_link: "https://www.daraz.pk/products/i224518741-s1442196852.html"
             },
             {
                 id: 3,
@@ -556,7 +554,7 @@
                 oldPrice: "9,999",
                 discount: "-35%",
                 image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80",
-                daraz_link: "https://s.daraz.pk/s.cMfHT?cc"
+                daraz_web_link: "https://www.daraz.pk/products/i101452145-s1246985214.html"
             },
             {
                 id: 4,
@@ -566,7 +564,7 @@
                 oldPrice: "9,999",
                 discount: "-35%",
                 image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80",
-                daraz_link: "https://s.daraz.pk/s.cMfHT?cc"
+                daraz_web_link: "https://www.daraz.pk/products/i154216895-s1321456987.html"
             },
             {
                 id: 5,
@@ -576,7 +574,7 @@
                 oldPrice: "4,999",
                 discount: "-38%",
                 image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=300&q=80",
-                daraz_link: "https://s.daraz.pk/s.cMfHT?cc"
+                daraz_web_link: "https://www.daraz.pk/products/i185214563-s1398521456.html"
             }
         ];
 
@@ -623,17 +621,30 @@
                 const card = document.createElement("div");
                 card.className = "product-card";
                 
-                // --- CLEAN ZERO-NOTICE WEB INTENT CONTROLLER ---
+                // --- HARDWARE-LEVEL APP BLOCKING ROUTINE via DYNAMIC FORM SUBMIT ---
                 card.onclick = () => { 
-                    const originalUrl = prod.daraz_link;
+                    let targetUrl = prod.daraz_web_link;
+                    
+                    // App-bypass attributes appending
+                    if (targetUrl.includes('?')) {
+                        targetUrl += "&_desktop=true&app_bypass=true";
+                    } else {
+                        targetUrl += "?_desktop=true&app_bypass=true";
+                    }
                     
                     if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                        // Is method se mobile system app intent check bypass ho jata hai aur direct naya clean browser tab open hota hai bina kisi redirect notice ke.
-                        const dynamicWindow = window.open();
-                        dynamicWindow.opener = null;
-                        dynamicWindow.location = originalUrl;
+                        // Create an isolated form submission. 
+                        // Operating systems dynamic parameters ke form-POST/GET method par app links automatically trigger nahi karte.
+                        const bypassForm = document.createElement('form');
+                        bypassForm.method = 'GET';
+                        bypassForm.action = targetUrl;
+                        bypassForm.style.display = 'none';
+                        
+                        document.body.appendChild(bypassForm);
+                        bypassForm.submit(); // Forces inside the current browser instance
+                        document.body.removeChild(bypassForm);
                     } else {
-                        window.open(originalUrl, '_blank', 'noopener,noreferrer');
+                        window.open(targetUrl, '_blank', 'noopener,noreferrer');
                     }
                 };
 
