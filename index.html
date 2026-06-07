@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hamviro - Professional Digital Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- PRO PRODUCTION RESET SYSTEM --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: #f5f7fa; /* Clean corporate canvas background */
+            color: #1e293b;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- DESKTOP TOP HEADER STRIP --- */
+        .top-bar {
+            background-color: #ffffff;
+            font-size: 12px;
+            color: #64748b;
+            padding: 10px 6%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+        .top-bar a { text-decoration: none; color: #64748b; margin-right: 22px; transition: color 0.2s; }
+        .top-bar a:hover { color: #f57224; }
+
+        /* --- STICKY STANDARD HEADER FRAMEWORK --- */
+        header {
+            background-color: #ffffff;
+            padding: 14px 6%;
+            display: flex;
+            flex-direction: column; /* Stack layout layer directly for structural clean rows */
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 15px rgba(15, 23, 42, 0.04);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* Top Bar Wrapper Inside Header Container */
+        .header-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #ff4e00; /* Pure Brand Identity Orange */
+            letter-spacing: -1.2px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Center Grid Search Container Structure */
+        .search-container {
+            width: 100%;
+            max-width: 680px;
+            height: 44px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0 16px;
+            border: 1.5px solid #e2e8f0;
+            background-color: #f8fafc;
+            border-radius: 10px 0 0 10px;
+            outline: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0f172a;
+            transition: all 0.2s ease;
+        }
+        .search-container input:focus {
+            background-color: #ffffff;
+            border-color: #ff4e00;
+            box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.08);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);
+            color: #ffffff;
+            border: none;
+            width: 60px;
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            align-items: center;
+        }
+        .header-icons div { cursor: pointer; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .header-icons div:hover { color: #ff4e00; }
+        .header-icons i { font-size: 19px; color: #475569; }
+        .header-icons div:hover i { color: #ff4e00; }
+
+        /* --- HERO SPLIT CANVAS CANVAS --- */
+        .hero-section {
+            display: flex;
+            gap: 24px;
+            padding: 24px 6%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* Desktop Left Category Housing */
+        .sidebar-categories {
+            width: 260px;
+            background-color: #ffffff;
+            border-radius: 14px;
+            padding: 12px 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            flex-shrink: 0;
+        }
+        .sidebar-categories div {
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .sidebar-categories div:hover, .sidebar-categories div.active {
+            background-color: #fff4ee;
+            color: #ff4e00;
+            font-weight: 600;
+        }
+
+        /* Clean Architectural Marketing Banner */
+        .main-banner {
+            flex: 1;
+            background: linear-gradient(135deg, #ff6008 0%, #e63e00 100%);
+            border-radius: 20px;
+            color: #ffffff;
+            padding: 44px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(255, 78, 0, 0.12);
+        }
+
+        .banner-text { max-width: 55%; }
+        .banner-text span { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.85; font-weight: 700; }
+        .banner-text h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800; margin: 10px 0 18px 0; line-height: 1.2; }
+        
+        .shop-now-btn {
+            background-color: #ffffff;
+            color: #ff4e00;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .banner-img img {
+            max-width: 100%;
+            height: 220px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
+        }
+
+        /* Desktop Disabled Elements */
+        .mobile-categories-scroll { display: none; }
+
+        /* --- FLASH SALE SYSTEM HUB --- */
+        .flash-sale-section {
+            padding: 0 6% 60px 6%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .flash-sale-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .timer {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Grid Alignment Matrix */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        /* Enterprise eCommerce Product Cards UI */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 78, 0, 0.25);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 165px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            border: 1px solid #f1f5f9;
+        }
+        .product-card img {
+            max-width: 88%;
+            max-height: 88%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover img { transform: scale(1.03); }
+
+        .product-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 36px;
+        }
+
+        .price-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-top: auto;
+        }
+
+        .product-price { color: #ff4e00; font-weight: 700; font-size: 17px; letter-spacing: -0.5px; }
+        
+        .old-price-row { display: flex; align-items: center; gap: 8px; }
+        .old-price { font-size: 11px; color: #94a3b8; text-decoration: line-through; font-weight: 500; }
+        .discount-tag { font-size: 11px; color: #ef4444; font-weight: 700; background: #fef2f2; padding: 2px 6px; border-radius: 4px; }
+
+        .bottom-nav-bar { display: none; }
+
+        /* --- STABLE NATIVE RESPONSIVE LOCKS (MOBILE EXACT SPECIFICATIONS) --- */
+        @media (max-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+            .sidebar-categories, .top-bar { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar, .sidebar-categories, .banner-img {
+                display: none !important;
+            }
+
+            body { padding-bottom: 74px; background-color: #f4f6f9; }
+
+            /* Professional Native Twin-Row Sticky Header Framework */
+            header {
+                padding: 12px 16px;
+                gap: 12px;
+                background-color: #ffffff;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            }
+
+            /* FIRST ROW: Brand Logo on Left, High-End Action Icons on Right */
+            .header-top-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+            .logo { font-size: 25px; }
+
+            /* Direct Isolated Icon Utilities On Top Right Row */
+            .header-icons {
+                display: flex;
+                gap: 20px;
+            }
+            .header-icons div span { display: none; } /* Clear Mobile Text Labels for Screen Space Clear */
+            .header-icons i { font-size: 22px; color: #2e3a47; } /* Rich Premium Charcoal Icons Dark Mode */
+
+            /* SECOND ROW: Standalone Dedicated Search Grid System (Directly Underneath Logo Row) */
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+                height: 42px;
+            }
+            .search-container input { padding: 0 14px; border-radius: 8px 0 0 8px; font-size: 14px; border-color: #e2e8f0; }
+            .search-btn { width: 52px; border-radius: 0 8px 8px 0; }
+
+            /* App Level Banner Component UI Viewport Adjust */
+            .hero-section { padding: 12px 12px 4px 12px; }
+            .main-banner { padding: 26px 20px; border-radius: 16px; }
+            .banner-text { max-width: 100%; }
+            .banner-text h2 { font-size: 28px; margin-bottom: 12px; }
+            .shop-now-btn { padding: 10px 24px; font-size: 13px; border-radius: 8px; }
+
+            /* App Squircle Badges (Direct Native Synced Elements) */
+            .mobile-categories-scroll {
+                display: flex;
+                overflow-x: auto;
+                gap: 16px;
+                padding: 14px 16px;
+                background-color: #ffffff;
+                margin-bottom: 12px;
+                border-bottom: 1px solid #e2e8f0;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-categories-scroll::-webkit-scrollbar { display: none; }
+            
+            .mobile-cat-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 64px;
+                cursor: pointer;
+            }
+            .mobile-cat-item .circle-icon {
+                width: 48px;
+                height: 48px;
+                background-color: #f8fafc;
+                border-radius: 12px; /* Precision Squircle App Grid Look */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                color: #475569;
+                margin-bottom: 6px;
+                border: 1px solid #e2e8f0;
+            }
+            .mobile-cat-item.active .circle-icon { 
+                background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);
+                color: #ffffff; 
+                border-color: transparent;
+                box-shadow: 0 4px 12px rgba(255, 78, 0, 0.2);
+            }
+            .mobile-cat-item span { font-size: 11px; font-weight: 600; color: #64748b; white-space: nowrap; }
+            .mobile-cat-item.active span { color: #ff4e00; font-weight: 700; }
+
+            /* Balanced Grid System Context Overwrite */
+            .flash-sale-section { padding: 0 10px 30px 10px; }
+            .section-header { margin-bottom: 14px; padding: 0 4px; }
+            .flash-sale-title { font-size: 18px; }
+            .timer { padding: 4px 8px; font-size: 11px; border-radius: 6px; }
+
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product-card { 
+                padding: 10px; 
+                border-radius: 12px; 
+                box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02); 
+                border: 1px solid #e2e8f0; 
+            }
+            .img-wrapper { height: 140px; margin-bottom: 10px; background-color: #f8fafc; border-radius: 8px; }
+            .product-title { font-size: 12px; height: 34px; margin-bottom: 6px; color: #1e293b; font-weight: 500; }
+            .product-price { font-size: 15px; }
+
+            /* Modern Drawer Sticky Navigation Footer Layer */
+            .bottom-nav-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 56px;
+                background-color: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-top: 1px solid #e2e8f0;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 99999;
+                box-shadow: 0 -4px 16px rgba(0,0,0,0.03);
+            }
+            .bottom-tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #94a3b8;
+                font-size: 10px;
+                font-weight: 600;
+                text-decoration: none;
+                width: 25%;
+                height: 100%;
+            }
+            .bottom-tab i { font-size: 18px; margin-bottom: 2px; }
+            .bottom-tab.active { color: #ff4e00; font-weight: 700; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="links">
+            <a href="#">Save More on App</a>
+            <a href="#">Sell on Hamviro</a>
+            <a href="#">Customer Care</a>
+            <a href="#">Track My Order</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-top-row">
+            <div class="logo" id="brandLogo">hamviro</div>
+            
+            <div class="header-icons">
+                <div onclick="alert('Wishlist option integrated!')">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Wishlist</span>
+                </div>
+                <div onclick="alert('Cart redirection live!')">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Cart</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products, premium brands...">
+            <button class="search-btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="sidebar-categories" id="desktopCats"></div>
+
+        <div class="main-banner">
+            <div class="banner-text">
+                <span>ECOMMERCE COLLAB</span>
+                <h2>Premium Deals<br>Live Stream</h2>
+                <div class="shop-now-btn" id="bannerBtn">Explore Products</div>
+            </div>
+            <div class="banner-img">
+                <img src="https://images.unsplash.com/photo-1496181130204-755241524eab?auto=format&fit=crop&w=400&q=80" alt="Showcase System">
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-categories-scroll" id="mobileCats"></div>
+
+    <div class="flash-sale-section">
+        <div class="section-header">
+            <div class="flash-sale-title">
+                <span id="sectionTitle">All Products</span>
+                <span class="timer" id="liveTimer">00 : 00 : 00</span>
+            </div>
+        </div>
+
+        <div class="products-grid" id="productsContainer"></div>
+    </div>
+
+    <div class="bottom-nav-bar">
+        <div class="bottom-tab active" id="homeTab">
+            <i class="fa-solid fa-house-user"></i>
+            <span>Home</span>
+        </div>
+        <div class="bottom-tab" onclick="alert('Categories filter arrays are live on header chips!')">
+            <i class="fa-solid fa-border-all"></i>
+            <span>Categories</span>
+        </div>
+        <div class="bottom-tab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+            <i class="fa-solid fa-arrow-up-to-line"></i>
+            <span>Top</span>
+        </div>
+    </div>
+
+    <script>
+        const PRODUCTS_DATA = [
+            {
+                id: 1,
+                title: "Haylou LS02 Premium Smart Watch (Full Black)",
+                category: "electronic",
+                price: "2,999",
+                oldPrice: "4,999",
+                discount: "-40%",
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80",
+                daraz_link: "https://www.daraz.pk/"
+            },
+            {
+                id: 2,
+                title: "Realme Buds Q2 Wireless Bass-Boost Noise Isolation",
+                category: "accessories",
+                price: "3,199",
+                oldPrice: "5,499",
+                discount: "-42%",
+                image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80",
+                daraz_link: "https://www.daraz.pk/"
+            },
+            {
+                id: 3,
+                title: "Nike Air Max Running Shoes Pro Endurance Edition",
+                category: "fashion",
+                price: "6,499",
+                oldPrice: "9,999",
+                discount: "-35%",
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80",
+                daraz_link: "https://www.daraz.pk/"
+            },
+            {
+                id: 4,
+                title: "Swiss Gear Carbon Armor Waterproof Travel Backpack",
+                category: "fashion",
+                price: "6,499",
+                oldPrice: "9,999",
+                discount: "-35%",
+                image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80",
+                daraz_link: "https://www.daraz.pk/"
+            },
+            {
+                id: 5,
+                title: "Zara Men Eau De Toilette Premium Pour Homme Intense",
+                category: "beauty",
+                price: "2,799",
+                oldPrice: "4,999",
+                discount: "-38%",
+                image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=300&q=80",
+                daraz_link: "https://www.daraz.pk/"
+            }
+        ];
+
+        const CATEGORIES = [
+            { id: "all", name: "All Categories", icon: "fa-grip" },
+            { id: "electronic", name: "Electronic Devices", icon: "fa-laptop" },
+            { id: "accessories", name: "Accessories", icon: "fa-headphones" },
+            { id: "beauty", name: "Health & Beauty", icon: "fa-wand-magic-sparkles" },
+            { id: "fashion", name: "Men's Fashion", icon: "fa-shirt" }
+        ];
+
+        let selectedCategory = "all";
+
+        function renderCategories() {
+            const desktopBox = document.getElementById("desktopCats");
+            const mobileBox = document.getElementById("mobileCats");
+            
+            desktopBox.innerHTML = "";
+            mobileBox.innerHTML = "";
+
+            CATEGORIES.forEach(cat => {
+                const dDiv = document.createElement("div");
+                dDiv.className = cat.id === selectedCategory ? "active" : "";
+                dDiv.innerHTML = `<i class="fa-solid ${cat.icon}"></i> ${cat.name}`;
+                dDiv.onclick = () => filterCategory(cat.id);
+                desktopBox.appendChild(dDiv);
+
+                const mDiv = document.createElement("div");
+                mDiv.className = `mobile-cat-item ${cat.id === selectedCategory ? 'active' : ''}`;
+                mDiv.innerHTML = `
+                    <div class="circle-icon"><i class="fa-solid ${cat.icon}"></i></div>
+                    <span>${cat.name.split(' ')[0]}</span>
+                `;
+                mDiv.onclick = () => filterCategory(cat.id);
+                mobileBox.appendChild(mDiv);
+            });
+        }
+
+        function renderProducts(productsToRender) {
+            const container = document.getElementById("productsContainer");
+            container.innerHTML = "";
+
+            if(productsToRender.length === 0) {
+                container.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:40px; color:#94a3b8; font-size:14px; font-weight:500;">No products found!</div>`;
+                return;
+            }
+
+            productsToRender.forEach(prod => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+                card.onclick = () => { window.open(prod.daraz_link, '_blank'); };
+
+                card.innerHTML = `
+                    <div class="img-wrapper">
+                        <img src="${prod.image}" alt="${prod.title}">
+                    </div>
+                    <div class="product-title">${prod.title}</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. ${prod.price}</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. ${prod.oldPrice}</span>
+                            <span class="discount-tag">${prod.discount}</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterCategory(catId) {
+            selectedCategory = catId;
+            renderCategories();
+            document.getElementById("sectionTitle").innerText = catId === "all" ? "All Products" : `${catId.charAt(0).toUpperCase() + catId.slice(1)} Deals`;
+            
+            if(catId === "all") {
+                renderProducts(PRODUCTS_DATA);
+            } else {
+                const filtered = PRODUCTS_DATA.filter(p => p.category === catId);
+                renderProducts(filtered);
+            }
+        }
+
+        function executeSearch() {
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
+            if(query === "") { filterCategory("all"); return; }
+            const searchResults = PRODUCTS_DATA.filter(p => p.title.toLowerCase().includes(query));
+            document.getElementById("sectionTitle").innerText = `Results for "${query}"`;
+            renderProducts(searchResults);
+        }
+
+        document.getElementById("searchBtn").onclick = executeSearch;
+        document.getElementById("searchInput").onkeyup = (e) => { if(e.key === "Enter") executeSearch(); };
+        document.getElementById("brandLogo").onclick = () => { filterCategory("all"); document.getElementById("searchInput").value=""; };
+        document.getElementById("homeTab").onclick = () => { filterCategory("all"); document.getElementById("searchInput").value=""; };
+        document.getElementById("bannerBtn").onclick = () => { window.scrollTo({top: document.getElementById("productsContainer").offsetTop - 100, behavior: "smooth"}); };
+
+        function runCountdown() {
+            let hours = 2, minutes = 14, seconds = 20;
+            setInterval(() => {
+                seconds--;
+                if(seconds < 0) { seconds = 59; minutes--; }
+                if(minutes < 0) { minutes = 59; hours--; }
+                if(hours < 0) { hours = 2; minutes = 14; seconds = 20; }
+                document.getElementById("liveTimer").innerText = 
+                    `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        window.onload = () => {
+            renderCategories();
+            renderProducts(PRODUCTS_DATA);
+            runCountdown();
+        };
+    </script>
+</body>
+</html>
