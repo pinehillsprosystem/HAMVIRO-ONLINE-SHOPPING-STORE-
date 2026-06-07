@@ -23,7 +23,7 @@
             width: 100%;
             max-width: 100%;
             overflow-x: hidden;
-            background-color: #f5f7fa; /* Clean corporate canvas background */
+            background-color: #f5f7fa;
             color: #1e293b;
             -webkit-font-smoothing: antialiased;
         }
@@ -40,14 +40,14 @@
             font-weight: 500;
         }
         .top-bar a { text-decoration: none; color: #64748b; margin-right: 22px; transition: color 0.2s; }
-        .top-bar a:hover { color: #f57224; }
+        .top-bar a:hover { color: #ff4e00; }
 
         /* --- STICKY STANDARD HEADER FRAMEWORK --- */
         header {
             background-color: #ffffff;
             padding: 14px 6%;
             display: flex;
-            flex-direction: column; /* Stack layout layer directly for structural clean rows */
+            flex-direction: column;
             gap: 12px;
             position: sticky;
             top: 0;
@@ -56,7 +56,6 @@
             border-bottom: 1px solid #e2e8f0;
         }
 
-        /* Top Bar Wrapper Inside Header Container */
         .header-top-row {
             display: flex;
             align-items: center;
@@ -68,13 +67,13 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 28px;
             font-weight: 800;
-            color: #ff4e00; /* Pure Brand Identity Orange */
+            color: #ff4e00;
             letter-spacing: -1.2px;
             text-decoration: none;
             cursor: pointer;
         }
 
-        /* Center Grid Search Container Structure */
+        /* Search Container Structure */
         .search-container {
             width: 100%;
             max-width: 680px;
@@ -128,7 +127,7 @@
         .header-icons i { font-size: 19px; color: #475569; }
         .header-icons div:hover i { color: #ff4e00; }
 
-        /* --- HERO SPLIT CANVAS CANVAS --- */
+        /* --- HERO SPLIT CANVAS --- */
         .hero-section {
             display: flex;
             gap: 24px;
@@ -137,7 +136,6 @@
             margin: 0 auto;
         }
 
-        /* Desktop Left Category Housing */
         .sidebar-categories {
             width: 260px;
             background-color: #ffffff;
@@ -166,7 +164,6 @@
             font-weight: 600;
         }
 
-        /* Clean Architectural Marketing Banner */
         .main-banner {
             flex: 1;
             background: linear-gradient(135deg, #ff6008 0%, #e63e00 100%);
@@ -202,7 +199,6 @@
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
         }
 
-        /* Desktop Disabled Elements */
         .mobile-categories-scroll { display: none; }
 
         /* --- FLASH SALE SYSTEM HUB --- */
@@ -240,14 +236,12 @@
             box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
         }
 
-        /* Grid Alignment Matrix */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 16px;
         }
 
-        /* Enterprise eCommerce Product Cards UI */
         .product-card {
             background-color: #ffffff;
             border-radius: 16px;
@@ -315,7 +309,7 @@
 
         .bottom-nav-bar { display: none; }
 
-        /* --- STABLE NATIVE RESPONSIVE LOCKS (MOBILE EXACT SPECIFICATIONS) --- */
+        /* --- STABLE NATIVE RESPONSIVE LOCKS --- */
         @media (max-width: 1024px) {
             .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .sidebar-categories, .top-bar { display: none; }
@@ -328,7 +322,7 @@
 
             body { padding-bottom: 74px; background-color: #f4f6f9; }
 
-            /* Professional Native Twin-Row Sticky Header Framework */
+            /* Two-Row Mobile Sticky Header */
             header {
                 padding: 12px 16px;
                 gap: 12px;
@@ -336,7 +330,7 @@
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
             }
 
-            /* FIRST ROW: Brand Logo on Left, High-End Action Icons on Right */
+            /* FIRST ROW: Brand Logo Left, Icons Right */
             .header-top-row {
                 display: flex;
                 align-items: center;
@@ -346,15 +340,14 @@
 
             .logo { font-size: 25px; }
 
-            /* Direct Isolated Icon Utilities On Top Right Row */
             .header-icons {
                 display: flex;
                 gap: 20px;
             }
-            .header-icons div span { display: none; } /* Clear Mobile Text Labels for Screen Space Clear */
-            .header-icons i { font-size: 22px; color: #2e3a47; } /* Rich Premium Charcoal Icons Dark Mode */
+            .header-icons div span { display: none; } 
+            .header-icons i { font-size: 22px; color: #2e3a47; }
 
-            /* SECOND ROW: Standalone Dedicated Search Grid System (Directly Underneath Logo Row) */
+            /* SECOND ROW: Search Bar underneath Logo Row */
             .search-container {
                 width: 100%;
                 max-width: 100%;
@@ -363,14 +356,12 @@
             .search-container input { padding: 0 14px; border-radius: 8px 0 0 8px; font-size: 14px; border-color: #e2e8f0; }
             .search-btn { width: 52px; border-radius: 0 8px 8px 0; }
 
-            /* App Level Banner Component UI Viewport Adjust */
             .hero-section { padding: 12px 12px 4px 12px; }
             .main-banner { padding: 26px 20px; border-radius: 16px; }
             .banner-text { max-width: 100%; }
             .banner-text h2 { font-size: 28px; margin-bottom: 12px; }
             .shop-now-btn { padding: 10px 24px; font-size: 13px; border-radius: 8px; }
 
-            /* App Squircle Badges (Direct Native Synced Elements) */
             .mobile-categories-scroll {
                 display: flex;
                 overflow-x: auto;
@@ -394,7 +385,7 @@
                 width: 48px;
                 height: 48px;
                 background-color: #f8fafc;
-                border-radius: 12px; /* Precision Squircle App Grid Look */
+                border-radius: 12px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -412,7 +403,6 @@
             .mobile-cat-item span { font-size: 11px; font-weight: 600; color: #64748b; white-space: nowrap; }
             .mobile-cat-item.active span { color: #ff4e00; font-weight: 700; }
 
-            /* Balanced Grid System Context Overwrite */
             .flash-sale-section { padding: 0 10px 30px 10px; }
             .section-header { margin-bottom: 14px; padding: 0 4px; }
             .flash-sale-title { font-size: 18px; }
@@ -429,7 +419,7 @@
             .product-title { font-size: 12px; height: 34px; margin-bottom: 6px; color: #1e293b; font-weight: 500; }
             .product-price { font-size: 15px; }
 
-            /* Modern Drawer Sticky Navigation Footer Layer */
+            /* App Navigation Drawer Footer */
             .bottom-nav-bar {
                 display: flex;
                 position: fixed;
@@ -545,10 +535,10 @@
 
 
 
-                        <!-- PRODUCT ADD  -->
 
 
 
+              <!-- PRODUCTS ADD  -->
 
 
 
@@ -560,8 +550,8 @@
                 category: "electronic",
                 price: "749",
                 oldPrice: "1,699",
-                discount: "-40%",
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDNI5WzmtLaqAvGQdiUQVIAGQ1OUFqIv6NJw&s",
+                discount: "-56%",
+                image: "https://img.drz.lazcdn.com/g/kf/Sd6cbdf71ac5e4c9dbac840e6db07312aU.png_720x720q80.png",
                 daraz_link: "https://s.daraz.pk/s.cMfHT?cc"
             },
             {
@@ -653,7 +643,11 @@
             productsToRender.forEach(prod => {
                 const card = document.createElement("div");
                 card.className = "product-card";
-                card.onclick = () => { window.open(prod.daraz_link, '_blank'); };
+                
+                // FIXED CLICK CONTROLLER: Opens Daraz in a secure new tab, keeping your site alive in background!
+                card.onclick = () => { 
+                    window.open(prod.daraz_link, '_blank', 'noopener,noreferrer'); 
+                };
 
                 card.innerHTML = `
                     <div class="img-wrapper">
