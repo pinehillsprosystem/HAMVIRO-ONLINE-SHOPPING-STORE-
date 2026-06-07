@@ -532,13 +532,7 @@
 
 
 
-
-
-
-
-
-
-              <!-- PRODUCTS ADD  -->
+                <!-- PRODUCT ADD  -->
 
 
 
@@ -644,9 +638,12 @@
                 const card = document.createElement("div");
                 card.className = "product-card";
                 
-                // FIXED CLICK CONTROLLER: Opens Daraz in a secure new tab, keeping your site alive in background!
+                // FIXED DEEP LINK BYPASS CONTROLLER
+                // Yeh user ko forced web browser layer mein rakhega, app auto-launch nahi hogi!
                 card.onclick = () => { 
-                    window.open(prod.daraz_link, '_blank', 'noopener,noreferrer'); 
+                    const cleanWebUrl = prod.daraz_link;
+                    // Bypassing native app intents using a web reference gateway
+                    window.open('https://www.google.com/url?q=' + encodeURIComponent(cleanWebUrl), '_blank', 'noopener,noreferrer');
                 };
 
                 card.innerHTML = `
