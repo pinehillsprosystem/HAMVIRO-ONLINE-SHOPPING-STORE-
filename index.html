@@ -937,11 +937,11 @@
                 card.className = "product-card";
                 
                 card.onclick = () => { 
-                    let targetUrl = prod.daraz_web_link;
+                    // Google ka redirect use kar rahe hain taake app link ko na pehchan sake
+                    const encodedUrl = encodeURIComponent(prod.daraz_web_link);
+                    const safeUrl = `https://www.google.com/url?q=${encodedUrl}`;
                     
-                    // Browser ko signal dena ke ye naye tab mein khule
-                    // 'noopener' aur 'noreferrer' security aur redirection ko control karte hain
-                    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                    window.open(safeUrl, '_blank', 'noopener,noreferrer');
                 };
 
                 card.innerHTML = `
