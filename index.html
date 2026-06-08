@@ -538,7 +538,7 @@
         const PRODUCTS_DATA = [
                       {
                 id: 1,
-                title: "-in-1 Rechargeable Hair Remover & Eyebrow Trimmer with LED, Painless Precision Shaver for Women’s Face, Lip, Chin, Bikini – Electric Facial Razor for All Skin Types",
+                title: "2-in-1 Rechargeable Hair Remover & Eyebrow Trimmer with LED, Painless Precision Shaver for Women’s Face, Lip, Chin, Bikini – Electric Facial Razor for All Skin Types",
                 category: "electronic",
                 price: "899",
                 oldPrice: "1,499",
@@ -926,28 +926,22 @@
             });
         }
 
-       function renderProducts(productsToRender) {
+     function renderProducts(productsToRender) {
             const container = document.getElementById("productsContainer");
             container.innerHTML = "";
 
             productsToRender.forEach(prod => {
-                // Agar product ka data khali hai to skip kr dein
                 if (!prod.daraz_web_link) return; 
 
                 const card = document.createElement("div");
                 card.className = "product-card";
                 
                 card.onclick = () => { 
-                    // Yahan hum 'desktop' mode force kr rhy hain taake app redirect na ho
                     let targetUrl = prod.daraz_web_link;
                     
-                    // URL mein parameters add krna taake Daraz ko lage desktop use ho rha hai
-                    const separator = targetUrl.includes('?') ? '&' : '?';
-                    targetUrl += `${separator}desktop=1&force_web=true`;
-
-                    // Simple window.open ya location change se redirect krayein
-                    // Mobile browser par 'target="_blank"' ya 'window.open' aksar app ko block krne mein madad krta hai
-                    window.location.href = targetUrl;
+                    // Browser ko signal dena ke ye naye tab mein khule
+                    // 'noopener' aur 'noreferrer' security aur redirection ko control karte hain
+                    window.open(targetUrl, '_blank', 'noopener,noreferrer');
                 };
 
                 card.innerHTML = `
