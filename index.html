@@ -926,7 +926,7 @@
             });
         }
 
-     function renderProducts(productsToRender) {
+  function renderProducts(productsToRender) {
             const container = document.getElementById("productsContainer");
             container.innerHTML = "";
 
@@ -937,11 +937,22 @@
                 card.className = "product-card";
                 
                 card.onclick = () => { 
-                    // Google ka redirect use kar rahe hain taake app link ko na pehchan sake
-                    const encodedUrl = encodeURIComponent(prod.daraz_web_link);
-                    const safeUrl = `https://www.google.com/url?q=${encodedUrl}`;
+                    // 1. Link ko 'desktop' mode mein force krne ke liye parameters add karein
+                    let targetUrl = prod.daraz_web_link;
+                    const separator = targetUrl.includes('?') ? '&' : '?';
+                    targetUrl += `${separator}desktop=1`;
+
+                    // 2. 'noopener' aur 'noreferrer' ke sath naye tab mein kholein
+                    // Ye technique mobile browser ko page refresh karne par majboor karti hai 
+                    // jisse app-switch trigger nahi hota.
+                    const win = window.open(targetUrl, '_blank', 'noopener,noreferrer');
                     
-                    window.open(safeUrl, '_blank', 'noopener,noreferrer');
+                    // Agar browser window block kare, to fallback
+                    if (win) {
+                        win.focus();
+                    } else {
+                        window.location.href = targetUrl;
+                    }
                 };
 
                 card.innerHTML = `
@@ -959,8 +970,7 @@
                 `;
                 container.appendChild(card);
             });
-        }
-        function filterCategory(catId) {
+        }        function filterCategory(catId) {
             selectedCategory = catId;
             renderCategories();
             
