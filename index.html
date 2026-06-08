@@ -335,11 +335,6 @@
             animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
         @media (min-width: 769px) {
             .modal-overlay { align-items: center; }
             .modal-content { border-radius: 20px; max-height: 85vh; width: 90%; }
@@ -362,39 +357,36 @@
             z-index: 101;
         }
 
-        /* --- FIXED: DARAZ NATIVE IMAGE SCROLL/SWIPE SLIDER ARCHITECTURE --- */
+        /* --- DYNAMIC UNLIMITED IMAGE SLIDER ARCHITECTURE --- */
         .modal-img-viewer-container {
             width: 100%;
             margin-bottom: 20px;
             position: relative;
         }
 
-        /* CHANGED: Is box ko scroll wrapper banaya hai taake swipe ho sakay */
         .modal-img-holder {
             width: 100%;
             aspect-ratio: 1 / 1;
             background-color: #f8fafc;
             border-radius: 14px;
             border: 1px solid #e2e8f0;
-            overflow-x: auto; /* Scroll horizontal enable */
+            overflow-x: auto;
             overflow-y: hidden;
-            display: flex; /* Horizontally line up images */
-            scroll-snap-type: x mandatory; /* Rigid Daraz card snapping lock */
+            display: flex;
+            scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
         }
         
-        /* Hide scrollbars elegantly */
         .modal-img-holder::-webkit-scrollbar {
             display: none;
         }
 
-        /* Each image canvas inside slide rail */
         .modal-slide-item {
             min-width: 100%;
             width: 100%;
             height: 100%;
-            scroll-snap-align: start; /* Snapping element edge lock */
+            scroll-snap-align: start;
             position: relative;
             flex-shrink: 0;
         }
@@ -402,10 +394,9 @@
         .modal-slide-item img { 
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Premium Edge-to-edge cover view */
+            object-fit: cover;
         }
 
-        /* Daraz-Style Slide Number Indicator Float (e.g. 1/4) */
         .image-index-badge {
             position: absolute;
             bottom: 14px;
@@ -426,7 +417,7 @@
             gap: 10px;
             margin-top: 12px;
             overflow-x: auto;
-            padding-bottom: 4px;
+            padding-bottom: 6px;
         }
         .modal-thumbnail-gallery::-webkit-scrollbar { height: 4px; }
         .modal-thumbnail-gallery::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
@@ -461,7 +452,43 @@
         .modal-badge { font-size: 12px; color: #ff4e00; background-color: #fff4ee; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
 
         .modal-section-title { font-size: 14px; font-weight: 700; color: #334155; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .modal-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 24px; background-color: #f8fafc; padding: 12px; border-radius: 10px; }
+        .modal-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 16px; background-color: #f8fafc; padding: 12px; border-radius: 10px; }
+
+        /* --- NEW STYLISH PRODUCT OVERVIEW BOX --- */
+        .modal-overview-box {
+            font-size: 13px;
+            color: #1e293b;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            background-color: #f1f5f9;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border-left: 4px solid #475569;
+            white-space: pre-line; /* preserves formatting and linebreaks */
+        }
+
+        /* --- PREMIUM RETURN POLICY PANEL DESIGN --- */
+        .modal-return-panel {
+            background: #fef2f2;
+            border: 1px dashed #fca5a5;
+            padding: 12px 14px;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+        .return-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #dc2626;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .return-body-text {
+            font-size: 12px;
+            color: #7f1d1d;
+            line-height: 1.5;
+        }
 
         /* --- DARAZ PRO SHIPPING ADDRESS CANVAS DESIGN --- */
         .address-panel-box {
@@ -728,10 +755,10 @@
             <div class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></div>
             
             <div class="modal-img-viewer-container">
-                <div class="image-index-badge" id="imageIndexLabel">1 / 4</div>
+                <!-- Dynamic Image Index Counter Badge -->
+                <div class="image-index-badge" id="imageIndexLabel">1 / 1</div>
                 
-                <div class="modal-img-holder" id="modalSliderBox">
-                    </div>
+                <div class="modal-img-holder" id="modalSliderBox"></div>
                 
                 <div class="modal-thumbnail-gallery" id="modalThumbGallery"></div>
             </div>
@@ -745,6 +772,21 @@
 
             <h4 class="modal-section-title">Product Details</h4>
             <div class="modal-desc" id="modalDesc">Product description text.</div>
+
+            <!-- NEWLY ADDED MODULE: PRODUCT OVERVIEW CANVAS -->
+            <h4 class="modal-section-title"><i class="fa-solid fa-file-lines"></i> Product Overview</h4>
+            <div class="modal-overview-box" id="modalOverview">Product overview text details appear here...</div>
+
+            <!-- NEWLY ADDED MODULE: 7-DAYS RETURN POLICY SYSTEM -->
+            <div class="modal-return-panel">
+                <div class="return-title-row">
+                    <i class="fa-solid fa-truck-ramp-box"></i> Return allowed within 7 days
+                </div>
+                <div class="return-body-text">
+                    Order ghalat, mukhtalif ya na-mukamal deliver hone ki surat mein return ki darkhast saat (7) din k andar de ja sakti hai.<br><br>
+                    <strong>Return k liyay:</strong> Markaz App ke Order screen pe apne order k sath moujood Return button click karain.
+                </div>
+            </div>
 
             <h4 class="modal-section-title" style="color: #ff4e00; margin-bottom: 12px;">
                 <i class="fa-solid fa-map-location-dot"></i> Delivery Address (Saved Permanently)
@@ -826,23 +868,23 @@
         // --- ACTIVATED BUSINESS WHATSAPP NUMBER FRAMEWORK ---
         const MY_BUSINESS_WHATSAPP = "923422531403"; 
 
-        // --- PRODUCTS DATA ARRAY ---
+        // --- PRODUCTS DATA ARRAY (UNLIMITED IMAGES & OVERVIEW ARCHITECTURE) ---
         const PRODUCTS_DATA = [
             {
                 id: 1,
-                title: "Haylou LS02 Premium Smart Watch (Full Black)",
-                category: "electronic",
-                price: "827",
-                oldPrice: "1,499",
-                discount: "-45%",
+                title: "Women Katan Silk Printed Maxi Suit Set 3 Piece Regular",
+                category: "ladies-fashion",
+                price: "1,924",
+                oldPrice: "2,499",
+                discount: "-36%",
                 images: [
-                    "https://i.postimg.cc/k5ZGYgDv/Whats-App-Image-2026-06-08-at-10-56-03-AM-(1).jpg",
-                    "https://i.postimg.cc/NMHM3vrz/Whats-App-Image-2026-06-08-at-10-56-02-AM.jpg",
-                    "https://i.postimg.cc/XJCJR6yg/Whats-App-Image-2026-06-08-at-10-56-02-AM-(2).jpg",
-                    "https://i.postimg.cc/W3k3BcJw/Whats-App-Image-2026-06-08-at-10-56-02-AM-(3).jpg"
-                    
+                    "https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg",
+                    "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg",
+                    "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg",
+                    "https://i.postimg.cc/rsXqrhw5/MZ71000001ALJTC-media-3.jpg"
                 ],
-                description: "2-in-1 Rechargeable Hair Remover & Eyebrow Trimmer with LED, Painless Precision Shaver for Women’s Face, Lip, Chin, Bikini – Electric Facial Razor for All Skin Types"
+                description: "Premium Men's Black Sports Watch with dynamic 12-Hour Display design and ultra comfortable rubber strap system.",
+                overview: "• Fabric: Katan Silk\n• Color: Matte Black\n• Strap Material: High-Grade Flexible Rubber\n• Water Resistance: Splash Proof\n• Weight: Lightweight Sport Ergonomics"
             },
             {
                 id: 2,
@@ -852,12 +894,10 @@
                 oldPrice: "5,499",
                 discount: "-42%",
                 images: [
-                    "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=400&q=80"
+                    "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80"
                 ],
-                description: "Intense bass boost technology with 20 hours total playback time, environmental noise cancellation (ENC) for crystal clear calling, and 88ms super low latency gaming mode setup."
+                description: "Intense bass boost technology with 20 hours total playback time, environmental noise cancellation (ENC) for crystal clear calling.",
+                overview: "• Playtime: Up to 20 Hours total\n• Drivers: 10mm Large Bass Boost Driver\n• Connection: Bluetooth 5.0 Instant Pair\n• Latency: 88ms Super Low Latency Gaming Mode"
             },
             {
                 id: 3,
@@ -867,37 +907,34 @@
                 oldPrice: "2,999",
                 discount: "-38%",
                 images: [
-                    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1608248597481-496100c80836?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1556229174-5e42a09e45af?auto=format&fit=crop&w=400&q=80"
+                    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80"
                 ],
-                description: "Premium skin restoration serum formulated with 10% Pure Niacinamide and Zinc PCA. Reduces dark spots, balances sebum production, minimizes pores, and delivers a flawless glass skin appearance natively."
+                description: "Premium skin restoration serum formulated with 10% Pure Niacinamide and Zinc PCA.",
+                overview: "• Net Volume: 30ml\n• Skin Type: Suitable for all skin profiles\n• Key Benefits: Minimizes pores, clears blemishes, regulates sebum flow"
             },
             {
                 id: 4,
-                title: "Designer Stitched Premium Linen Kurti (Luxury Collection)",
+                title: "Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit",
                 category: "ladies-fashion",
-                price: "2,450",
-                oldPrice: "3,999",
-                discount: "-39%",
+                price: "3,450",
+                oldPrice: "4,999",
+                discount: "-31%",
                 images: [
-                    "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=400&q=80",
-                    "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=400&q=80"
+                    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=400&q=80"
                 ],
-                description: "Elegant stitched kurti made with premium breathable linen fabric. Features sophisticated digital prints, modern layout embroidery patch details, and standard comfort fitting perfect for seasonal style trends."
+                description: "Premium collection luxury embroidered lawn suit with pure chiffon dupatta and dyed trousers.",
+                overview: "• Fabric: High-density Summer Lawn\n• Pieces: 3 Piece Unstitched Combo\n• Dupatta: Pure Chiffon Embroidered\n• Shirt: Heavy Front Neckline Work"
             }
         ];
 
         // --- CATEGORIES LIST FRAMEWORK ---
         const CATEGORIES = [
             { id: "all", name: "All Categories", icon: "fa-grip" },
-            { id: "electronic", name: "Electronic Devices", icon: "fa-laptop" },
+            { id: "electronic", name: "Electronic Devices", icon: "fa-desktop" },
             { id: "accessories", name: "Accessories", icon: "fa-headphones" },
             { id: "beauty", name: "Beauty", icon: "fa-wand-magic-sparkles" },
-            { id: "ladies-fashion", name: "Ladies Fashion", icon: "fa-person-dress" }
+            { id: "men-fashion", name: "Men's Fashion", icon: "fa-shirt" },
+            { id: "ladies-fashion", name: "Ladies' Fashion", icon: "fa-person-dress" }
         ];
 
         let selectedCategory = "all";
@@ -954,7 +991,7 @@
             else document.getElementById("chipOffice").classList.add("selected");
         }
 
-        // --- UPDATED POPUP OPEN LOGIC FOR TOUCH SCROLL ---
+        // --- CAROUSEL ENGINE INTEGRATED WITH OVERVIEW LOCK ---
         function openProductDetails(product) {
             activeProduct = product;
             
@@ -963,8 +1000,10 @@
             document.getElementById("modalOldPrice").innerText = `Rs. ${product.oldPrice}`;
             document.getElementById("modalDiscount").innerText = product.discount;
             document.getElementById("modalDesc").innerText = product.description;
+            
+            // Render Dynamic Overview or Default Text if Empty
+            document.getElementById("modalOverview").innerText = product.overview || "No overview details listed for this item.";
 
-            // Generate Slider Rails dynamic
             const sliderBox = document.getElementById("modalSliderBox");
             sliderBox.innerHTML = "";
             
@@ -975,36 +1014,35 @@
                 sliderBox.appendChild(slide);
             });
 
-            // Set Index Label initial
             document.getElementById("imageIndexLabel").innerText = `1 / ${product.images.length}`;
 
-            // Generate Thumbnail list
             const thumbGallery = document.getElementById("modalThumbGallery");
             thumbGallery.innerHTML = "";
-            product.images.forEach((imgUrl, idx) => {
-                const thumb = document.createElement("div");
-                thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-                thumb.id = `modal-thumb-${idx}`;
-                thumb.innerHTML = `<img src="${imgUrl}" alt="">`;
-                
-                // Click on thumbnail slides the main view smooth
-                thumb.onclick = function() {
-                    const width = sliderBox.clientWidth;
-                    sliderBox.scrollTo({ left: width * idx, behavior: 'smooth' });
-                    updateActiveThumbnail(idx);
-                };
-                thumbGallery.appendChild(thumb);
-            });
+            
+            if(product.images.length > 1) {
+                thumbGallery.style.display = "flex";
+                product.images.forEach((imgUrl, idx) => {
+                    const thumb = document.createElement("div");
+                    thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
+                    thumb.id = `modal-thumb-${idx}`;
+                    thumb.innerHTML = `<img src="${imgUrl}" alt="">`;
+                    
+                    thumb.onclick = function() {
+                        const width = sliderBox.clientWidth;
+                        sliderBox.scrollTo({ left: width * idx, behavior: 'smooth' });
+                        updateActiveThumbnail(idx);
+                    };
+                    thumbGallery.appendChild(thumb);
+                });
+            } else {
+                thumbGallery.style.display = "none";
+            }
 
-            // Add Listener to detect Finger Swipe / Scroll inside slider
             sliderBox.onscroll = function() {
                 const width = sliderBox.clientWidth;
+                if(width === 0) return;
                 const activeIndex = Math.round(sliderBox.scrollLeft / width);
-                
-                // Update Badge Label (e.g. 2 / 4)
                 document.getElementById("imageIndexLabel").innerText = `${activeIndex + 1} / ${product.images.length}`;
-                
-                // Align active states to bottom thumbnails
                 updateActiveThumbnail(activeIndex);
             };
 
@@ -1020,7 +1058,6 @@
             document.getElementById("productModal").style.display = "flex";
             document.body.style.overflow = "hidden";
             
-            // Reset position to first slide
             setTimeout(() => { sliderBox.scrollLeft = 0; }, 50);
         }
 
@@ -1051,18 +1088,19 @@
             localStorage.setItem("hamviro_pro_address", address);
             localStorage.setItem("hamviro_pro_label", selectedLabel);
 
-            const textBill = `*📦 NEW DROPSHIP ORDER - HAMVIRO* \n\n` +
-                             `*🛒 PRODUCT SPEC:* \n` +
+            const textBill = `📦 *NEW ORDER - HAMVIRO*\n\n` +
+                             `⚙️ *PRODUCT SPECIFICATION:*\n` +
                              `• *Item:* ${activeProduct.title}\n` +
-                             `• *Price:* Rs. ${activeProduct.price}\n\n` +
-                             `*🚚 PRO SHIPPING ADDRESS:* \n` +
+                             `• *Selling Price:* Rs. ${activeProduct.price}\n` +
+                             `• *Product Image:* ${activeProduct.images[0]}\n\n` +
+                             `🚚 *SHIPPING ADDRESS DETAILS:*\n` +
                              `• *Receiver Name:* ${name}\n` +
                              `• *Contact Number:* ${phone}\n` +
                              `• *Province:* ${province}\n` +
                              `• *City:* ${city}\n` +
                              `• *Full Address:* ${address}\n` +
                              `• *Address Tag:* [ ${selectedLabel.toUpperCase()} ]\n\n` +
-                             `⚡ _Verify and book on Daraz Portal immediately._`;
+                             `⚡ _Order process karne ke liye detail verify karden._`;
 
             const encodedMsg = encodeURIComponent(textBill);
             const nativeWhatsAppUrl = `https://wa.me/${MY_BUSINESS_WHATSAPP}?text=${encodedMsg}`;
