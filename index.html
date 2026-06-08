@@ -374,7 +374,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                min-width: 64px;
+                min-width: 75px;
                 cursor: pointer;
             }
             .mobile-cat-item .circle-icon {
@@ -525,17 +525,20 @@
     </div>
 
 
-                    <!-- ADD PRODUCT  -->
 
+
+
+
+                    <!-- add products  -->
 
 
 
 
     <script>
         const PRODUCTS_DATA = [
-            {
+                      {
                 id: 1,
-                title: "2-in-1 Rechargeable Hair Remover & Eyebrow Trimmer with LED, Painless Precision Shaver for Women’s Face, Lip, Chin, Bikini – Electric Facial Razor for All Skin Types",
+                title: "-in-1 Rechargeable Hair Remover & Eyebrow Trimmer with LED, Painless Precision Shaver for Women’s Face, Lip, Chin, Bikini – Electric Facial Razor for All Skin Types",
                 category: "electronic",
                 price: "899",
                 oldPrice: "1,499",
@@ -842,19 +845,58 @@
                 image: "ear.png",
                 daraz_web_link: "https://s.daraz.pk/s.cMPts?cc"
             },
+                                    {
+                id: 2,
+                title: "Fabric Lawn 3 Pcs New Arrival Unstitched Ladies Suit With Lawn Dupatta For WOmen",
+                category: "ladies",
+                price: "2,199",
+                oldPrice: "2,499",
+                discount: "-12%",
+                image: "ladies1.png",
+                daraz_web_link: "https://s.daraz.pk/s.cMLJR?cc"
+            },
+                                                {
+                id: 2,
+                title: " Shah Jahan New Arrival Fabrics Lawn Unstitched Suit with Dupatta 3 Piece Suit for Women",
+                category: "ladies",
+                price: "2,199",
+                oldPrice: "2,899",
+                discount: "-24%",
+                image: "ladies2.png",
+                daraz_web_link: "https://s.daraz.pk/s.cMLsP?cc"
+            },
+                                                {
+                id: 2,
+                title: "Shah Jahan Fabrics - Summer Collection Unstitched Mardana Shalwar Kameez Boski Wash & Wear Suit For Men",
+                category: "fashion",
+                price: "1,699",
+                oldPrice: "3,590",
+                discount: "-53%",
+                image: "https://static-01.daraz.pk/p/2e3ca042c633e1ea0a7601f70e0d0085.jpg",
+                daraz_web_link: "https://s.daraz.pk/s.cMLHI?cc"
+            },
+                                                {
+                id: 2,
+                title: "",
+                category: "",
+                price: "",
+                oldPrice: "",
+                discount: "-%",
+                image: "",
+                daraz_web_link: ""
+            },
 
 
-
-            
         ];
 
+        // FIXED ICON SYSTEM (FREE VERSION INCLUDED)
         const CATEGORIES = [
             { id: "all", name: "All Categories", icon: "fa-grip" },
             { id: "electronic", name: "Electronic Devices", icon: "fa-laptop" },
             { id: "accessories", name: "Accessories", icon: "fa-headphones" },
-            { id: "beauty", name: "Health & Beauty", icon: "fa-wand-magic-sparkles" },
-            { id: "fashion", name: "Men's Fashion", icon: "fa-shirt" }
-            
+            { id: "beauty", name: "Beauty", icon: "fa-wand-magic-sparkles" }, // Fixed: Free icon applied perfectly
+            { id: "fashion", name: "Men's Fashion", icon: "fa-shirt" },
+            { id: "ladies", name: "Ladies Fashion", icon: "fa-person-dress" }
         ];
 
         let selectedCategory = "all";
@@ -877,47 +919,35 @@
                 mDiv.className = `mobile-cat-item ${cat.id === selectedCategory ? 'active' : ''}`;
                 mDiv.innerHTML = `
                     <div class="circle-icon"><i class="fa-solid ${cat.icon}"></i></div>
-                    <span>${cat.name.split(' ')[0]}</span>
+                    <span>${cat.name.split(' ')[0]} ${cat.name.split(' ')[1] ? cat.name.split(' ')[1] : ''}</span>
                 `;
                 mDiv.onclick = () => filterCategory(cat.id);
                 mobileBox.appendChild(mDiv);
             });
         }
 
-        function renderProducts(productsToRender) {
+       function renderProducts(productsToRender) {
             const container = document.getElementById("productsContainer");
             container.innerHTML = "";
 
             productsToRender.forEach(prod => {
+                // Agar product ka data khali hai to skip kr dein
+                if (!prod.daraz_web_link) return; 
+
                 const card = document.createElement("div");
                 card.className = "product-card";
                 
-                // --- SEAMLESS HYBRID PC & MOBILE ROUTING ---
                 card.onclick = () => { 
+                    // Yahan hum 'desktop' mode force kr rhy hain taake app redirect na ho
                     let targetUrl = prod.daraz_web_link;
                     
-                    // Force desktop mode parameter to avoid app injection flags
-                    if (targetUrl.includes('?')) {
-                        targetUrl += "&_desktop=true&app_bypass=true";
-                    } else {
-                        targetUrl += "?_desktop=true&app_bypass=true";
-                    }
-                    
-                    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                        // MOBILE RULE: App Bypass via Form Submission
-                        const bypassForm = document.createElement('form');
-                        bypassForm.method = 'GET';
-                        bypassForm.action = targetUrl;
-                        bypassForm.style.display = 'none';
-                        document.body.appendChild(bypassForm);
-                        bypassForm.submit();
-                        document.body.removeChild(bypassForm);
-                    } else {
-                        // PC RULE: Same-tab loading to maintain history stack!
-                        // Isse PC par naya tab nahi khulega, usi window me Daraz khulega
-                        // Aur jaise hi user browser ka back button dabayega, 100% aapki site par wapas ayega.
-                        window.location.href = targetUrl;
-                    }
+                    // URL mein parameters add krna taake Daraz ko lage desktop use ho rha hai
+                    const separator = targetUrl.includes('?') ? '&' : '?';
+                    targetUrl += `${separator}desktop=1&force_web=true`;
+
+                    // Simple window.open ya location change se redirect krayein
+                    // Mobile browser par 'target="_blank"' ya 'window.open' aksar app ko block krne mein madad krta hai
+                    window.location.href = targetUrl;
                 };
 
                 card.innerHTML = `
@@ -936,11 +966,16 @@
                 container.appendChild(card);
             });
         }
-
         function filterCategory(catId) {
             selectedCategory = catId;
             renderCategories();
-            document.getElementById("sectionTitle").innerText = catId === "all" ? "All Products" : `${catId.charAt(0).toUpperCase() + catId.slice(1)} Deals`;
+            
+            let displayTitle = "All Products";
+            if (catId !== "all") {
+                const activeCat = CATEGORIES.find(c => c.id === catId);
+                displayTitle = `${activeCat.name} Deals`;
+            }
+            document.getElementById("sectionTitle").innerText = displayTitle;
             
             if(catId === "all") {
                 renderProducts(PRODUCTS_DATA);
