@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hamviro - Professional Digital Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -769,7 +769,7 @@
         }
     </style>
 </head>
-<body>
+<body style="overflow: hidden;">
 
     <div class="top-bar">
         <div class="links">
@@ -803,7 +803,7 @@
     </header>
 
     <div class="hero-section">
-        <div class="sidebar-categories" id="desktopCats"></div>
+        <div class="sidebar-categories" id="desktopCats"><div class="active"><i class="fa-solid fa-grip"></i> All Categories</div><div class=""><i class="fa-solid fa-desktop"></i> Electronic Devices</div><div class=""><i class="fa-solid fa-headphones"></i> Accessories</div><div class=""><i class="fa-solid fa-wand-magic-sparkles"></i> Beauty</div><div class=""><i class="fa-solid fa-shirt"></i> Men's Fashion</div><div class=""><i class="fa-solid fa-person-dress"></i> Ladies' Fashion</div></div>
 
         <div class="main-banner">
             <div class="banner-text">
@@ -812,22 +812,102 @@
                 <div class="shop-now-btn" id="bannerBtn">Explore Products</div>
             </div>
             <div class="banner-img">
-                <img src="https://images.unsplash.com/photo-1496181130204-755241524eab?auto=format&fit=crop&w=400&q=80" alt="Showcase System">
+                <img src="https://images.unsplash.com/photo-1496181130204-755241524eab?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Showcase System">
             </div>
         </div>
     </div>
 
-    <div class="mobile-categories-scroll" id="mobileCats"></div>
+    <div class="mobile-categories-scroll" id="mobileCats"><div class="mobile-cat-item active"><div class="circle-icon"><i class="fa-solid fa-grip"></i></div><span>All</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-desktop"></i></div><span>Electronic</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-headphones"></i></div><span>Accessories</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><span>Beauty</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-shirt"></i></div><span>Men's</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-person-dress"></i></div><span>Ladies'</span></div></div>
 
     <div class="flash-sale-section">
         <div class="section-header">
             <div class="flash-sale-title">
                 <span id="sectionTitle">All Products</span>
-                <span class="timer" id="liveTimer">00 : 00 : 00</span>
+                <span class="timer" id="liveTimer">02 : 12 : 18</span>
             </div>
         </div>
 
-        <div class="products-grid" id="productsContainer"></div>
+        <div class="products-grid" id="productsContainer"><div class="product-card">
+                    <div class="img-wrapper"><img src="https://i.postimg.cc/C1zfksbk/MZ1354201374PACN-media-1.webp" alt="3 Pcs Women's Stitched Silk Embroidered Suit"></div>
+                    <div class="product-title">3 Pcs Women's Stitched Silk Embroidered Suit</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 2,500</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 3,500</span>
+                            <span class="discount-tag">-38%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg" alt="Women Katan Silk Printed Maxi Suit Set 3 Piece Regular"></div>
+                    <div class="product-title">Women Katan Silk Printed Maxi Suit Set 3 Piece Regular</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 1,924</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 2,499</span>
+                            <span class="discount-tag">-36%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp" alt="Navy Gold Fleece Track Suit for Men Winter Slim Fit"></div>
+                    <div class="product-title">Navy Gold Fleece Track Suit for Men Winter Slim Fit</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 1,690</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 3,000</span>
+                            <span class="discount-tag">-48%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://i.postimg.cc/VL8CTmzS/MZ1009200153RN-media-1.webp" alt="Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men"></div>
+                    <div class="product-title">Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 1,690</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 3000</span>
+                            <span class="discount-tag">-48%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp" alt="Maroon Embroidered 3-Piece Suit for Women"></div>
+                    <div class="product-title">Maroon Embroidered 3-Piece Suit for Women</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 3,300</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 4,500</span>
+                            <span class="discount-tag">-28%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Realme Buds Q2 Wireless Bass-Boost Noise Isolation"></div>
+                    <div class="product-title">Realme Buds Q2 Wireless Bass-Boost Noise Isolation</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 3,199</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 5,499</span>
+                            <span class="discount-tag">-42%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Advanced Niacinamide 10% Glow Face Serum"></div>
+                    <div class="product-title">Advanced Niacinamide 10% Glow Face Serum</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 1,850</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 2,999</span>
+                            <span class="discount-tag">-38%</span>
+                        </div>
+                    </div>
+                </div><div class="product-card">
+                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit"></div>
+                    <div class="product-title">Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit</div>
+                    <div class="price-container">
+                        <span class="product-price">Rs. 3,450</span>
+                        <div class="old-price-row">
+                            <span class="old-price">Rs. 4,999</span>
+                            <span class="discount-tag">-31%</span>
+                        </div>
+                    </div>
+                </div></div>
     </div>
 
     <div class="modal-overlay" id="productModal">
@@ -872,19 +952,19 @@
                 <form id="checkoutForm" class="checkout-form-grid">
                     <div class="form-input-wrapper">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" id="custName" placeholder="Full Name (Receiver Name)" required>
+                        <input type="text" id="custName" placeholder="Full Name (Receiver Name)" required="">
                     </div>
 
                     <div class="form-input-wrapper">
                         <i class="fa-solid fa-phone"></i>
-                        <input type="tel" id="custPhone" placeholder="Mobile Number (e.g. 03XXXXXXXXX)" required>
+                        <input type="tel" id="custPhone" placeholder="Mobile Number (e.g. 03XXXXXXXXX)" required="">
                     </div>
 
                     <div class="form-split-row">
                         <div class="form-input-wrapper">
                             <i class="fa-solid fa-city"></i>
-                            <select id="custProvince" required>
-                                <option value="" disabled selected>Province</option>
+                            <select id="custProvince" required="">
+                                <option value="" disabled="" selected="">Province</option>
                                 <option value="Punjab">Punjab</option>
                                 <option value="Sindh">Sindh</option>
                                 <option value="KPK">KPK</option>
@@ -894,13 +974,13 @@
                         </div>
                         <div class="form-input-wrapper">
                             <i class="fa-solid fa-building"></i>
-                            <input type="text" id="custCity" placeholder="City Name" required>
+                            <input type="text" id="custCity" placeholder="City Name" required="">
                         </div>
                     </div>
 
                     <div class="form-input-wrapper">
                         <i class="fa-solid fa-house-chimney" style="top: 15px;"></i>
-                        <textarea id="custAddress" rows="2" placeholder="House No, Street Name, Area / Sector Name" style="padding-top: 12px;" required></textarea>
+                        <textarea id="custAddress" rows="2" placeholder="House No, Street Name, Area / Sector Name" style="padding-top: 12px;" required=""></textarea>
                     </div>
 
                     <div>
@@ -925,7 +1005,7 @@
         </div>
     </div>
 
-    <div class="admin-panel-overlay" id="adminOverlay">
+    <div class="admin-panel-overlay" id="adminOverlay" style="display: flex;">
         <div class="admin-card">
             <div class="admin-header-row">
                 <h3 style="color: #0f172a;"><i class="fa-solid fa-user-gear"></i> Hamviro Admin Studio</h3>
@@ -934,12 +1014,12 @@
             <form id="adminProductForm" onsubmit="handleAdminAddProduct(event)">
                 <div class="admin-input-group">
                     <label>Product Title</label>
-                    <input type="text" id="admTitle" placeholder="e.g. Navy Gold Fleece Track Suit..." required>
+                    <input type="text" id="admTitle" placeholder="e.g. Navy Gold Fleece Track Suit..." required="">
                 </div>
                 <div class="form-split-row">
                     <div class="admin-input-group">
                         <label>Category</label>
-                        <select id="admCategory" required>
+                        <select id="admCategory" required="">
                             <option value="men-fashion">Men's Fashion</option>
                             <option value="ladies-fashion">Ladies' Fashion</option>
                             <option value="accessories">Accessories</option>
@@ -949,22 +1029,22 @@
                     </div>
                     <div class="admin-input-group">
                         <label>Price (Rs.)</label>
-                        <input type="text" id="admPrice" placeholder="e.g. 1,690" required>
+                        <input type="text" id="admPrice" placeholder="e.g. 1,690" required="">
                     </div>
                 </div>
                 <div class="form-split-row">
                     <div class="admin-input-group">
                         <label>Old Price (Rs.)</label>
-                        <input type="text" id="admOldPrice" placeholder="e.g. 3,000" required>
+                        <input type="text" id="admOldPrice" placeholder="e.g. 3,000" required="">
                     </div>
                     <div class="admin-input-group">
                         <label>Discount Tag</label>
-                        <input type="text" id="admDiscount" placeholder="e.g. -48%" required>
+                        <input type="text" id="admDiscount" placeholder="e.g. -48%" required="">
                     </div>
                 </div>
                 <div class="admin-input-group">
                     <label>Image URL 1 (Main Display)</label>
-                    <input type="url" id="admImg1" placeholder="Paste image link here..." required>
+                    <input type="url" id="admImg1" placeholder="Paste image link here..." required="">
                 </div>
                 <div class="admin-input-group">
                     <label>Image URL 2 (Optional Slider)</label>
@@ -984,9 +1064,10 @@
                 </div>
                 <div class="admin-input-group">
                     <label>Product Overview (Use bullet points or separate lines)</label>
-                    <textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece&#10;• Size: Small, Medium, Large" required></textarea>
+                    <textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece
+• Size: Small, Medium, Large" required=""></textarea>
                 </div>
-                <button type="submit" class="admin-action-btn">✨ Save Product & Sync System</button>
+                <button type="submit" class="admin-action-btn">✨ Save Product &amp; Sync System</button>
             </form>
             
             <button class="admin-action-btn" id="exportBtn" style="background: #0f172a; margin-top: 12px; display: none;" onclick="copyUpdatedWebsiteCode()">📋 Copy Full Website Code for Production</button>
@@ -1412,5 +1493,7 @@
 
         window.onload = () => { renderCategories(); renderProducts(PRODUCTS_DATA); runCountdown(); };
     </script>
+
+
 </body>
 </html>
