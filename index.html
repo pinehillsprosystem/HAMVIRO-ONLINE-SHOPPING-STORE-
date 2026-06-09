@@ -71,19 +71,17 @@
             cursor: pointer;
         }
 
-        /* --- SEARCH WRAPPER WITH CANCEL/CLEAR BUTTON --- */
         .search-container {
             width: 100%;
             max-width: 680px;
             height: 44px;
             display: flex;
             margin: 0 auto;
-            position: relative;
         }
 
         .search-container input {
             width: 100%;
-            padding: 0 45px 0 16px; /* Right padding safe space for clear button */
+            padding: 0 16px;
             border: 1.5px solid #e2e8f0;
             background-color: #f8fafc;
             border-radius: 10px 0 0 10px;
@@ -97,26 +95,6 @@
             background-color: #ffffff;
             border-color: #ff4e00;
             box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.08);
-        }
-
-        /* Clear X Button styling inside search bar */
-        .search-clear-btn {
-            position: absolute;
-            right: 75px; /* Positioned just before search orange button */
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #94a3b8;
-            font-size: 16px;
-            cursor: pointer;
-            padding: 8px;
-            display: none; /* Hidden by default, shown via JS */
-            z-index: 10;
-            transition: color 0.2s;
-        }
-        .search-clear-btn:hover {
-            color: #64748b;
         }
 
         .search-btn {
@@ -313,21 +291,6 @@
         .old-price { font-size: 11px; color: #94a3b8; text-decoration: line-through; }
         .discount-tag { font-size: 11px; color: #ef4444; font-weight: 700; background: #fef2f2; padding: 2px 6px; border-radius: 4px; }
 
-        /* NO PRODUCTS STYLING */
-        .no-results-box {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px dashed #cbd5e1;
-        }
-        .no-results-box i { font-size: 50px; color: #94a3b8; margin-bottom: 16px; }
-        .no-results-box h3 { font-size: 18px; color: #334155; margin-bottom: 8px; }
-        .no-results-box p { font-size: 14px; color: #64748b; margin-bottom: 20px; }
-        .reset-search-btn { background: #ff4e00; color: #ffffff; border: none; padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .reset-search-btn:hover { background: #e63e00; }
-
         /* --- MODAL SYSTEM --- */
         .modal-overlay {
             position: fixed;
@@ -505,13 +468,9 @@
             header { padding: 12px 16px; gap: 12px; background-color: #ffffff; }
             .logo { font-size: 25px; }
             .header-icons div span { display: none; }
-            
-            /* Mobile clear icon layout lock fix */
             .search-container { width: 100%; height: 42px; }
             .search-container input { border-radius: 8px 0 0 8px; }
-            .search-clear-btn { right: 62px; font-size: 14px; }
             .search-btn { width: 52px; border-radius: 0 8px 8px 0; }
-            
             .hero-section { padding: 12px; }
             .main-banner { padding: 26px 20px; border-radius: 16px; }
             .banner-text h2 { font-size: 28px; }
@@ -555,17 +514,16 @@
         </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search premium deals...">
-            <button class="search-clear-btn" id="searchClearBtn"><i class="fa-solid fa-circle-xmark"></i></button>
             <button class="search-btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </header>
 
-    <div class="hero-section" id="heroSection">
+    <div class="hero-section">
         <div class="sidebar-categories" id="desktopCats"></div>
         <div class="main-banner">
             <div class="banner-text">
                 <span>EXCLUSIVE STORE</span>
-                <h2>Premium Deals<br>Direct Dispatch</h2>
+                <h2>WELCOME TO <br>HAMVIRO</h2>
                 <div class="shop-now-btn" id="bannerBtn">Explore Products</div>
             </div>
         </div>
@@ -686,10 +644,15 @@
 
     <script>
         const MY_BUSINESS_WHATSAPP = "923422531403"; 
+        
+        // APNI IMGBB API KEY KO NEECHE " " KE ANDAR PASTE KAREIN
         const IMGBB_API_KEY = "0f2c24943fd85d909c8a69d86a427f3c"; 
 
+        // ==========================================
+        // KHABARDAAR: APNE SARE PRODUCTS KA BULK CODE NICHY WALI LINE KE FAURAN BAAD PASTE KAREIN!
+        // ==========================================
         const PRODUCTS_DATA = [
-            {
+                        {
                 title: "Black Shamoz Silk 3-Piece Suit with Rose Embroidery",
                 category: "ladies-fashion",
                 price: "3,159",
@@ -768,18 +731,6 @@
 
         function renderProducts(productsToRender) {
             const container = document.getElementById("productsContainer"); container.innerHTML = "";
-            
-            if(productsToRender.length === 0) {
-                container.innerHTML = `
-                    <div class="no-results-box">
-                        <i class="fa-solid fa-magnifying-glass-blur"></i>
-                        <h3>Koi Product Nahi Mila</h3>
-                        <p>Aap jo search kar rahe hain woh hamare paas abhi maujood nahi hai.</p>
-                        <button class="reset-search-btn" onclick="resetSearchSystem()">Sare Products Dekhein</button>
-                    </div>`;
-                return;
-            }
-
             productsToRender.forEach(prod => {
                 const card = document.createElement("div"); card.className = "product-card"; card.onclick = () => openProductDetails(prod);
                 card.innerHTML = `<div class="img-wrapper"><img src="${prod.images[0]}"></div><div class="product-title">${prod.title}</div><div class="price-container"><span class="product-price">Rs. ${prod.price}</span><div class="old-price-row"><span class="old-price">Rs. ${prod.oldPrice}</span><span class="discount-tag">${prod.discount}</span></div></div>`;
@@ -850,70 +801,20 @@
 
         function filterCategory(catId) {
             selectedCategory = catId; renderCategories();
-            
-            document.getElementById("heroSection").style.display = "flex";
-            document.getElementById("mobileCats").style.display = "flex";
-            document.getElementById("liveTimer").style.display = "inline-block";
-            
-            if(catId === "all") {
-                document.getElementById("sectionTitle").innerText = "All Products";
-                renderProducts(PRODUCTS_DATA);
-            } else {
-                const selectedCatObj = CATEGORIES.find(c => c.id === catId);
-                document.getElementById("sectionTitle").innerText = selectedCatObj ? selectedCatObj.name : "Products";
-                renderProducts(PRODUCTS_DATA.filter(p => p.category === catId));
-            }
+            if(catId === "all") renderProducts(PRODUCTS_DATA);
+            else renderProducts(PRODUCTS_DATA.filter(p => p.category === catId));
         }
 
-        // --- DARAZ STYLE SEARCH LOGIC WITH X MANIPULATION ---
         function executeSearch() {
             const query = document.getElementById("searchInput").value.toLowerCase().trim();
-            if(query === "") { resetSearchSystem(); return; }
-            
-            // Show X button when search is executed
-            document.getElementById("searchClearBtn").style.display = "block";
-
-            document.getElementById("heroSection").style.display = "none";
-            document.getElementById("mobileCats").style.display = "none";
-            document.getElementById("liveTimer").style.display = "none";
-            
-            document.getElementById("sectionTitle").innerText = `Search Results for: "${document.getElementById("searchInput").value}"`;
-            
-            const filtered = PRODUCTS_DATA.filter(p => p.title.toLowerCase().includes(query));
-            renderProducts(filtered);
-
-            window.scrollTo({
-                top: document.getElementById("productsContainer").offsetTop - 120,
-                behavior: "smooth"
-            });
+            if(query === "") { filterCategory("all"); return; }
+            renderProducts(PRODUCTS_DATA.filter(p => p.title.toLowerCase().includes(query)));
         }
-
-        // Dynamic hide/show X icon while typing
-        document.getElementById("searchInput").oninput = function() {
-            const val = this.value.trim();
-            const clearBtn = document.getElementById("searchClearBtn");
-            if(val !== "") {
-                clearBtn.style.display = "block";
-            } else {
-                clearBtn.style.display = "none";
-                resetSearchSystem(); // If input becomes empty, go back automatically
-            }
-        };
-
-        function resetSearchSystem() {
-            document.getElementById("searchInput").value = "";
-            document.getElementById("searchClearBtn").style.display = "none"; // Hide X button
-            filterCategory("all");
-            window.scrollTo({top: 0, behavior: "smooth"});
-        }
-
-        // Trigger One-Click clear and auto back
-        document.getElementById("searchClearBtn").onclick = resetSearchSystem;
 
         document.getElementById("searchBtn").onclick = executeSearch;
         document.getElementById("searchInput").onkeyup = (e) => { if(e.key === "Enter") executeSearch(); };
-        document.getElementById("brandLogo").onclick = resetSearchSystem;
-        document.getElementById("homeTab").onclick = resetSearchSystem;
+        document.getElementById("brandLogo").onclick = () => { filterCategory("all"); document.getElementById("searchInput").value=""; };
+        document.getElementById("homeTab").onclick = () => { filterCategory("all"); document.getElementById("searchInput").value=""; };
         document.getElementById("bannerBtn").onclick = () => { window.scrollTo({top: document.getElementById("productsContainer").offsetTop - 100, behavior: "smooth"}); };
 
         function triggerSecretAdminAuth() {
@@ -933,6 +834,7 @@
             }
         }
 
+        // BACKEND ASYNC UPLOADER FOR IMGBB API
         async function uploadFileToImgBB(fileFieldId) {
             const fileInput = document.getElementById(fileFieldId);
             if (!fileInput || fileInput.files.length === 0) return null;
@@ -973,6 +875,7 @@
 
             const imgs = [];
             
+            // Auto upload sequentially
             const url1 = await uploadFileToImgBB("admImgFile1");
             if(url1) imgs.push(url1);
             
@@ -1019,6 +922,7 @@
             lbl.style.display = "block";
             box.style.display = "block";
             
+            // Reset form fields
             document.getElementById("admTitle").value = "";
             document.getElementById("admPrice").value = "";
             document.getElementById("admOldPrice").value = "";
