@@ -340,7 +340,6 @@
 
         .modal-img-viewer-container { width: 100%; margin-bottom: 20px; position: relative; }
         
-        /* SCROLL SNAP TYPING APPLIED FOR SMOOTH SINGLE SWIPE LOCK */
         .modal-img-holder {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -355,7 +354,6 @@
         }
         .modal-img-holder::-webkit-scrollbar { display: none; }
         
-        /* FORCE COMPONENT TO BREAK ON A SINGLE SLIDE AND PREVENT AGGRESSIVE OVER-SCROLLING */
         .modal-slide-item { 
             min-width: 100%; 
             width: 100%; 
@@ -431,8 +429,12 @@
         .admin-input-group label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; text-transform: uppercase; }
         .admin-input-group input, .admin-input-group select, .admin-input-group textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; outline: none; }
         
+        /* FILE UPLOAD STYLING */
+        .admin-input-group input[type="file"] { background: #f8fafc; padding: 8px; cursor: pointer; font-size: 13px; }
+        
         .admin-btn-row { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-top: 10px; }
-        .admin-action-btn { width: 100%; padding: 12px; background: #ff4e00; color: #ffffff; border: none; font-weight: 700; border-radius: 8px; cursor: pointer; }
+        .admin-action-btn { width: 100%; padding: 12px; background: #ff4e00; color: #ffffff; border: none; font-weight: 700; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .admin-action-btn:disabled { background: #cbd5e1; color: #94a3b8; cursor: not-allowed; }
         .admin-reset-btn { width: 100%; padding: 12px; background: #64748b; color: #ffffff; border: none; font-weight: 600; border-radius: 8px; cursor: pointer; }
         
         .export-status-lbl { font-size: 13px; font-weight: 700; color: #0f172a; margin-top: 18px; display: none; }
@@ -613,15 +615,17 @@
                     <div class="admin-input-group"><label>Old Price (Rs.)</label><input type="text" id="admOldPrice" placeholder="e.g. 3,000" required></div>
                     <div class="admin-input-group"><label>Discount Tag</label><input type="text" id="admDiscount" placeholder="e.g. -48%" required></div>
                 </div>
-                <div class="admin-input-group"><label>Image URL 1 (Main Display)</label><input type="url" id="admImg1" required></div>
-                <div class="admin-input-group"><label>Image URL 2 (Optional)</label><input type="url" id="admImg2"></div>
-                <div class="admin-input-group"><label>Image URL 3 (Optional)</label><input type="url" id="admImg3"></div>
-                <div class="admin-input-group"><label>Image URL 4 (Optional)</label><input type="url" id="admImg4"></div>
+                
+                <div class="admin-input-group"><label>Image 1 (Main Display)</label><input type="file" id="admImgFile1" accept="image/*" required></div>
+                <div class="admin-input-group"><label>Image 2 (Optional)</label><input type="file" id="admImgFile2" accept="image/*"></div>
+                <div class="admin-input-group"><label>Image 3 (Optional)</label><input type="file" id="admImgFile3" accept="image/*"></div>
+                <div class="admin-input-group"><label>Image 4 (Optional)</label><input type="file" id="admImgFile4" accept="image/*"></div>
+                
                 <div class="admin-input-group"><label>Short Description</label><textarea id="admDesc" rows="2"></textarea></div>
                 <div class="admin-input-group"><label>Product Overview</label><textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece&#10;• Sizes: S, M, L" required></textarea></div>
                 
                 <div class="admin-btn-row">
-                    <button type="submit" class="admin-action-btn">➕ Add & Generate Code</button>
+                    <button type="submit" class="admin-action-btn" id="submitBtn">➕ Add & Generate Code</button>
                     <button type="button" class="admin-reset-btn" onclick="resetBulkCodeBox()">❌ Reset List</button>
                 </div>
             </form>
@@ -640,24 +644,15 @@
 
     <script>
         const MY_BUSINESS_WHATSAPP = "923422531403"; 
+        
+        // APNI IMGBB API KEY KO NEECHE " " KE ANDAR PASTE KAREIN
+        const IMGBB_API_KEY = "0f2c24943fd85d909c8a69d86a427f3c"; 
 
         // ==========================================
         // KHABARDAAR: APNE SARE PRODUCTS KA BULK CODE NICHY WALI LINE KE FAURAN BAAD PASTE KAREIN!
         // ==========================================
         const PRODUCTS_DATA = [
             {
-
-                            {
-                title: "Black Shamoz Silk 3-Piece Suit with Rose Embroidery",
-                category: "ladies-fashion",
-                price: "3,159",
-                oldPrice: "4,500",
-                discount: "-28%",
-                images: ["https://i.ibb.co/N2pjQzSC/MZ1689200458-ILFNPK-media-1.jpg","https://i.ibb.co/N2pjQzSC/MZ1689200458-ILFNPK-media-1.jpg","https://i.ibb.co/Y7MKMrPM/MZ1689200458-ILFNPK-media-3.jpg","https://i.ibb.co/N2pjQzSC/MZ1689200458-ILFNPK-media-1.jpg"],
-                description: "This elegant 3-piece suit is perfect for any formal occasion or festive gathering in Pakistan. The black Shamoz Silk fabric offers a luxurious feel while remaining comfortable for daily wear, making it ideal for both office settings and weddings. The rose embroidery adds a touch of sophistication and timeless beauty, ensuring you stand out in any crowd. Designed with durability in mind, this outfit is crafted to last through multiple events without losing its shape or color. The shirt features a round neck and long sleeves, while the matching trousers provide a sleek silhouette. The embroidered dupatta, made from lightweight organza, adds grace and movement. The premium quality stitching ensures that every detail remains intact, even after repeated use. This stylish ensemble is a new arrival that combines traditional design with modern comfort, making it a smart investment for your wardrobe. - Made from premium Shamoz Silk for a luxurious drape and feel - Embroidered rose pattern adds elegance and visual appeal - Includes a matching organza dupatta for added grace - Durable stitching ensures long-lasting wear - Perfect for formal events, weddings, or office wear - New arrival with best price in Pakistan for exceptional value",
-                overview: "Highlights\n\nFabric: Shamoz Silk\nPattern: Embroidered\nNeck Type: Round Neck\nShirt Pattern: Embroidered\nTrouser Fabric: Shamoz Silk\nTrouser Pattern: Plain\nDupatta Fabric: Organza\nDupatta Pattern: Embroidered\nAvailable Sizes: Standard Size\nNumber Of Pieces: 3 Pcs\nPackage Includes: 1 x Shirt, 1 x Trouser, 1 x Dupatta\nShirt Length: 38 Inches\nShirt Chest: 21 Inches\nShirt Shoulder: 15 Inches\nArm Length: 11 Inches\nTrouser Length: 38 Inches\nTrouser Waist: 20 Inches\nTrouser Hip: 23 Inches\nDupatta Dimensions: 2.5 Yards\nColor: Black\nChest Size 21\nShirt Length 37 / 38\nShirt Stuff Shamose Silk\nTrouser Length 37 / 38\nStuff Shamose Silk\nEmb Dupatta\nSize 2.5 Yards\nStuff Organza\nNote: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.\nProduct Code: MZ1689200458ILFNPK"
-            },
-                
                 id: 1,
                 title: "Women Katan Silk Printed Maxi Suit Set 3 Piece Regular",
                 category: "ladies-fashion",
@@ -763,7 +758,6 @@
 
             document.getElementById("productModal").style.display = "flex";
             document.body.style.overflow = "hidden";
-            // Modal open hote hi scroll zero par set ho jaye
             sliderBox.scrollLeft = 0;
         }
 
@@ -830,13 +824,66 @@
             }
         }
 
-        function handleAdminAddProduct(e) {
+        // BACKEND ASYNC UPLOADER FOR IMGBB API
+        async function uploadFileToImgBB(fileFieldId) {
+            const fileInput = document.getElementById(fileFieldId);
+            if (!fileInput || fileInput.files.length === 0) return null;
+            
+            if (IMGBB_API_KEY === "YOUR_IMGBB_API_KEY_HERE" || IMGBB_API_KEY === "") {
+                alert("Error: Please set your valid ImgBB API Key in the code first!");
+                return null;
+            }
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append("image", file);
+
+            try {
+                const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+                    method: "POST",
+                    body: formData
+                });
+                const resData = await response.json();
+                if (resData.success) {
+                    return resData.data.url;
+                } else {
+                    alert("Image upload failed: " + resData.error.message);
+                    return null;
+                }
+            } catch (err) {
+                alert("Network error while uploading image.");
+                return null;
+            }
+        }
+
+        async function handleAdminAddProduct(e) {
             e.preventDefault();
+            
+            const submitBtn = document.getElementById("submitBtn");
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading Images...`;
+
             const imgs = [];
-            if(document.getElementById("admImg1").value) imgs.push(document.getElementById("admImg1").value.trim());
-            if(document.getElementById("admImg2").value) imgs.push(document.getElementById("admImg2").value.trim());
-            if(document.getElementById("admImg3").value) imgs.push(document.getElementById("admImg3").value.trim());
-            if(document.getElementById("admImg4").value) imgs.push(document.getElementById("admImg4").value.trim());
+            
+            // Auto upload sequentially
+            const url1 = await uploadFileToImgBB("admImgFile1");
+            if(url1) imgs.push(url1);
+            
+            const url2 = await uploadFileToImgBB("admImgFile2");
+            if(url2) imgs.push(url2);
+            
+            const url3 = await uploadFileToImgBB("admImgFile3");
+            if(url3) imgs.push(url3);
+            
+            const url4 = await uploadFileToImgBB("admImgFile4");
+            if(url4) imgs.push(url4);
+
+            if (imgs.length === 0) {
+                alert("Main display image upload mandatory hy!");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = "➕ Add & Generate Code";
+                return;
+            }
 
             const cleanOverview = document.getElementById("admOverview").value.trim().replace(/"/g, '\\"').replace(/\n/g, '\\n');
             const cleanDesc = document.getElementById("admDesc").value.trim().replace(/"/g, '\\"').replace(/\n/g, '\\n');
@@ -865,21 +912,27 @@
             lbl.style.display = "block";
             box.style.display = "block";
             
+            // Reset form fields
             document.getElementById("admTitle").value = "";
             document.getElementById("admPrice").value = "";
             document.getElementById("admOldPrice").value = "";
             document.getElementById("admDiscount").value = "";
-            document.getElementById("admImg1").value = "";
-            document.getElementById("admImg2").value = "";
-            document.getElementById("admImg3").value = "";
-            document.getElementById("admImg4").value = "";
+            document.getElementById("admImgFile1").value = "";
+            document.getElementById("admImgFile2").value = "";
+            document.getElementById("admImgFile3").value = "";
+            document.getElementById("admImgFile4").value = "";
             document.getElementById("admDesc").value = "";
             document.getElementById("admOverview").value = "";
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "➕ Add & Generate Code";
 
             document.querySelector(".admin-card").scrollTo({
                 top: document.querySelector(".admin-card").scrollHeight,
                 behavior: 'smooth'
             });
+            
+            alert("Product added successfully with cloud image links!");
         }
 
         window.onload = () => { renderCategories(); renderProducts(PRODUCTS_DATA); };
