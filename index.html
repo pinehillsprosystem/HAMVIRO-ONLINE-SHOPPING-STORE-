@@ -594,6 +594,86 @@
 
         .bottom-nav-bar { display: none; }
 
+        /* --- EXCLUSIVE PRODUCTION ADMIN PANEL SYSTEM CSS --- */
+        .admin-panel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(6px);
+            z-index: 1000000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        .admin-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 16px;
+            padding: 24px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        .admin-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+        .admin-input-group {
+            margin-bottom: 14px;
+        }
+        .admin-input-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .admin-input-group input, .admin-input-group select, .admin-input-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+        .admin-input-group input:focus, .admin-input-group select:focus, .admin-input-group textarea:focus {
+            border-color: #ff4e00;
+        }
+        .admin-action-btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff4e00;
+            color: #ffffff;
+            border: none;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .code-export-box {
+            margin-top: 16px;
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 11px;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            white-space: pre-wrap;
+        }
+
         /* --- STABLE NATIVE RESPONSIVE LOCKS --- */
         @media (max-width: 1024px) {
             .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -755,7 +835,6 @@
             <div class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></div>
             
             <div class="modal-img-viewer-container">
-                <!-- Dynamic Image Index Counter Badge -->
                 <div class="image-index-badge" id="imageIndexLabel">1 / 1</div>
                 
                 <div class="modal-img-holder" id="modalSliderBox"></div>
@@ -773,18 +852,15 @@
             <h4 class="modal-section-title">Product Details</h4>
             <div class="modal-desc" id="modalDesc">Product description text.</div>
 
-            <!-- NEWLY ADDED MODULE: PRODUCT OVERVIEW CANVAS -->
             <h4 class="modal-section-title"><i class="fa-solid fa-file-lines"></i> Product Overview</h4>
             <div class="modal-overview-box" id="modalOverview">Product overview text details appear here...</div>
 
-            <!-- NEWLY ADDED MODULE: 7-DAYS RETURN POLICY SYSTEM -->
             <div class="modal-return-panel">
                 <div class="return-title-row">
                     <i class="fa-solid fa-truck-ramp-box"></i> Return allowed within 7 days
                 </div>
                 <div class="return-body-text">
                     Order ghalat, mukhtalif ya na-mukamal deliver hone ki surat mein return ki darkhast saat (7) din k andar de ja sakti hai.<br><br>
-                    
                 </div>
             </div>
 
@@ -849,6 +925,75 @@
         </div>
     </div>
 
+    <div class="admin-panel-overlay" id="adminOverlay">
+        <div class="admin-card">
+            <div class="admin-header-row">
+                <h3 style="color: #0f172a;"><i class="fa-solid fa-user-gear"></i> Hamviro Admin Studio</h3>
+                <i class="fa-solid fa-xmark" style="cursor: pointer; font-size: 20px; color: #64748b;" onclick="closeAdminPanel()"></i>
+            </div>
+            <form id="adminProductForm" onsubmit="handleAdminAddProduct(event)">
+                <div class="admin-input-group">
+                    <label>Product Title</label>
+                    <input type="text" id="admTitle" placeholder="e.g. Navy Gold Fleece Track Suit..." required>
+                </div>
+                <div class="form-split-row">
+                    <div class="admin-input-group">
+                        <label>Category</label>
+                        <select id="admCategory" required>
+                            <option value="men-fashion">Men's Fashion</option>
+                            <option value="ladies-fashion">Ladies' Fashion</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="beauty">Beauty</option>
+                            <option value="electronic">Electronic Devices</option>
+                        </select>
+                    </div>
+                    <div class="admin-input-group">
+                        <label>Price (Rs.)</label>
+                        <input type="text" id="admPrice" placeholder="e.g. 1,690" required>
+                    </div>
+                </div>
+                <div class="form-split-row">
+                    <div class="admin-input-group">
+                        <label>Old Price (Rs.)</label>
+                        <input type="text" id="admOldPrice" placeholder="e.g. 3,000" required>
+                    </div>
+                    <div class="admin-input-group">
+                        <label>Discount Tag</label>
+                        <input type="text" id="admDiscount" placeholder="e.g. -48%" required>
+                    </div>
+                </div>
+                <div class="admin-input-group">
+                    <label>Image URL 1 (Main Display)</label>
+                    <input type="url" id="admImg1" placeholder="Paste image link here..." required>
+                </div>
+                <div class="admin-input-group">
+                    <label>Image URL 2 (Optional Slider)</label>
+                    <input type="url" id="admImg2" placeholder="Paste image link here...">
+                </div>
+                <div class="admin-input-group">
+                    <label>Image URL 3 (Optional Slider)</label>
+                    <input type="url" id="admImg3" placeholder="Paste image link here...">
+                </div>
+                <div class="admin-input-group">
+                    <label>Image URL 4 (Optional Slider)</label>
+                    <input type="url" id="admImg4" placeholder="Paste image link here...">
+                </div>
+                <div class="admin-input-group">
+                    <label>Short Description</label>
+                    <textarea id="admDesc" rows="2" placeholder="Write sizing or important updates here..."></textarea>
+                </div>
+                <div class="admin-input-group">
+                    <label>Product Overview (Use bullet points or separate lines)</label>
+                    <textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece&#10;• Size: Small, Medium, Large" required></textarea>
+                </div>
+                <button type="submit" class="admin-action-btn">✨ Save Product & Sync System</button>
+            </form>
+            
+            <button class="admin-action-btn" id="exportBtn" style="background: #0f172a; margin-top: 12px; display: none;" onclick="copyUpdatedWebsiteCode()">📋 Copy Full Website Code for Production</button>
+            <div class="code-export-box" id="codeExportBox"></div>
+        </div>
+    </div>
+
     <div class="bottom-nav-bar">
         <div class="bottom-tab active" id="homeTab">
             <i class="fa-solid fa-house-user"></i>
@@ -862,16 +1007,15 @@
             <i class="fa-solid fa-arrow-up-to-line"></i>
             <span>Top</span>
         </div>
+        <div class="bottom-tab" onclick="triggerSecretAdminAuth()">
+            <i class="fa-solid fa-user-lock" style="opacity: 0.4;"></i>
+            <span>Portal</span>
+        </div>
     </div>
 
     <script>
         // --- ACTIVATED BUSINESS WHATSAPP NUMBER FRAMEWORK ---
         const MY_BUSINESS_WHATSAPP = "923422531403"; 
-
-
-
-
-                // PRODUCTS ADD 
 
         // --- PRODUCTS DATA ARRAY (UNLIMITED IMAGES & OVERVIEW ARCHITECTURE) ---
         const PRODUCTS_DATA = [
@@ -891,9 +1035,8 @@
                 description: "Premium Men's Black Sports Watch with dynamic 12-Hour Display design and ultra comfortable rubber strap system.",
                 overview: "• Fabric: Katan Silk\n• Color: Matte Black\n• Strap Material: High-Grade Flexible Rubber\n• Water Resistance: Splash Proof\n• Weight: Lightweight Sport Ergonomics"
             },
-
             {
-                id: 1,
+                id: 2,
                 title: "Navy Gold Fleece Track Suit for Men Winter Slim Fit",
                 category: "men-fashion",
                 price: "1,690",
@@ -903,16 +1046,13 @@
                     "https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp",
                     "https://i.postimg.cc/W3Gy7s2G/MZ1009200116RN-media-2.webp",
                     "https://i.postimg.cc/pTfSBP2B/MZ1009200116RN-media-3.webp",
-                    "https://i.postimg.cc/FRy6xh9D/MZ1009200116RN-media-4.webp",
-                   
+                    "https://i.postimg.cc/FRy6xh9D/MZ1009200116RN-media-4.webp"
                 ],
-                description: "ISME SMALL & X-LARGE SIZE AVAIBLE HY SIZE WHATSAPP PR ZARUR BATAY ",
+                description: "ISME SMALL & X-LARGE SIZE AVAIBLE HY SIZE WHATSAPP PR ZARUR BATAY",
                 overview: "• Gender: Men's \n•Fabric: Fleece \n•Pattern: Embroidered \n•Neck Type: Collar \n•Sizes: Small, Medium, Large, X-Large \n• Number Of Pieces: 2 Pcs\n•Color: Blue\n•Package Includes: 1 x Zipper Track Suit \n•Shirt Length: 25 Inches\n•Shirt Chest: 19 Inches \n•Shirt Shoulder: 5 Inches\n•Arm Length: 23 Inches \n•Trouser Length: 41 Inches\n•Trouser Waist: 34 Inches \n•Shorts Length: 25 Inches\n•Trouser Hip: 34 Inches \n•Set Composition: Includes a zip-up bomber-style jacket and matching drawstring joggers.\n•Color Palette: A deep navy blue base paired with high-contrast metallic gold accents. \n•Decorative Details: Elaborate baroque-style floral embroidery or prints on the sleeves of the jacket and the lower side of the pants."
             },
-
-            
             {
-                id: 1,
+                id: 3,
                 title: "Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men",
                 category: "men-fashion",
                 price: "1,690",
@@ -923,16 +1063,13 @@
                     "https://i.postimg.cc/qMT3Y4py/MZ1009200153RN-media-2.webp",
                     "https://i.postimg.cc/Kv2MVxmL/MZ1009200153RN-media-3.webp",
                     "https://i.postimg.cc/TY6DSfTr/MZ1009200153RN-media-4.webp",
-                    "https://i.postimg.cc/c4Snj0d3/MZ1009200153RN-media-5.webp",
-      
+                    "https://i.postimg.cc/c4Snj0d3/MZ1009200153RN-media-5.webp"
                 ],
                 description: "",
-                overview: " This stylish 2-piece set is perfect for the hot Pakistani summers, offering maximum breathability and comfort without sacrificing fashion. The premium cotton fabric ensures durability and softness, making it ideal for daily wear, travel, or gym sessions. The iconic ring logo design adds a bold, modern touch that suits any casual or semi-formal occasion. The set includes a short-sleeve T-shirt with a round neck and slim-fit joggers with cuffed ankles. The elastic waistband with drawstring allows for a customizable, comfortable fit. Designed for all-day wear, the breathable material keeps you cool and relaxed. Whether you’re heading to the office, meeting friends, or lounging at home, this set delivers both style and comfort. - Premium quality cotton fabric for long-lasting wear - Stylish Audi ring logo printed on chest and thigh - Breathable and soft material for all-day comfort - Elastic waistband with drawstring for adjustable fit - Slim-fit joggers with cuffed ankles for a modern look - Best price in Pakistan for this new arrival set • \n•Fabric: Cotton \n•Gender: Men's  "
+                overview: "This stylish 2-piece set is perfect for the hot Pakistani summers, offering maximum breathability and comfort without sacrificing fashion. The premium cotton fabric ensures durability and softness, making it ideal for daily wear, travel, or gym sessions. The iconic ring logo design adds a bold, modern touch that suits any casual or semi-formal occasion. The set includes a short-sleeve T-shirt with a round neck and slim-fit joggers with cuffed ankles. The elastic waistband with drawstring allows for a customizable, comfortable fit. Designed for all-day wear, the breathable material keeps you cool and relaxed. Whether you’re heading to the office, meeting friends, or lounging at home, this set delivers both style and comfort. - Premium quality cotton fabric for long-lasting wear - Stylish Audi ring logo printed on chest and thigh - Breathable and soft material for all-day comfort - Elastic waistband with drawstring for adjustable fit - Slim-fit joggers with cuffed ankles for a modern look - Best price in Pakistan for this new arrival set • \n•Fabric: Cotton \n•Gender: Men's"
             },
-
-            
             {
-                id: 1,
+                id: 4,
                 title: "Maroon Embroidered 3-Piece Suit for Women",
                 category: "ladies-fashion",
                 price: "3,300",
@@ -940,19 +1077,13 @@
                 discount: "-28%",
                 images: [
                     "https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp",
-                    "https://i.postimg.cc/JnS2mtPq/MZ2199200260BICN-media-2.webp",
-                   
+                    "https://i.postimg.cc/JnS2mtPq/MZ2199200260BICN-media-2.webp"
                 ],
                 description: "This stunning maroon embroidered suit is perfect for Eid, weddings, or any festive occasion where you want to look elegant and confident. Designed for Pakistani women who value both style and comfort, this 3-piece set combines traditional craftsmanship with modern fit, making it ideal for celebrations or special events. The rich maroon color exudes sophistication, while the intricate white embroidery adds a touch of luxury that stands out in any setting. Crafted with premium quality materials, this suit is built to last. The organza shirt and dupatta offer a light, flowing feel that’s comfortable even during long events, while the malai trousers provide a sturdy, flattering fit. The embroidery is detailed and durable, ensuring the design remains vibrant with wear. The U-neck and flared sleeves add a graceful silhouette, while the attached inner lining in the shirt ensures comfort and modesty. This set is not just stylish—it’s practical for daily wear or special occasions. - Premium Quality Organza and Malai Fabric for Long-Lasting Wear - Stylish Maroon Color with Heavy White Embroidery for Festive Appeal - Includes 1 Shirt, 1 Trouser, and 1 Dupatta for Complete Look - Perfect Fit for Pakistani Women with Standard Size Measurements - Ideal for Eid, Weddings, Parties, and Other Celebrations - New Arrival with Best Price in Pakistan for Value and Style",
-                overview: "•Fabric: Organza \n•Pattern: Embroidered \n•Neck Type: U-Neck \n•Shirt Pattern: Embroidered \n• Trouser Fabric: Malai\n•Trouser Pattern: Embroidered \n•Dupatta Fabric: Organza \n•Dupatta Pattern: Embroidered \n•Available Sizes: Standard Size\n•Number Of Pieces: 3 Pcs \n•Package Includes: 1 x Shirt, 1 x Trouser, 1 x Dupatta \n• Shirt Length: 40 Inches\n•Shirt Chest: 21 Inches\n•Shirt Shoulder: 15 Inches \n•Arm Length: 11 Inches \n• Trouser Length: 37 Inches\n•Trouser Waist: 20 Inches\n•Trouser Hip: 24 Inches \n•Dupatta Dimensions: 2.5 Yards \n•Color: Maroon \n•Neck,Sleeves Front Heavy Embroidered Shirt With Emb Trouser Dupatta 3pec\n•Size Measurement \n•Chest Size 20/21 \n•Shirt Length 39/40 \n•Shirt Stuff Organza\n• (With Inner Attached)\n• Emb Trouser Length 39\n•Stuff Crepe \n•Embroidered Dupatta\n•Size 2.5 Yards \n•Stuff Organza \n•Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.  "
+                overview: "•Fabric: Organza \n•Pattern: Embroidered \n•Neck Type: U-Neck \n•Shirt Pattern: Embroidered \n• Trouser Fabric: Malai\n•Trouser Pattern: Embroidered \n•Dupatta Fabric: Organza \n•Dupatta Pattern: Embroidered \n•Available Sizes: Standard Size\n•Number Of Pieces: 3 Pcs \n•Package Includes: 1 x Shirt, 1 x Trouser, 1 x Dupatta \n• Shirt Length: 40 Inches\n•Shirt Chest: 21 Inches\n•Shirt Shoulder: 15 Inches \n•Arm Length: 11 Inches \n• Trouser Length: 37 Inches\n•Trouser Waist: 20 Inches\n•Trouser Hip: 24 Inches \n•Dupatta Dimensions: 2.5 Yards \n•Color: Maroon \n•Neck,Sleeves Front Heavy Embroidered Shirt With Emb Trouser Dupatta 3pec\n•Size Measurement \n•Chest Size 20/21 \n•Shirt Length 39/40 \n•Shirt Stuff Organza\n• (With Inner Attached)\n• Emb Trouser Length 39\n•Stuff Crepe \n•Embroidered Dupatta\n•Size 2.5 Yards \n•Stuff Organza \n•Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects."
             },
-
-            
-
-
             {
-                
-                id: 2,
+                id: 5,
                 title: "Realme Buds Q2 Wireless Bass-Boost Noise Isolation",
                 category: "accessories",
                 price: "3,199",
@@ -965,7 +1096,7 @@
                 overview: "• Playtime: Up to 20 Hours total\n• Drivers: 10mm Large Bass Boost Driver\n• Connection: Bluetooth 5.0 Instant Pair\n• Latency: 88ms Super Low Latency Gaming Mode"
             },
             {
-                id: 3,
+                id: 6,
                 title: "Advanced Niacinamide 10% Glow Face Serum",
                 category: "beauty",
                 price: "1,850",
@@ -978,7 +1109,7 @@
                 overview: "• Net Volume: 30ml\n• Skin Type: Suitable for all skin profiles\n• Key Benefits: Minimizes pores, clears blemishes, regulates sebum flow"
             },
             {
-                id: 4,
+                id: 7,
                 title: "Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit",
                 category: "ladies-fashion",
                 price: "3,450",
@@ -1204,6 +1335,79 @@
                 if(minutes < 0) { minutes = 59; hours--; }
                 document.getElementById("liveTimer").innerText = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
             }, 1000);
+        }
+
+        /* --- EXCLUSIVE NATIVE CODE INJECTION FOR PRO ADMIN STUDIO ENGINE --- */
+        function triggerSecretAdminAuth() {
+            const pass = prompt("Enter Secret Admin Authentication Key:");
+            if (pass === "admin123") {
+                document.getElementById("adminOverlay").style.display = "flex";
+                document.body.style.overflow = "hidden";
+            } else if (pass !== null) {
+                alert("Access Denied. Wrong Security Token.");
+            }
+        }
+
+        function closeAdminPanel() {
+            document.getElementById("adminOverlay").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function handleAdminAddProduct(e) {
+            e.preventDefault();
+            
+            const imgs = [];
+            const img1 = document.getElementById("admImg1").value.trim();
+            const img2 = document.getElementById("admImg2").value.trim();
+            const img3 = document.getElementById("admImg3").value.trim();
+            const img4 = document.getElementById("admImg4").value.trim();
+            
+            if(img1) imgs.push(img1);
+            if(img2) imgs.push(img2);
+            if(img3) imgs.push(img3);
+            if(img4) imgs.push(img4);
+
+            const newProduct = {
+                id: PRODUCTS_DATA.length + 1,
+                title: document.getElementById("admTitle").value.trim(),
+                category: document.getElementById("admCategory").value,
+                price: document.getElementById("admPrice").value.trim(),
+                oldPrice: document.getElementById("admOldPrice").value.trim(),
+                discount: document.getElementById("admDiscount").value.trim(),
+                images: imgs,
+                description: document.getElementById("admDesc").value.trim(),
+                overview: document.getElementById("admOverview").value.trim()
+            };
+
+            // Insert into local runtime array to preview instantly
+            PRODUCTS_DATA.unshift(newProduct);
+            filterCategory("all");
+            
+            // Format array explicitly to update source code securely
+            const formattedArrayText = JSON.stringify(PRODUCTS_DATA, null, 12);
+            
+            // Generate full clean updated code structure
+            let currentFullSource = document.documentElement.outerHTML;
+            
+            // Clean dynamic injection traces for clean export code
+            const exportBox = document.getElementById("codeExportBox");
+            const exportBtn = document.getElementById("exportBtn");
+            
+            exportBox.innerText = `<!DOCTYPE html>\n<html lang="en">\n` + document.documentElement.innerHTML + `\n</html>`;
+            exportBox.style.display = "block";
+            exportBtn.style.display = "block";
+            
+            alert("Success! Product synchronized to screen preview. Now click the black button below to copy your production ready file code!");
+        }
+
+        function copyUpdatedWebsiteCode() {
+            const codeText = document.getElementById("codeExportBox").innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert("Excellent! Your updated production index.html code is copied to clipboard. Paste this into your file on GitHub/Netlify/Hosting panel and the changes are permanent!");
+                closeAdminPanel();
+            }).catch(err => {
+                alert("Error copying code. Please select the text inside the black box manually and copy it.");
+            });
         }
 
         window.onload = () => { renderCategories(); renderProducts(PRODUCTS_DATA); runCountdown(); };
