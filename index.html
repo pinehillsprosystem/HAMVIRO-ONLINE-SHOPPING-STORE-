@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hamviro - Professional Digital Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -22,13 +22,12 @@
         html, body {
             width: 100%;
             max-width: 100%;
-            overflow-x: hidden; /* Screen rigidity fix for mobile devices */
+            overflow-x: hidden;
             background-color: #f5f7fa;
             color: #1e293b;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- DESKTOP TOP HEADER STRIP --- */
         .top-bar {
             background-color: #ffffff;
             font-size: 12px;
@@ -42,7 +41,6 @@
         .top-bar a { text-decoration: none; color: #64748b; margin-right: 22px; transition: color 0.2s; }
         .top-bar a:hover { color: #ff4e00; }
 
-        /* --- STICKY STANDARD HEADER FRAMEWORK --- */
         header {
             background-color: #ffffff;
             padding: 14px 6%;
@@ -124,9 +122,7 @@
         .header-icons div { cursor: pointer; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
         .header-icons div:hover { color: #ff4e00; }
         .header-icons i { font-size: 19px; color: #475569; }
-        .header-icons div:hover i { color: #ff4e00; }
 
-        /* --- HERO SPLIT CANVAS --- */
         .hero-section {
             display: flex;
             gap: 24px;
@@ -195,12 +191,10 @@
             max-width: 100%;
             height: 220px;
             object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
         }
 
         .mobile-categories-scroll { display: none; }
 
-        /* --- FLASH SALE SYSTEM HUB --- */
         .flash-sale-section {
             padding: 0 6% 60px 6%;
             max-width: 1440px;
@@ -221,7 +215,6 @@
             font-size: 22px;
             font-weight: 800;
             color: #0f172a;
-            letter-spacing: -0.5px;
         }
 
         .timer {
@@ -231,8 +224,6 @@
             border-radius: 8px;
             font-size: 13px;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
         }
 
         .products-grid {
@@ -258,7 +249,6 @@
         .product-card:hover {
             transform: translateY(-4px);
             border-color: rgba(255, 78, 0, 0.25);
-            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
         }
 
         .img-wrapper {
@@ -274,11 +264,7 @@
             height: 100%;
             object-fit: cover;
             position: absolute;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
         }
-        .product-card:hover img { transform: scale(1.04); }
 
         .product-title {
             font-size: 13px;
@@ -300,13 +286,12 @@
             margin: auto 12px 0 12px;
         }
 
-        .product-price { color: #ff4e00; font-weight: 700; font-size: 17px; letter-spacing: -0.5px; }
-        
+        .product-price { color: #ff4e00; font-weight: 700; font-size: 17px; }
         .old-price-row { display: flex; align-items: center; gap: 8px; }
-        .old-price { font-size: 11px; color: #94a3b8; text-decoration: line-through; font-weight: 500; }
+        .old-price { font-size: 11px; color: #94a3b8; text-decoration: line-through; }
         .discount-tag { font-size: 11px; color: #ef4444; font-weight: 700; background: #fef2f2; padding: 2px 6px; border-radius: 4px; }
 
-        /* --- PRO DARAZ-STYLE DETAILS MODAL & CHECKOUT OVERLAY --- */
+        /* --- MODAL SYSTEM --- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -315,7 +300,6 @@
             height: 100%;
             background-color: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
             z-index: 99999;
             display: none;
             justify-content: center;
@@ -331,8 +315,6 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
-            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @media (min-width: 769px) {
@@ -353,17 +335,10 @@
             justify-content: center;
             cursor: pointer;
             font-size: 16px;
-            color: #475569;
             z-index: 101;
         }
 
-        /* --- DYNAMIC UNLIMITED IMAGE SLIDER ARCHITECTURE --- */
-        .modal-img-viewer-container {
-            width: 100%;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
+        .modal-img-viewer-container { width: 100%; margin-bottom: 20px; position: relative; }
         .modal-img-holder {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -371,236 +346,62 @@
             border-radius: 14px;
             border: 1px solid #e2e8f0;
             overflow-x: auto;
-            overflow-y: hidden;
             display: flex;
             scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
         }
-        
-        .modal-img-holder::-webkit-scrollbar {
-            display: none;
-        }
-
-        .modal-slide-item {
-            min-width: 100%;
-            width: 100%;
-            height: 100%;
-            scroll-snap-align: start;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .modal-slide-item img { 
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .modal-img-holder::-webkit-scrollbar { display: none; }
+        .modal-slide-item { min-width: 100%; width: 100%; height: 100%; scroll-snap-align: start; position: relative; flex-shrink: 0; }
+        .modal-slide-item img { width: 100%; height: 100%; object-fit: cover; }
 
         .image-index-badge {
             position: absolute;
             bottom: 14px;
             right: 14px;
             background-color: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(4px);
             color: #ffffff;
             padding: 4px 10px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            z-index: 10;
         }
 
-        .modal-thumbnail-gallery {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-            overflow-x: auto;
-            padding-bottom: 6px;
-        }
-        .modal-thumbnail-gallery::-webkit-scrollbar { height: 4px; }
-        .modal-thumbnail-gallery::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+        .modal-thumbnail-gallery { display: flex; gap: 10px; margin-top: 12px; overflow-x: auto; padding-bottom: 6px; }
+        .thumb-item { width: 64px; height: 64px; border: 2px solid #e2e8f0; border-radius: 8px; cursor: pointer; position: relative; flex-shrink: 0; overflow: hidden; }
+        .thumb-item img { width: 100%; height: 100%; object-fit: cover; position: absolute; }
+        .thumb-item.active { border-color: #ff4e00; }
 
-        .thumb-item {
-            width: 64px;
-            height: 64px;
-            aspect-ratio: 1 / 1;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            cursor: pointer;
-            position: relative;
-            background-color: #f8fafc;
-            flex-shrink: 0;
-            overflow: hidden;
-            transition: all 0.2s;
-        }
-        .thumb-item img { 
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .thumb-item.active { border-color: #ff4e00; background-color: #fff4ee; }
-
-        .modal-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.4; }
+        .modal-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px; }
         .modal-price-bar { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px;}
         .modal-price { font-size: 24px; font-weight: 800; color: #ff4e00; }
         .modal-old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; }
         .modal-badge { font-size: 12px; color: #ff4e00; background-color: #fff4ee; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
 
-        .modal-section-title { font-size: 14px; font-weight: 700; color: #334155; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .modal-section-title { font-size: 14px; font-weight: 700; color: #334155; margin-bottom: 8px; text-transform: uppercase; }
         .modal-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 16px; background-color: #f8fafc; padding: 12px; border-radius: 10px; }
+        .modal-overview-box { font-size: 13px; color: #1e293b; line-height: 1.6; margin-bottom: 16px; background-color: #f1f5f9; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #475569; white-space: pre-line; }
 
-        /* --- NEW STYLISH PRODUCT OVERVIEW BOX --- */
-        .modal-overview-box {
-            font-size: 13px;
-            color: #1e293b;
-            line-height: 1.6;
-            margin-bottom: 16px;
-            background-color: #f1f5f9;
-            padding: 12px 14px;
-            border-radius: 10px;
-            border-left: 4px solid #475569;
-            white-space: pre-line; /* preserves formatting and linebreaks */
-        }
+        .modal-return-panel { background: #fef2f2; border: 1px dashed #fca5a5; padding: 12px 14px; border-radius: 10px; margin-bottom: 24px; }
+        .return-title-row { display: flex; align-items: center; gap: 8px; color: #dc2626; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+        .return-body-text { font-size: 12px; color: #7f1d1d; line-height: 1.5; }
 
-        /* --- PREMIUM RETURN POLICY PANEL DESIGN --- */
-        .modal-return-panel {
-            background: #fef2f2;
-            border: 1px dashed #fca5a5;
-            padding: 12px 14px;
-            border-radius: 10px;
-            margin-bottom: 24px;
-        }
-        .return-title-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #dc2626;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        .return-body-text {
-            font-size: 12px;
-            color: #7f1d1d;
-            line-height: 1.5;
-        }
-
-        /* --- DARAZ PRO SHIPPING ADDRESS CANVAS DESIGN --- */
-        .address-panel-box {
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
-            margin-bottom: 20px;
-        }
-
+        .address-panel-box { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; margin-bottom: 20px; }
         .checkout-form-grid { display: flex; flex-direction: column; gap: 16px; }
-        
-        .form-input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        .form-input-wrapper i {
-            position: absolute;
-            left: 14px;
-            color: #94a3b8;
-            font-size: 15px;
-        }
-        
-        .form-input-wrapper input, .form-input-wrapper select, .form-input-wrapper textarea {
-            width: 100%;
-            padding: 13px 14px 13px 40px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 500;
-            outline: none;
-            background-color: #f8fafc;
-            color: #0f172a;
-            transition: all 0.2s ease;
-        }
-        .form-input-wrapper input:focus, .form-input-wrapper select:focus, .form-input-wrapper textarea:focus {
-            border-color: #ff4e00;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.06);
-        }
+        .form-input-wrapper { position: relative; display: flex; align-items: center; }
+        .form-input-wrapper i { position: absolute; left: 14px; color: #94a3b8; }
+        .form-input-wrapper input, .form-input-wrapper select, .form-input-wrapper textarea { width: 100%; padding: 13px 14px 13px 40px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 14px; outline: none; background-color: #f8fafc; }
+        .form-input-wrapper input:focus, .form-input-wrapper select:focus, .form-input-wrapper textarea:focus { border-color: #ff4e00; background-color: #ffffff; }
+        .form-split-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-        .form-split-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+        .delivery-chips-group { display: flex; gap: 10px; margin-top: 4px; }
+        .address-chip { flex: 1; padding: 11px; border: 1.5px solid #e2e8f0; border-radius: 10px; text-align: center; cursor: pointer; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .address-chip.selected { border-color: #ff4e00; background-color: #fff4ee; color: #ff4e00; }
 
-        .form-input-wrapper select {
-            appearance: none;
-            -webkit-appearance: none;
-            cursor: pointer;
-        }
+        .pro-buy-btn { width: 100%; background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%); color: #ffffff; border: none; padding: 15px; font-size: 15px; font-weight: 700; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
-        .delivery-chips-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 4px;
-        }
-        .address-chip {
-            flex: 1;
-            padding: 11px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 10px;
-            background-color: #ffffff;
-            color: #475569;
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-        .address-chip.selected {
-            border-color: #ff4e00;
-            background-color: #fff4ee;
-            color: #ff4e00;
-        }
-
-        .action-btn-container { margin-top: 10px; }
-        .pro-buy-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);
-            color: #ffffff;
-            border: none;
-            padding: 15px;
-            font-size: 15px;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 14px rgba(255, 78, 0, 0.25);
-            transition: all 0.2s;
-        }
-        .pro-buy-btn:hover { opacity: 0.95; transform: translateY(-1px); }
-
-        .bottom-nav-bar { display: none; }
-
-        /* --- EXCLUSIVE PRODUCTION ADMIN PANEL SYSTEM CSS --- */
+        /* --- ADMIN OVERLAY --- */
         .admin-panel-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(6px);
             z-index: 1000000;
@@ -609,72 +410,32 @@
             align-items: center;
             padding: 16px;
         }
-        .admin-card {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 600px;
-            border-radius: 16px;
-            padding: 24px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-        }
-        .admin-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 12px;
-        }
-        .admin-input-group {
-            margin-bottom: 14px;
-        }
-        .admin-input-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            color: #475569;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-        .admin-input-group input, .admin-input-group select, .admin-input-group textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
-            outline: none;
-            font-size: 14px;
-        }
-        .admin-input-group input:focus, .admin-input-group select:focus, .admin-input-group textarea:focus {
-            border-color: #ff4e00;
-        }
-        .admin-action-btn {
-            width: 100%;
-            padding: 12px;
-            background: #ff4e00;
-            color: #ffffff;
-            border: none;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+        .admin-card { background-color: #ffffff; width: 100%; max-width: 600px; border-radius: 16px; padding: 24px; max-height: 90vh; overflow-y: auto; }
+        .admin-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+        .admin-input-group { margin-bottom: 14px; }
+        .admin-input-group label { display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; text-transform: uppercase; }
+        .admin-input-group input, .admin-input-group select, .admin-input-group textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; outline: none; }
+        .admin-action-btn { width: 100%; padding: 12px; background: #ff4e00; color: #ffffff; border: none; font-weight: 700; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+        
         .code-export-box {
             margin-top: 16px;
             background: #0f172a;
             color: #38bdf8;
-            padding: 12px;
+            padding: 14px;
             border-radius: 8px;
             font-family: monospace;
-            font-size: 11px;
-            max-height: 150px;
+            font-size: 12px;
+            max-height: 200px;
             overflow-y: auto;
             display: none;
             white-space: pre-wrap;
+            user-select: all;
+            border: 1px solid #334155;
         }
 
-        /* --- STABLE NATIVE RESPONSIVE LOCKS --- */
+        .bottom-nav-bar { display: none; }
+
+        /* --- MOBILE LOGIC SYSTEM --- */
         @media (max-width: 1024px) {
             .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .sidebar-categories, .top-bar { display: none; }
@@ -683,119 +444,53 @@
         @media (max-width: 768px) {
             .top-bar, .sidebar-categories, .banner-img { display: none !important; }
             body { padding-bottom: 74px; background-color: #f4f6f9; }
-            header { padding: 12px 16px; gap: 12px; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); }
+            header { padding: 12px 16px; gap: 12px; background-color: #ffffff; }
             .logo { font-size: 25px; }
-            .header-icons { display: flex; gap: 20px; }
-            .header-icons div span { display: none; } 
-            .header-icons i { font-size: 22px; color: #2e3a47; }
-            .search-container { width: 100%; max-width: 100%; height: 42px; }
-            .search-container input { padding: 0 14px; border-radius: 8px 0 0 8px; font-size: 14px; border-color: #e2e8f0; }
+            .header-icons div span { display: none; }
+            .search-container { width: 100%; height: 42px; }
+            .search-container input { border-radius: 8px 0 0 8px; }
             .search-btn { width: 52px; border-radius: 0 8px 8px 0; }
-            .hero-section { padding: 12px 12px 4px 12px; }
+            .hero-section { padding: 12px; }
             .main-banner { padding: 26px 20px; border-radius: 16px; }
-            .banner-text { max-width: 100%; }
-            .banner-text h2 { font-size: 28px; margin-bottom: 12px; }
-            .shop-now-btn { padding: 10px 24px; font-size: 13px; border-radius: 8px; }
+            .banner-text h2 { font-size: 28px; }
 
             .mobile-categories-scroll {
-                display: flex;
-                overflow-x: auto;
-                gap: 16px;
-                padding: 14px 16px;
-                background-color: #ffffff;
-                margin-bottom: 12px;
-                border-bottom: 1px solid #e2e8f0;
-                -webkit-overflow-scrolling: touch;
+                display: flex; overflow-x: auto; gap: 16px; padding: 14px 16px; background-color: #ffffff; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0;
             }
-            .mobile-categories-scroll::-webkit-scrollbar { display: none; }
-            
-            .mobile-cat-item { display: flex; flex-direction: column; align-items: center; min-width: 64px; cursor: pointer; }
-            .mobile-cat-item .circle-icon {
-                width: 48px;
-                height: 48px;
-                background-color: #f8fafc;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 16px;
-                color: #475569;
-                margin-bottom: 6px;
-                border: 1px solid #e2e8f0;
-            }
-            .mobile-cat-item.active .circle-icon { 
-                background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);
-                color: #ffffff; 
-                border-color: transparent;
-                box-shadow: 0 4px 12px rgba(255, 78, 0, 0.2);
-            }
-            .mobile-cat-item span { font-size: 11px; font-weight: 600; color: #64748b; white-space: nowrap; }
+            .mobile-cat-item { display: flex; flex-direction: column; align-items: center; min-width: 64px; }
+            .mobile-cat-item .circle-icon { width: 48px; height: 48px; background-color: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #475569; margin-bottom: 6px; border: 1px solid #e2e8f0; }
+            .mobile-cat-item.active .circle-icon { background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%); color: #ffffff; }
+            .mobile-cat-item span { font-size: 11px; font-weight: 600; color: #64748b; }
             .mobile-cat-item.active span { color: #ff4e00; font-weight: 700; }
 
             .flash-sale-section { padding: 0 10px 30px 10px; }
-            .section-header { margin-bottom: 14px; padding: 0 4px; }
-            .flash-sale-title { font-size: 18px; }
-            .timer { padding: 4px 8px; font-size: 11px; border-radius: 6px; }
-
             .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .product-card { padding: 0 0 10px 0; border-radius: 12px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02); border: 1px solid #e2e8f0; }
-            
-            .img-wrapper { aspect-ratio: 1 / 1; height: auto; margin-bottom: 10px; }
-            .product-card img { padding: 0; }
-            
-            .product-title { font-size: 12px; height: 34px; margin: 0 10px 6px 10px; color: #1e293b; font-weight: 500; }
+            .product-title { font-size: 12px; height: 34px; margin: 0 10px 6px 10px; }
             .product-price { font-size: 15px; margin-left: 10px; }
-            .old-price-row { margin: 0 10px; }
 
             .bottom-nav-bar {
-                display: flex;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 56px;
-                background-color: rgba(255, 255, 255, 0.96);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border-top: 1px solid #e2e8f0;
-                justify-content: space-around;
-                align-items: center;
-                z-index: 999;
-                box-shadow: 0 -4px 16px rgba(0,0,0,0.03);
+                display: flex; position: fixed; bottom: 0; left: 0; width: 100%; height: 56px; background-color: rgba(255, 255, 255, 0.96); backdrop-filter: blur(10px); border-top: 1px solid #e2e8f0; justify-content: space-around; align-items: center; z-index: 999;
             }
             .bottom-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8; font-size: 10px; font-weight: 600; text-decoration: none; width: 25%; height: 100%; }
             .bottom-tab i { font-size: 18px; margin-bottom: 2px; }
-            .bottom-tab.active { color: #ff4e00; font-weight: 700; }
+            .bottom-tab.active { color: #ff4e00; }
         }
     </style>
 </head>
-<body style="overflow: hidden;">
+<body>
 
     <div class="top-bar">
-        <div class="links">
-            <a href="#">Save More on App</a>
-            <a href="#">Sell on Hamviro</a>
-            <a href="#">Customer Care</a>
-            <a href="#">Track My Order</a>
-        </div>
+        <div class="links"><a href="#">Save More on App</a><a href="#">Sell on Hamviro</a></div>
     </div>
 
     <header>
         <div class="header-top-row">
             <div class="logo" id="brandLogo">Hamviro</div>
-            
             <div class="header-icons">
-                <div onclick="alert('Wishlist option integrated!')">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>Wishlist</span>
-                </div>
-                <div onclick="alert('Cart redirection live!')">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span>Cart</span>
-                </div>
+                <div onclick="alert('Wishlist integrated!')"><i class="fa-regular fa-heart"></i></div>
+                <div onclick="alert('Cart active!')"><i class="fa-solid fa-bag-shopping"></i></div>
             </div>
         </div>
-
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search premium deals...">
             <button class="search-btn" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -803,136 +498,38 @@
     </header>
 
     <div class="hero-section">
-        <div class="sidebar-categories" id="desktopCats"><div class="active"><i class="fa-solid fa-grip"></i> All Categories</div><div class=""><i class="fa-solid fa-desktop"></i> Electronic Devices</div><div class=""><i class="fa-solid fa-headphones"></i> Accessories</div><div class=""><i class="fa-solid fa-wand-magic-sparkles"></i> Beauty</div><div class=""><i class="fa-solid fa-shirt"></i> Men's Fashion</div><div class=""><i class="fa-solid fa-person-dress"></i> Ladies' Fashion</div></div>
-
+        <div class="sidebar-categories" id="desktopCats"></div>
         <div class="main-banner">
             <div class="banner-text">
                 <span>EXCLUSIVE STORE</span>
                 <h2>Premium Deals<br>Direct Dispatch</h2>
                 <div class="shop-now-btn" id="bannerBtn">Explore Products</div>
             </div>
-            <div class="banner-img">
-                <img src="https://images.unsplash.com/photo-1496181130204-755241524eab?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Showcase System">
-            </div>
         </div>
     </div>
 
-    <div class="mobile-categories-scroll" id="mobileCats"><div class="mobile-cat-item active"><div class="circle-icon"><i class="fa-solid fa-grip"></i></div><span>All</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-desktop"></i></div><span>Electronic</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-headphones"></i></div><span>Accessories</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><span>Beauty</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-shirt"></i></div><span>Men's</span></div><div class="mobile-cat-item "><div class="circle-icon"><i class="fa-solid fa-person-dress"></i></div><span>Ladies'</span></div></div>
+    <div class="mobile-categories-scroll" id="mobileCats"></div>
 
     <div class="flash-sale-section">
         <div class="section-header">
             <div class="flash-sale-title">
                 <span id="sectionTitle">All Products</span>
-                <span class="timer" id="liveTimer">02 : 08 : 19</span>
+                <span class="timer" id="liveTimer">00 : 00 : 00</span>
             </div>
         </div>
-
-        <div class="products-grid" id="productsContainer"><div class="product-card">
-                    <div class="img-wrapper"><img src="https://i.postimg.cc/Pr3sFbD1/MZ2321200046WT-media-1.webp" alt="Black Shamoz Silk Farshi Shalwar Kameez 4Pcs Set with Pearl Potli"></div>
-                    <div class="product-title">Black Shamoz Silk Farshi Shalwar Kameez 4Pcs Set with Pearl Potli</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 3,392</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 4,500</span>
-                            <span class="discount-tag">-38%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://i.postimg.cc/C1zfksbk/MZ1354201374PACN-media-1.webp" alt="3 Pcs Women's Stitched Silk Embroidered Suit"></div>
-                    <div class="product-title">3 Pcs Women's Stitched Silk Embroidered Suit</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 2,500</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 3,500</span>
-                            <span class="discount-tag">-38%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg" alt="Women Katan Silk Printed Maxi Suit Set 3 Piece Regular"></div>
-                    <div class="product-title">Women Katan Silk Printed Maxi Suit Set 3 Piece Regular</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 1,924</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 2,499</span>
-                            <span class="discount-tag">-36%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp" alt="Navy Gold Fleece Track Suit for Men Winter Slim Fit"></div>
-                    <div class="product-title">Navy Gold Fleece Track Suit for Men Winter Slim Fit</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 1,690</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 3,000</span>
-                            <span class="discount-tag">-48%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://i.postimg.cc/VL8CTmzS/MZ1009200153RN-media-1.webp" alt="Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men"></div>
-                    <div class="product-title">Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 1,690</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 3000</span>
-                            <span class="discount-tag">-48%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp" alt="Maroon Embroidered 3-Piece Suit for Women"></div>
-                    <div class="product-title">Maroon Embroidered 3-Piece Suit for Women</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 3,300</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 4,500</span>
-                            <span class="discount-tag">-28%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Realme Buds Q2 Wireless Bass-Boost Noise Isolation"></div>
-                    <div class="product-title">Realme Buds Q2 Wireless Bass-Boost Noise Isolation</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 3,199</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 5,499</span>
-                            <span class="discount-tag">-42%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Advanced Niacinamide 10% Glow Face Serum"></div>
-                    <div class="product-title">Advanced Niacinamide 10% Glow Face Serum</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 1,850</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 2,999</span>
-                            <span class="discount-tag">-38%</span>
-                        </div>
-                    </div>
-                </div><div class="product-card">
-                    <div class="img-wrapper"><img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit"></div>
-                    <div class="product-title">Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. 3,450</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. 4,999</span>
-                            <span class="discount-tag">-31%</span>
-                        </div>
-                    </div>
-                </div></div>
+        <div class="products-grid" id="productsContainer"></div>
     </div>
 
     <div class="modal-overlay" id="productModal">
         <div class="modal-content">
             <div class="close-modal" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></div>
-            
             <div class="modal-img-viewer-container">
                 <div class="image-index-badge" id="imageIndexLabel">1 / 1</div>
-                
                 <div class="modal-img-holder" id="modalSliderBox"></div>
-                
                 <div class="modal-thumbnail-gallery" id="modalThumbGallery"></div>
             </div>
 
-            <h3 class="modal-title" id="modalTitle">Product Title Here</h3>
+            <h3 class="modal-title" id="modalTitle">Product Title</h3>
             <div class="modal-price-bar">
                 <span class="modal-price" id="modalPrice">Rs. 0</span>
                 <span class="modal-old-price" id="modalOldPrice">Rs. 0</span>
@@ -940,175 +537,88 @@
             </div>
 
             <h4 class="modal-section-title">Product Details</h4>
-            <div class="modal-desc" id="modalDesc">Product description text.</div>
+            <div class="modal-desc" id="modalDesc"></div>
 
             <h4 class="modal-section-title"><i class="fa-solid fa-file-lines"></i> Product Overview</h4>
-            <div class="modal-overview-box" id="modalOverview">Product overview text details appear here...</div>
+            <div class="modal-overview-box" id="modalOverview"></div>
 
             <div class="modal-return-panel">
-                <div class="return-title-row">
-                    <i class="fa-solid fa-truck-ramp-box"></i> Return allowed within 7 days
-                </div>
-                <div class="return-body-text">
-                    Order ghalat, mukhtalif ya na-mukamal deliver hone ki surat mein return ki darkhast saat (7) din k andar de ja sakti hai.<br><br>
-                </div>
+                <div class="return-title-row"><i class="fa-solid fa-truck-ramp-box"></i> Return allowed within 7 days</div>
+                <div class="return-body-text">Order ghalat, mukhtalif ya na-mukamal deliver hone ki surat mein return ki darkhast saat (7) din k andar de ja sakti hai.</div>
             </div>
 
-            <h4 class="modal-section-title" style="color: #ff4e00; margin-bottom: 12px;">
-                <i class="fa-solid fa-map-location-dot"></i> Delivery Address (Saved Permanently)
-            </h4>
-            
+            <h4 class="modal-section-title" style="color: #ff4e00; margin-bottom: 12px;"><i class="fa-solid fa-map-location-dot"></i> Delivery Address</h4>
             <div class="address-panel-box">
                 <form id="checkoutForm" class="checkout-form-grid">
-                    <div class="form-input-wrapper">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" id="custName" placeholder="Full Name (Receiver Name)" required="">
-                    </div>
-
-                    <div class="form-input-wrapper">
-                        <i class="fa-solid fa-phone"></i>
-                        <input type="tel" id="custPhone" placeholder="Mobile Number (e.g. 03XXXXXXXXX)" required="">
-                    </div>
-
+                    <div class="form-input-wrapper"><i class="fa-solid fa-user"></i><input type="text" id="custName" placeholder="Full Name" required></div>
+                    <div class="form-input-wrapper"><i class="fa-solid fa-phone"></i><input type="tel" id="custPhone" placeholder="Mobile Number" required></div>
                     <div class="form-split-row">
                         <div class="form-input-wrapper">
-                            <i class="fa-solid fa-city"></i>
-                            <select id="custProvince" required="">
-                                <option value="" disabled="" selected="">Province</option>
-                                <option value="Punjab">Punjab</option>
-                                <option value="Sindh">Sindh</option>
-                                <option value="KPK">KPK</option>
-                                <option value="Balochistan">Balochistan</option>
-                                <option value="Islamabad">Islamabad Capital</option>
+                            <select id="custProvince" required>
+                                <option value="" disabled selected>Province</option>
+                                <option value="Punjab">Punjab</option><option value="Sindh">Sindh</option><option value="KPK">KPK</option><option value="Balochistan">Balochistan</option><option value="Islamabad">Islamabad</option>
                             </select>
                         </div>
-                        <div class="form-input-wrapper">
-                            <i class="fa-solid fa-building"></i>
-                            <input type="text" id="custCity" placeholder="City Name" required="">
-                        </div>
+                        <div class="form-input-wrapper"><input type="text" id="custCity" placeholder="City Name" required></div>
                     </div>
-
-                    <div class="form-input-wrapper">
-                        <i class="fa-solid fa-house-chimney" style="top: 15px;"></i>
-                        <textarea id="custAddress" rows="2" placeholder="House No, Street Name, Area / Sector Name" style="padding-top: 12px;" required=""></textarea>
+                    <div class="form-input-wrapper"><textarea id="custAddress" rows="2" placeholder="Full House Address" required></textarea></div>
+                    <div class="delivery-chips-group">
+                        <div class="address-chip selected" id="chipHome" onclick="selectAddressLabel('Home')">Home</div>
+                        <div class="address-chip" id="chipOffice" onclick="selectAddressLabel('Office')">Office</div>
                     </div>
-
-                    <div>
-                        <div style="font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Select Delivery Label:</div>
-                        <div class="delivery-chips-group">
-                            <div class="address-chip selected" id="chipHome" onclick="selectAddressLabel('Home')">
-                                <i class="fa-solid fa-house"></i> Home
-                            </div>
-                            <div class="address-chip" id="chipOffice" onclick="selectAddressLabel('Office')">
-                                <i class="fa-solid fa-briefcase"></i> Office
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="action-btn-container">
-                        <button type="submit" class="pro-buy-btn">
-                            <i class="fa-brands fa-whatsapp"></i> Proceed to Order on WhatsApp
-                        </button>
-                    </div>
+                    <button type="submit" class="pro-buy-btn"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="admin-panel-overlay" id="adminOverlay" style="display: flex;">
+    <div class="admin-panel-overlay" id="adminOverlay">
         <div class="admin-card">
             <div class="admin-header-row">
                 <h3 style="color: #0f172a;"><i class="fa-solid fa-user-gear"></i> Hamviro Admin Studio</h3>
-                <i class="fa-solid fa-xmark" style="cursor: pointer; font-size: 20px; color: #64748b;" onclick="closeAdminPanel()"></i>
+                <i class="fa-solid fa-xmark" style="cursor: pointer; font-size: 20px;" onclick="closeAdminPanel()"></i>
             </div>
             <form id="adminProductForm" onsubmit="handleAdminAddProduct(event)">
-                <div class="admin-input-group">
-                    <label>Product Title</label>
-                    <input type="text" id="admTitle" placeholder="e.g. Navy Gold Fleece Track Suit..." required="">
-                </div>
+                <div class="admin-input-group"><label>Product Title</label><input type="text" id="admTitle" required></div>
                 <div class="form-split-row">
                     <div class="admin-input-group">
                         <label>Category</label>
-                        <select id="admCategory" required="">
-                            <option value="men-fashion">Men's Fashion</option>
-                            <option value="ladies-fashion">Ladies' Fashion</option>
-                            <option value="accessories">Accessories</option>
-                            <option value="beauty">Beauty</option>
-                            <option value="electronic">Electronic Devices</option>
+                        <select id="admCategory" required>
+                            <option value="men-fashion">Men's Fashion</option><option value="ladies-fashion">Ladies' Fashion</option><option value="accessories">Accessories</option><option value="beauty">Beauty</option><option value="electronic">Electronic Devices</option>
                         </select>
                     </div>
-                    <div class="admin-input-group">
-                        <label>Price (Rs.)</label>
-                        <input type="text" id="admPrice" placeholder="e.g. 1,690" required="">
-                    </div>
+                    <div class="admin-input-group"><label>Price (Rs.)</label><input type="text" id="admPrice" placeholder="e.g. 1,690" required></div>
                 </div>
                 <div class="form-split-row">
-                    <div class="admin-input-group">
-                        <label>Old Price (Rs.)</label>
-                        <input type="text" id="admOldPrice" placeholder="e.g. 3,000" required="">
-                    </div>
-                    <div class="admin-input-group">
-                        <label>Discount Tag</label>
-                        <input type="text" id="admDiscount" placeholder="e.g. -48%" required="">
-                    </div>
+                    <div class="admin-input-group"><label>Old Price (Rs.)</label><input type="text" id="admOldPrice" placeholder="e.g. 3,000" required></div>
+                    <div class="admin-input-group"><label>Discount Tag</label><input type="text" id="admDiscount" placeholder="e.g. -48%" required></div>
                 </div>
-                <div class="admin-input-group">
-                    <label>Image URL 1 (Main Display)</label>
-                    <input type="url" id="admImg1" placeholder="Paste image link here..." required="">
-                </div>
-                <div class="admin-input-group">
-                    <label>Image URL 2 (Optional Slider)</label>
-                    <input type="url" id="admImg2" placeholder="Paste image link here...">
-                </div>
-                <div class="admin-input-group">
-                    <label>Image URL 3 (Optional Slider)</label>
-                    <input type="url" id="admImg3" placeholder="Paste image link here...">
-                </div>
-                <div class="admin-input-group">
-                    <label>Image URL 4 (Optional Slider)</label>
-                    <input type="url" id="admImg4" placeholder="Paste image link here...">
-                </div>
-                <div class="admin-input-group">
-                    <label>Short Description</label>
-                    <textarea id="admDesc" rows="2" placeholder="Write sizing or important updates here..."></textarea>
-                </div>
-                <div class="admin-input-group">
-                    <label>Product Overview (Use bullet points or separate lines)</label>
-                    <textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece
-• Size: Small, Medium, Large" required=""></textarea>
-                </div>
-                <button type="submit" class="admin-action-btn">✨ Save Product &amp; Sync System</button>
+                <div class="admin-input-group"><label>Image URL 1 (Main Display)</label><input type="url" id="admImg1" required></div>
+                <div class="admin-input-group"><label>Image URL 2 (Optional)</label><input type="url" id="admImg2"></div>
+                <div class="admin-input-group"><label>Image URL 3 (Optional)</label><input type="url" id="admImg3"></div>
+                <div class="admin-input-group"><label>Image URL 4 (Optional)</label><input type="url" id="admImg4"></div>
+                <div class="admin-input-group"><label>Short Description</label><textarea id="admDesc" rows="2"></textarea></div>
+                <div class="admin-input-group"><label>Product Overview</label><textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece&#10;• Sizes: S, M, L" required></textarea></div>
+                <button type="submit" class="admin-action-btn">✨ Generate Product Code Block</button>
             </form>
             
-            <button class="admin-action-btn" id="exportBtn" style="background: rgb(15, 23, 42); margin-top: 12px; display: block;" onclick="copyUpdatedWebsiteCode()">📋 Copy Full Website Code for Production</button>
-            <div class="code-export-box" id="codeExportBox" style="display: block;">&lt;!DOCTYPE html&gt;<br>&lt;html lang="en"&gt;<br>&lt;head&gt;<br>    &lt;meta charset="UTF-8"&gt;<br>    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;<br>    &lt;title&gt;Hamviro - Professional Digital Hub&lt;/title&gt;<br>    &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;<br>    &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""&gt;<br>    &lt;link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;amp;family=Inter:wght@400;500;600;700&amp;amp;display=swap" rel="stylesheet"&gt;<br>    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;<br>    <br>    &lt;style&gt;<br>        /* --- PRO PRODUCTION RESET SYSTEM (RIGID LAYOUT LOCK) --- */<br>        * {<br>            box-sizing: border-box;<br>            margin: 0;<br>            padding: 0;<br>            font-family: 'Inter', sans-serif;<br>            -webkit-tap-highlight-color: transparent;<br>        }<br><br>        html, body {<br>            width: 100%;<br>            max-width: 100%;<br>            overflow-x: hidden; /* Screen rigidity fix for mobile devices */<br>            background-color: #f5f7fa;<br>            color: #1e293b;<br>            -webkit-font-smoothing: antialiased;<br>        }<br><br>        /* --- DESKTOP TOP HEADER STRIP --- */<br>        .top-bar {<br>            background-color: #ffffff;<br>            font-size: 12px;<br>            color: #64748b;<br>            padding: 10px 6%;<br>            display: flex;<br>            justify-content: space-between;<br>            border-bottom: 1px solid #e2e8f0;<br>            font-weight: 500;<br>        }<br>        .top-bar a { text-decoration: none; color: #64748b; margin-right: 22px; transition: color 0.2s; }<br>        .top-bar a:hover { color: #ff4e00; }<br><br>        /* --- STICKY STANDARD HEADER FRAMEWORK --- */<br>        header {<br>            background-color: #ffffff;<br>            padding: 14px 6%;<br>            display: flex;<br>            flex-direction: column;<br>            gap: 12px;<br>            position: sticky;<br>            top: 0;<br>            z-index: 999;<br>            box-shadow: 0 2px 15px rgba(15, 23, 42, 0.04);<br>            border-bottom: 1px solid #e2e8f0;<br>        }<br><br>        .header-top-row {<br>            display: flex;<br>            align-items: center;<br>            justify-content: space-between;<br>            width: 100%;<br>        }<br><br>        .logo {<br>            font-family: 'Plus Jakarta Sans', sans-serif;<br>            font-size: 28px;<br>            font-weight: 800;<br>            color: #ff4e00;<br>            letter-spacing: -1.2px;<br>            text-decoration: none;<br>            cursor: pointer;<br>        }<br><br>        .search-container {<br>            width: 100%;<br>            max-width: 680px;<br>            height: 44px;<br>            display: flex;<br>            margin: 0 auto;<br>        }<br><br>        .search-container input {<br>            width: 100%;<br>            padding: 0 16px;<br>            border: 1.5px solid #e2e8f0;<br>            background-color: #f8fafc;<br>            border-radius: 10px 0 0 10px;<br>            outline: none;<br>            font-size: 14px;<br>            font-weight: 500;<br>            color: #0f172a;<br>            transition: all 0.2s ease;<br>        }<br>        .search-container input:focus {<br>            background-color: #ffffff;<br>            border-color: #ff4e00;<br>            box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.08);<br>        }<br><br>        .search-btn {<br>            background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);<br>            color: #ffffff;<br>            border: none;<br>            width: 60px;<br>            border-radius: 0 10px 10px 0;<br>            cursor: pointer;<br>            font-size: 16px;<br>            display: flex;<br>            align-items: center;<br>            justify-content: center;<br>            flex-shrink: 0;<br>        }<br><br>        .header-icons {<br>            display: flex;<br>            gap: 24px;<br>            font-size: 14px;<br>            font-weight: 600;<br>            color: #334155;<br>            align-items: center;<br>        }<br>        .header-icons div { cursor: pointer; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }<br>        .header-icons div:hover { color: #ff4e00; }<br>        .header-icons i { font-size: 19px; color: #475569; }<br>        .header-icons div:hover i { color: #ff4e00; }<br><br>        /* --- HERO SPLIT CANVAS --- */<br>        .hero-section {<br>            display: flex;<br>            gap: 24px;<br>            padding: 24px 6%;<br>            max-width: 1440px;<br>            margin: 0 auto;<br>        }<br><br>        .sidebar-categories {<br>            width: 260px;<br>            background-color: #ffffff;<br>            border-radius: 14px;<br>            padding: 12px 0;<br>            display: flex;<br>            flex-direction: column;<br>            box-shadow: 0 1px 3px rgba(0,0,0,0.02);<br>            border: 1px solid #e2e8f0;<br>            flex-shrink: 0;<br>        }<br>        .sidebar-categories div {<br>            padding: 12px 20px;<br>            font-size: 14px;<br>            font-weight: 500;<br>            color: #475569;<br>            display: flex;<br>            align-items: center;<br>            gap: 12px;<br>            cursor: pointer;<br>            transition: all 0.2s;<br>        }<br>        .sidebar-categories div:hover, .sidebar-categories div.active {<br>            background-color: #fff4ee;<br>            color: #ff4e00;<br>            font-weight: 600;<br>        }<br><br>        .main-banner {<br>            flex: 1;<br>            background: linear-gradient(135deg, #ff6008 0%, #e63e00 100%);<br>            border-radius: 20px;<br>            color: #ffffff;<br>            padding: 44px 50px;<br>            display: flex;<br>            justify-content: space-between;<br>            align-items: center;<br>            box-shadow: 0 10px 25px rgba(255, 78, 0, 0.12);<br>        }<br><br>        .banner-text { max-width: 55%; }<br>        .banner-text span { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.85; font-weight: 700; }<br>        .banner-text h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800; margin: 10px 0 18px 0; line-height: 1.2; }<br>        <br>        .shop-now-btn {<br>            background-color: #ffffff;<br>            color: #ff4e00;<br>            padding: 12px 30px;<br>            border-radius: 10px;<br>            font-weight: 700;<br>            font-size: 14px;<br>            text-decoration: none;<br>            display: inline-block;<br>            cursor: pointer;<br>        }<br><br>        .banner-img img {<br>            max-width: 100%;<br>            height: 220px;<br>            object-fit: contain;<br>            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));<br>        }<br><br>        .mobile-categories-scroll { display: none; }<br><br>        /* --- FLASH SALE SYSTEM HUB --- */<br>        .flash-sale-section {<br>            padding: 0 6% 60px 6%;<br>            max-width: 1440px;<br>            margin: 0 auto;<br>        }<br><br>        .section-header {<br>            display: flex;<br>            align-items: center;<br>            justify-content: space-between;<br>            margin-bottom: 20px;<br>        }<br><br>        .flash-sale-title {<br>            display: flex;<br>            align-items: center;<br>            gap: 12px;<br>            font-size: 22px;<br>            font-weight: 800;<br>            color: #0f172a;<br>            letter-spacing: -0.5px;<br>        }<br><br>        .timer {<br>            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);<br>            color: #ffffff;<br>            padding: 6px 12px;<br>            border-radius: 8px;<br>            font-size: 13px;<br>            font-weight: 700;<br>            letter-spacing: 0.5px;<br>            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);<br>        }<br><br>        .products-grid {<br>            display: grid;<br>            grid-template-columns: repeat(5, 1fr);<br>            gap: 16px;<br>        }<br><br>        .product-card {<br>            background-color: #ffffff;<br>            border-radius: 12px;<br>            padding: 0 0 12px 0;<br>            overflow: hidden;<br>            display: flex;<br>            flex-direction: column;<br>            justify-content: space-between;<br>            border: 1px solid #e2e8f0;<br>            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);<br>            cursor: pointer;<br>            transition: all 0.2s ease;<br>            position: relative;<br>        }<br>        .product-card:hover {<br>            transform: translateY(-4px);<br>            border-color: rgba(255, 78, 0, 0.25);<br>            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);<br>        }<br><br>        .img-wrapper {<br>            width: 100%;<br>            aspect-ratio: 1 / 1;<br>            position: relative;<br>            background-color: #f8fafc;<br>            overflow: hidden;<br>            margin-bottom: 12px;<br>        }<br>        .product-card img {<br>            width: 100%;<br>            height: 100%;<br>            object-fit: cover;<br>            position: absolute;<br>            top: 0;<br>            left: 0;<br>            transition: transform 0.3s ease;<br>        }<br>        .product-card:hover img { transform: scale(1.04); }<br><br>        .product-title {<br>            font-size: 13px;<br>            font-weight: 600;<br>            color: #1e293b;<br>            margin: 0 12px 10px 12px;<br>            line-height: 1.4;<br>            display: -webkit-box;<br>            -webkit-line-clamp: 2;<br>            -webkit-box-orient: vertical;<br>            overflow: hidden;<br>            height: 36px;<br>        }<br><br>        .price-container {<br>            display: flex;<br>            flex-direction: column;<br>            gap: 4px;<br>            margin: auto 12px 0 12px;<br>        }<br><br>        .product-price { color: #ff4e00; font-weight: 700; font-size: 17px; letter-spacing: -0.5px; }<br>        <br>        .old-price-row { display: flex; align-items: center; gap: 8px; }<br>        .old-price { font-size: 11px; color: #94a3b8; text-decoration: line-through; font-weight: 500; }<br>        .discount-tag { font-size: 11px; color: #ef4444; font-weight: 700; background: #fef2f2; padding: 2px 6px; border-radius: 4px; }<br><br>        /* --- PRO DARAZ-STYLE DETAILS MODAL &amp; CHECKOUT OVERLAY --- */<br>        .modal-overlay {<br>            position: fixed;<br>            top: 0;<br>            left: 0;<br>            width: 100%;<br>            height: 100%;<br>            background-color: rgba(15, 23, 42, 0.6);<br>            backdrop-filter: blur(4px);<br>            -webkit-backdrop-filter: blur(4px);<br>            z-index: 99999;<br>            display: none;<br>            justify-content: center;<br>            align-items: flex-end;<br>        }<br><br>        .modal-content {<br>            background-color: #ffffff;<br>            width: 100%;<br>            max-width: 650px;<br>            border-radius: 24px 24px 0 0;<br>            padding: 24px;<br>            max-height: 90vh;<br>            overflow-y: auto;<br>            position: relative;<br>            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);<br>            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;<br>        }<br><br>        @media (min-width: 769px) {<br>            .modal-overlay { align-items: center; }<br>            .modal-content { border-radius: 20px; max-height: 85vh; width: 90%; }<br>        }<br><br>        .close-modal {<br>            position: absolute;<br>            top: 16px;<br>            right: 16px;<br>            width: 32px;<br>            height: 32px;<br>            background-color: #f1f5f9;<br>            border-radius: 50%;<br>            display: flex;<br>            align-items: center;<br>            justify-content: center;<br>            cursor: pointer;<br>            font-size: 16px;<br>            color: #475569;<br>            z-index: 101;<br>        }<br><br>        /* --- DYNAMIC UNLIMITED IMAGE SLIDER ARCHITECTURE --- */<br>        .modal-img-viewer-container {<br>            width: 100%;<br>            margin-bottom: 20px;<br>            position: relative;<br>        }<br><br>        .modal-img-holder {<br>            width: 100%;<br>            aspect-ratio: 1 / 1;<br>            background-color: #f8fafc;<br>            border-radius: 14px;<br>            border: 1px solid #e2e8f0;<br>            overflow-x: auto;<br>            overflow-y: hidden;<br>            display: flex;<br>            scroll-snap-type: x mandatory;<br>            scroll-behavior: smooth;<br>            -webkit-overflow-scrolling: touch;<br>        }<br>        <br>        .modal-img-holder::-webkit-scrollbar {<br>            display: none;<br>        }<br><br>        .modal-slide-item {<br>            min-width: 100%;<br>            width: 100%;<br>            height: 100%;<br>            scroll-snap-align: start;<br>            position: relative;<br>            flex-shrink: 0;<br>        }<br><br>        .modal-slide-item img { <br>            width: 100%;<br>            height: 100%;<br>            object-fit: cover;<br>        }<br><br>        .image-index-badge {<br>            position: absolute;<br>            bottom: 14px;<br>            right: 14px;<br>            background-color: rgba(15, 23, 42, 0.65);<br>            backdrop-filter: blur(4px);<br>            color: #ffffff;<br>            padding: 4px 10px;<br>            border-radius: 20px;<br>            font-size: 11px;<br>            font-weight: 700;<br>            letter-spacing: 0.5px;<br>            z-index: 10;<br>        }<br><br>        .modal-thumbnail-gallery {<br>            display: flex;<br>            gap: 10px;<br>            margin-top: 12px;<br>            overflow-x: auto;<br>            padding-bottom: 6px;<br>        }<br>        .modal-thumbnail-gallery::-webkit-scrollbar { height: 4px; }<br>        .modal-thumbnail-gallery::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }<br><br>        .thumb-item {<br>            width: 64px;<br>            height: 64px;<br>            aspect-ratio: 1 / 1;<br>            border: 2px solid #e2e8f0;<br>            border-radius: 8px;<br>            cursor: pointer;<br>            position: relative;<br>            background-color: #f8fafc;<br>            flex-shrink: 0;<br>            overflow: hidden;<br>            transition: all 0.2s;<br>        }<br>        .thumb-item img { <br>            width: 100%;<br>            height: 100%;<br>            object-fit: cover;<br>            position: absolute;<br>            top: 0;<br>            left: 0;<br>        }<br>        .thumb-item.active { border-color: #ff4e00; background-color: #fff4ee; }<br><br>        .modal-title { font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px; line-height: 1.4; }<br>        .modal-price-bar { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px;}<br>        .modal-price { font-size: 24px; font-weight: 800; color: #ff4e00; }<br>        .modal-old-price { font-size: 14px; color: #94a3b8; text-decoration: line-through; }<br>        .modal-badge { font-size: 12px; color: #ff4e00; background-color: #fff4ee; padding: 2px 8px; border-radius: 4px; font-weight: 700; }<br><br>        .modal-section-title { font-size: 14px; font-weight: 700; color: #334155; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }<br>        .modal-desc { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 16px; background-color: #f8fafc; padding: 12px; border-radius: 10px; }<br><br>        /* --- NEW STYLISH PRODUCT OVERVIEW BOX --- */<br>        .modal-overview-box {<br>            font-size: 13px;<br>            color: #1e293b;<br>            line-height: 1.6;<br>            margin-bottom: 16px;<br>            background-color: #f1f5f9;<br>            padding: 12px 14px;<br>            border-radius: 10px;<br>            border-left: 4px solid #475569;<br>            white-space: pre-line; /* preserves formatting and linebreaks */<br>        }<br><br>        /* --- PREMIUM RETURN POLICY PANEL DESIGN --- */<br>        .modal-return-panel {<br>            background: #fef2f2;<br>            border: 1px dashed #fca5a5;<br>            padding: 12px 14px;<br>            border-radius: 10px;<br>            margin-bottom: 24px;<br>        }<br>        .return-title-row {<br>            display: flex;<br>            align-items: center;<br>            gap: 8px;<br>            color: #dc2626;<br>            font-size: 13px;<br>            font-weight: 700;<br>            margin-bottom: 6px;<br>        }<br>        .return-body-text {<br>            font-size: 12px;<br>            color: #7f1d1d;<br>            line-height: 1.5;<br>        }<br><br>        /* --- DARAZ PRO SHIPPING ADDRESS CANVAS DESIGN --- */<br>        .address-panel-box {<br>            background-color: #ffffff;<br>            border: 1px solid #e2e8f0;<br>            border-radius: 16px;<br>            padding: 18px;<br>            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);<br>            margin-bottom: 20px;<br>        }<br><br>        .checkout-form-grid { display: flex; flex-direction: column; gap: 16px; }<br>        <br>        .form-input-wrapper {<br>            position: relative;<br>            display: flex;<br>            align-items: center;<br>        }<br>        .form-input-wrapper i {<br>            position: absolute;<br>            left: 14px;<br>            color: #94a3b8;<br>            font-size: 15px;<br>        }<br>        <br>        .form-input-wrapper input, .form-input-wrapper select, .form-input-wrapper textarea {<br>            width: 100%;<br>            padding: 13px 14px 13px 40px;<br>            border: 1.5px solid #e2e8f0;<br>            border-radius: 10px;<br>            font-size: 14px;<br>            font-weight: 500;<br>            outline: none;<br>            background-color: #f8fafc;<br>            color: #0f172a;<br>            transition: all 0.2s ease;<br>        }<br>        .form-input-wrapper input:focus, .form-input-wrapper select:focus, .form-input-wrapper textarea:focus {<br>            border-color: #ff4e00;<br>            background-color: #ffffff;<br>            box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.06);<br>        }<br><br>        .form-split-row {<br>            display: grid;<br>            grid-template-columns: 1fr 1fr;<br>            gap: 12px;<br>        }<br><br>        .form-input-wrapper select {<br>            appearance: none;<br>            -webkit-appearance: none;<br>            cursor: pointer;<br>        }<br><br>        .delivery-chips-group {<br>            display: flex;<br>            gap: 10px;<br>            margin-top: 4px;<br>        }<br>        .address-chip {<br>            flex: 1;<br>            padding: 11px;<br>            border: 1.5px solid #e2e8f0;<br>            border-radius: 10px;<br>            background-color: #ffffff;<br>            color: #475569;<br>            font-size: 13px;<br>            font-weight: 600;<br>            text-align: center;<br>            cursor: pointer;<br>            display: flex;<br>            align-items: center;<br>            justify-content: center;<br>            gap: 8px;<br>            transition: all 0.2s ease;<br>        }<br>        .address-chip.selected {<br>            border-color: #ff4e00;<br>            background-color: #fff4ee;<br>            color: #ff4e00;<br>        }<br><br>        .action-btn-container { margin-top: 10px; }<br>        .pro-buy-btn {<br>            width: 100%;<br>            background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);<br>            color: #ffffff;<br>            border: none;<br>            padding: 15px;<br>            font-size: 15px;<br>            font-weight: 700;<br>            border-radius: 12px;<br>            cursor: pointer;<br>            display: flex;<br>            align-items: center;<br>            justify-content: center;<br>            gap: 10px;<br>            box-shadow: 0 4px 14px rgba(255, 78, 0, 0.25);<br>            transition: all 0.2s;<br>        }<br>        .pro-buy-btn:hover { opacity: 0.95; transform: translateY(-1px); }<br><br>        .bottom-nav-bar { display: none; }<br><br>        /* --- EXCLUSIVE PRODUCTION ADMIN PANEL SYSTEM CSS --- */<br>        .admin-panel-overlay {<br>            position: fixed;<br>            top: 0;<br>            left: 0;<br>            width: 100%;<br>            height: 100%;<br>            background-color: rgba(15, 23, 42, 0.8);<br>            backdrop-filter: blur(6px);<br>            z-index: 1000000;<br>            display: none;<br>            justify-content: center;<br>            align-items: center;<br>            padding: 16px;<br>        }<br>        .admin-card {<br>            background-color: #ffffff;<br>            width: 100%;<br>            max-width: 600px;<br>            border-radius: 16px;<br>            padding: 24px;<br>            max-height: 90vh;<br>            overflow-y: auto;<br>            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);<br>        }<br>        .admin-header-row {<br>            display: flex;<br>            justify-content: space-between;<br>            align-items: center;<br>            margin-bottom: 20px;<br>            border-bottom: 2px solid #f1f5f9;<br>            padding-bottom: 12px;<br>        }<br>        .admin-input-group {<br>            margin-bottom: 14px;<br>        }<br>        .admin-input-group label {<br>            display: block;<br>            font-size: 12px;<br>            font-weight: 700;<br>            color: #475569;<br>            margin-bottom: 6px;<br>            text-transform: uppercase;<br>        }<br>        .admin-input-group input, .admin-input-group select, .admin-input-group textarea {<br>            width: 100%;<br>            padding: 10px 12px;<br>            border: 1.5px solid #cbd5e1;<br>            border-radius: 8px;<br>            outline: none;<br>            font-size: 14px;<br>        }<br>        .admin-input-group input:focus, .admin-input-group select:focus, .admin-input-group textarea:focus {<br>            border-color: #ff4e00;<br>        }<br>        .admin-action-btn {<br>            width: 100%;<br>            padding: 12px;<br>            background: #ff4e00;<br>            color: #ffffff;<br>            border: none;<br>            font-weight: 700;<br>            border-radius: 8px;<br>            cursor: pointer;<br>            margin-top: 10px;<br>        }<br>        .code-export-box {<br>            margin-top: 16px;<br>            background: #0f172a;<br>            color: #38bdf8;<br>            padding: 12px;<br>            border-radius: 8px;<br>            font-family: monospace;<br>            font-size: 11px;<br>            max-height: 150px;<br>            overflow-y: auto;<br>            display: none;<br>            white-space: pre-wrap;<br>        }<br><br>        /* --- STABLE NATIVE RESPONSIVE LOCKS --- */<br>        @media (max-width: 1024px) {<br>            .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }<br>            .sidebar-categories, .top-bar { display: none; }<br>        }<br><br>        @media (max-width: 768px) {<br>            .top-bar, .sidebar-categories, .banner-img { display: none !important; }<br>            body { padding-bottom: 74px; background-color: #f4f6f9; }<br>            header { padding: 12px 16px; gap: 12px; background-color: #ffffff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); }<br>            .logo { font-size: 25px; }<br>            .header-icons { display: flex; gap: 20px; }<br>            .header-icons div span { display: none; } <br>            .header-icons i { font-size: 22px; color: #2e3a47; }<br>            .search-container { width: 100%; max-width: 100%; height: 42px; }<br>            .search-container input { padding: 0 14px; border-radius: 8px 0 0 8px; font-size: 14px; border-color: #e2e8f0; }<br>            .search-btn { width: 52px; border-radius: 0 8px 8px 0; }<br>            .hero-section { padding: 12px 12px 4px 12px; }<br>            .main-banner { padding: 26px 20px; border-radius: 16px; }<br>            .banner-text { max-width: 100%; }<br>            .banner-text h2 { font-size: 28px; margin-bottom: 12px; }<br>            .shop-now-btn { padding: 10px 24px; font-size: 13px; border-radius: 8px; }<br><br>            .mobile-categories-scroll {<br>                display: flex;<br>                overflow-x: auto;<br>                gap: 16px;<br>                padding: 14px 16px;<br>                background-color: #ffffff;<br>                margin-bottom: 12px;<br>                border-bottom: 1px solid #e2e8f0;<br>                -webkit-overflow-scrolling: touch;<br>            }<br>            .mobile-categories-scroll::-webkit-scrollbar { display: none; }<br>            <br>            .mobile-cat-item { display: flex; flex-direction: column; align-items: center; min-width: 64px; cursor: pointer; }<br>            .mobile-cat-item .circle-icon {<br>                width: 48px;<br>                height: 48px;<br>                background-color: #f8fafc;<br>                border-radius: 12px;<br>                display: flex;<br>                align-items: center;<br>                justify-content: center;<br>                font-size: 16px;<br>                color: #475569;<br>                margin-bottom: 6px;<br>                border: 1px solid #e2e8f0;<br>            }<br>            .mobile-cat-item.active .circle-icon { <br>                background: linear-gradient(135deg, #ff6a00 0%, #ff4e00 100%);<br>                color: #ffffff; <br>                border-color: transparent;<br>                box-shadow: 0 4px 12px rgba(255, 78, 0, 0.2);<br>            }<br>            .mobile-cat-item span { font-size: 11px; font-weight: 600; color: #64748b; white-space: nowrap; }<br>            .mobile-cat-item.active span { color: #ff4e00; font-weight: 700; }<br><br>            .flash-sale-section { padding: 0 10px 30px 10px; }<br>            .section-header { margin-bottom: 14px; padding: 0 4px; }<br>            .flash-sale-title { font-size: 18px; }<br>            .timer { padding: 4px 8px; font-size: 11px; border-radius: 6px; }<br><br>            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }<br>            .product-card { padding: 0 0 10px 0; border-radius: 12px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02); border: 1px solid #e2e8f0; }<br>            <br>            .img-wrapper { aspect-ratio: 1 / 1; height: auto; margin-bottom: 10px; }<br>            .product-card img { padding: 0; }<br>            <br>            .product-title { font-size: 12px; height: 34px; margin: 0 10px 6px 10px; color: #1e293b; font-weight: 500; }<br>            .product-price { font-size: 15px; margin-left: 10px; }<br>            .old-price-row { margin: 0 10px; }<br><br>            .bottom-nav-bar {<br>                display: flex;<br>                position: fixed;<br>                bottom: 0;<br>                left: 0;<br>                width: 100%;<br>                height: 56px;<br>                background-color: rgba(255, 255, 255, 0.96);<br>                backdrop-filter: blur(10px);<br>                -webkit-backdrop-filter: blur(10px);<br>                border-top: 1px solid #e2e8f0;<br>                justify-content: space-around;<br>                align-items: center;<br>                z-index: 999;<br>                box-shadow: 0 -4px 16px rgba(0,0,0,0.03);<br>            }<br>            .bottom-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #94a3b8; font-size: 10px; font-weight: 600; text-decoration: none; width: 25%; height: 100%; }<br>            .bottom-tab i { font-size: 18px; margin-bottom: 2px; }<br>            .bottom-tab.active { color: #ff4e00; font-weight: 700; }<br>        }<br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body style="overflow: hidden;"&gt;<br><br>    &lt;div class="top-bar"&gt;<br>        &lt;div class="links"&gt;<br>            &lt;a href="#"&gt;Save More on App&lt;/a&gt;<br>            &lt;a href="#"&gt;Sell on Hamviro&lt;/a&gt;<br>            &lt;a href="#"&gt;Customer Care&lt;/a&gt;<br>            &lt;a href="#"&gt;Track My Order&lt;/a&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br><br>    &lt;header&gt;<br>        &lt;div class="header-top-row"&gt;<br>            &lt;div class="logo" id="brandLogo"&gt;Hamviro&lt;/div&gt;<br>            <br>            &lt;div class="header-icons"&gt;<br>                &lt;div onclick="alert('Wishlist option integrated!')"&gt;<br>                    &lt;i class="fa-regular fa-heart"&gt;&lt;/i&gt;<br>                    &lt;span&gt;Wishlist&lt;/span&gt;<br>                &lt;/div&gt;<br>                &lt;div onclick="alert('Cart redirection live!')"&gt;<br>                    &lt;i class="fa-solid fa-bag-shopping"&gt;&lt;/i&gt;<br>                    &lt;span&gt;Cart&lt;/span&gt;<br>                &lt;/div&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br><br>        &lt;div class="search-container"&gt;<br>            &lt;input type="text" id="searchInput" placeholder="Search premium deals..."&gt;<br>            &lt;button class="search-btn" id="searchBtn"&gt;&lt;i class="fa-solid fa-magnifying-glass"&gt;&lt;/i&gt;&lt;/button&gt;<br>        &lt;/div&gt;<br>    &lt;/header&gt;<br><br>    &lt;div class="hero-section"&gt;<br>        &lt;div class="sidebar-categories" id="desktopCats"&gt;&lt;div class="active"&gt;&lt;i class="fa-solid fa-grip"&gt;&lt;/i&gt; All Categories&lt;/div&gt;&lt;div class=""&gt;&lt;i class="fa-solid fa-desktop"&gt;&lt;/i&gt; Electronic Devices&lt;/div&gt;&lt;div class=""&gt;&lt;i class="fa-solid fa-headphones"&gt;&lt;/i&gt; Accessories&lt;/div&gt;&lt;div class=""&gt;&lt;i class="fa-solid fa-wand-magic-sparkles"&gt;&lt;/i&gt; Beauty&lt;/div&gt;&lt;div class=""&gt;&lt;i class="fa-solid fa-shirt"&gt;&lt;/i&gt; Men's Fashion&lt;/div&gt;&lt;div class=""&gt;&lt;i class="fa-solid fa-person-dress"&gt;&lt;/i&gt; Ladies' Fashion&lt;/div&gt;&lt;/div&gt;<br><br>        &lt;div class="main-banner"&gt;<br>            &lt;div class="banner-text"&gt;<br>                &lt;span&gt;EXCLUSIVE STORE&lt;/span&gt;<br>                &lt;h2&gt;Premium Deals&lt;br&gt;Direct Dispatch&lt;/h2&gt;<br>                &lt;div class="shop-now-btn" id="bannerBtn"&gt;Explore Products&lt;/div&gt;<br>            &lt;/div&gt;<br>            &lt;div class="banner-img"&gt;<br>                &lt;img src="https://images.unsplash.com/photo-1496181130204-755241524eab?auto=format&amp;amp;fit=crop&amp;amp;w=400&amp;amp;q=80" alt="Showcase System"&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br><br>    &lt;div class="mobile-categories-scroll" id="mobileCats"&gt;&lt;div class="mobile-cat-item active"&gt;&lt;div class="circle-icon"&gt;&lt;i class="fa-solid fa-grip"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;All&lt;/span&gt;&lt;/div&gt;&lt;div class="mobile-cat-item "&gt;&lt;div class="circle-icon"&gt;&lt;i class="fa-solid fa-desktop"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Electronic&lt;/span&gt;&lt;/div&gt;&lt;div class="mobile-cat-item "&gt;&lt;div class="circle-icon"&gt;&lt;i class="fa-solid fa-headphones"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Accessories&lt;/span&gt;&lt;/div&gt;&lt;div class="mobile-cat-item "&gt;&lt;div class="circle-icon"&gt;&lt;i class="fa-solid fa-wand-magic-sparkles"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Beauty&lt;/span&gt;&lt;/div&gt;&lt;div class="mobile-cat-item "&gt;&lt;div class="circle-icon"&gt;&lt;i class="fa-solid fa-shirt"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Men's&lt;/span&gt;&lt;/div&gt;&lt;div class="mobile-cat-item "&gt;&lt;div class="circle-icon"&gt;&lt;i class="fa-solid fa-person-dress"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Ladies'&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;<br><br>    &lt;div class="flash-sale-section"&gt;<br>        &lt;div class="section-header"&gt;<br>            &lt;div class="flash-sale-title"&gt;<br>                &lt;span id="sectionTitle"&gt;All Products&lt;/span&gt;<br>                &lt;span class="timer" id="liveTimer"&gt;02 : 12 : 18&lt;/span&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br><br>        &lt;div class="products-grid" id="productsContainer"&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://i.postimg.cc/C1zfksbk/MZ1354201374PACN-media-1.webp" alt="3 Pcs Women's Stitched Silk Embroidered Suit"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;3 Pcs Women's Stitched Silk Embroidered Suit&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 2,500&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 3,500&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-38%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg" alt="Women Katan Silk Printed Maxi Suit Set 3 Piece Regular"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Women Katan Silk Printed Maxi Suit Set 3 Piece Regular&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 1,924&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 2,499&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-36%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp" alt="Navy Gold Fleece Track Suit for Men Winter Slim Fit"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Navy Gold Fleece Track Suit for Men Winter Slim Fit&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 1,690&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 3,000&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-48%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://i.postimg.cc/VL8CTmzS/MZ1009200153RN-media-1.webp" alt="Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 1,690&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 3000&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-48%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp" alt="Maroon Embroidered 3-Piece Suit for Women"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Maroon Embroidered 3-Piece Suit for Women&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 3,300&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 4,500&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-28%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&amp;amp;fit=crop&amp;amp;w=400&amp;amp;q=80" alt="Realme Buds Q2 Wireless Bass-Boost Noise Isolation"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Realme Buds Q2 Wireless Bass-Boost Noise Isolation&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 3,199&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 5,499&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-42%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&amp;amp;fit=crop&amp;amp;w=400&amp;amp;q=80" alt="Advanced Niacinamide 10% Glow Face Serum"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Advanced Niacinamide 10% Glow Face Serum&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 1,850&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 2,999&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-38%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;div class="product-card"&gt;<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;amp;fit=crop&amp;amp;w=400&amp;amp;q=80" alt="Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. 3,450&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. 4,999&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;-31%&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;&lt;/div&gt;<br>    &lt;/div&gt;<br><br>    &lt;div class="modal-overlay" id="productModal"&gt;<br>        &lt;div class="modal-content"&gt;<br>            &lt;div class="close-modal" id="closeModalBtn"&gt;&lt;i class="fa-solid fa-xmark"&gt;&lt;/i&gt;&lt;/div&gt;<br>            <br>            &lt;div class="modal-img-viewer-container"&gt;<br>                &lt;div class="image-index-badge" id="imageIndexLabel"&gt;1 / 1&lt;/div&gt;<br>                <br>                &lt;div class="modal-img-holder" id="modalSliderBox"&gt;&lt;/div&gt;<br>                <br>                &lt;div class="modal-thumbnail-gallery" id="modalThumbGallery"&gt;&lt;/div&gt;<br>            &lt;/div&gt;<br><br>            &lt;h3 class="modal-title" id="modalTitle"&gt;Product Title Here&lt;/h3&gt;<br>            &lt;div class="modal-price-bar"&gt;<br>                &lt;span class="modal-price" id="modalPrice"&gt;Rs. 0&lt;/span&gt;<br>                &lt;span class="modal-old-price" id="modalOldPrice"&gt;Rs. 0&lt;/span&gt;<br>                &lt;span class="modal-badge" id="modalDiscount"&gt;-0%&lt;/span&gt;<br>            &lt;/div&gt;<br><br>            &lt;h4 class="modal-section-title"&gt;Product Details&lt;/h4&gt;<br>            &lt;div class="modal-desc" id="modalDesc"&gt;Product description text.&lt;/div&gt;<br><br>            &lt;h4 class="modal-section-title"&gt;&lt;i class="fa-solid fa-file-lines"&gt;&lt;/i&gt; Product Overview&lt;/h4&gt;<br>            &lt;div class="modal-overview-box" id="modalOverview"&gt;Product overview text details appear here...&lt;/div&gt;<br><br>            &lt;div class="modal-return-panel"&gt;<br>                &lt;div class="return-title-row"&gt;<br>                    &lt;i class="fa-solid fa-truck-ramp-box"&gt;&lt;/i&gt; Return allowed within 7 days<br>                &lt;/div&gt;<br>                &lt;div class="return-body-text"&gt;<br>                    Order ghalat, mukhtalif ya na-mukamal deliver hone ki surat mein return ki darkhast saat (7) din k andar de ja sakti hai.&lt;br&gt;&lt;br&gt;<br>                &lt;/div&gt;<br>            &lt;/div&gt;<br><br>            &lt;h4 class="modal-section-title" style="color: #ff4e00; margin-bottom: 12px;"&gt;<br>                &lt;i class="fa-solid fa-map-location-dot"&gt;&lt;/i&gt; Delivery Address (Saved Permanently)<br>            &lt;/h4&gt;<br>            <br>            &lt;div class="address-panel-box"&gt;<br>                &lt;form id="checkoutForm" class="checkout-form-grid"&gt;<br>                    &lt;div class="form-input-wrapper"&gt;<br>                        &lt;i class="fa-solid fa-user"&gt;&lt;/i&gt;<br>                        &lt;input type="text" id="custName" placeholder="Full Name (Receiver Name)" required=""&gt;<br>                    &lt;/div&gt;<br><br>                    &lt;div class="form-input-wrapper"&gt;<br>                        &lt;i class="fa-solid fa-phone"&gt;&lt;/i&gt;<br>                        &lt;input type="tel" id="custPhone" placeholder="Mobile Number (e.g. 03XXXXXXXXX)" required=""&gt;<br>                    &lt;/div&gt;<br><br>                    &lt;div class="form-split-row"&gt;<br>                        &lt;div class="form-input-wrapper"&gt;<br>                            &lt;i class="fa-solid fa-city"&gt;&lt;/i&gt;<br>                            &lt;select id="custProvince" required=""&gt;<br>                                &lt;option value="" disabled="" selected=""&gt;Province&lt;/option&gt;<br>                                &lt;option value="Punjab"&gt;Punjab&lt;/option&gt;<br>                                &lt;option value="Sindh"&gt;Sindh&lt;/option&gt;<br>                                &lt;option value="KPK"&gt;KPK&lt;/option&gt;<br>                                &lt;option value="Balochistan"&gt;Balochistan&lt;/option&gt;<br>                                &lt;option value="Islamabad"&gt;Islamabad Capital&lt;/option&gt;<br>                            &lt;/select&gt;<br>                        &lt;/div&gt;<br>                        &lt;div class="form-input-wrapper"&gt;<br>                            &lt;i class="fa-solid fa-building"&gt;&lt;/i&gt;<br>                            &lt;input type="text" id="custCity" placeholder="City Name" required=""&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br><br>                    &lt;div class="form-input-wrapper"&gt;<br>                        &lt;i class="fa-solid fa-house-chimney" style="top: 15px;"&gt;&lt;/i&gt;<br>                        &lt;textarea id="custAddress" rows="2" placeholder="House No, Street Name, Area / Sector Name" style="padding-top: 12px;" required=""&gt;&lt;/textarea&gt;<br>                    &lt;/div&gt;<br><br>                    &lt;div&gt;<br>                        &lt;div style="font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 6px; text-transform: uppercase;"&gt;Select Delivery Label:&lt;/div&gt;<br>                        &lt;div class="delivery-chips-group"&gt;<br>                            &lt;div class="address-chip selected" id="chipHome" onclick="selectAddressLabel('Home')"&gt;<br>                                &lt;i class="fa-solid fa-house"&gt;&lt;/i&gt; Home<br>                            &lt;/div&gt;<br>                            &lt;div class="address-chip" id="chipOffice" onclick="selectAddressLabel('Office')"&gt;<br>                                &lt;i class="fa-solid fa-briefcase"&gt;&lt;/i&gt; Office<br>                            &lt;/div&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br><br>                    &lt;div class="action-btn-container"&gt;<br>                        &lt;button type="submit" class="pro-buy-btn"&gt;<br>                            &lt;i class="fa-brands fa-whatsapp"&gt;&lt;/i&gt; Proceed to Order on WhatsApp<br>                        &lt;/button&gt;<br>                    &lt;/div&gt;<br>                &lt;/form&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br><br>    &lt;div class="admin-panel-overlay" id="adminOverlay" style="display: flex;"&gt;<br>        &lt;div class="admin-card"&gt;<br>            &lt;div class="admin-header-row"&gt;<br>                &lt;h3 style="color: #0f172a;"&gt;&lt;i class="fa-solid fa-user-gear"&gt;&lt;/i&gt; Hamviro Admin Studio&lt;/h3&gt;<br>                &lt;i class="fa-solid fa-xmark" style="cursor: pointer; font-size: 20px; color: #64748b;" onclick="closeAdminPanel()"&gt;&lt;/i&gt;<br>            &lt;/div&gt;<br>            &lt;form id="adminProductForm" onsubmit="handleAdminAddProduct(event)"&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Product Title&lt;/label&gt;<br>                    &lt;input type="text" id="admTitle" placeholder="e.g. Navy Gold Fleece Track Suit..." required=""&gt;<br>                &lt;/div&gt;<br>                &lt;div class="form-split-row"&gt;<br>                    &lt;div class="admin-input-group"&gt;<br>                        &lt;label&gt;Category&lt;/label&gt;<br>                        &lt;select id="admCategory" required=""&gt;<br>                            &lt;option value="men-fashion"&gt;Men's Fashion&lt;/option&gt;<br>                            &lt;option value="ladies-fashion"&gt;Ladies' Fashion&lt;/option&gt;<br>                            &lt;option value="accessories"&gt;Accessories&lt;/option&gt;<br>                            &lt;option value="beauty"&gt;Beauty&lt;/option&gt;<br>                            &lt;option value="electronic"&gt;Electronic Devices&lt;/option&gt;<br>                        &lt;/select&gt;<br>                    &lt;/div&gt;<br>                    &lt;div class="admin-input-group"&gt;<br>                        &lt;label&gt;Price (Rs.)&lt;/label&gt;<br>                        &lt;input type="text" id="admPrice" placeholder="e.g. 1,690" required=""&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;<br>                &lt;div class="form-split-row"&gt;<br>                    &lt;div class="admin-input-group"&gt;<br>                        &lt;label&gt;Old Price (Rs.)&lt;/label&gt;<br>                        &lt;input type="text" id="admOldPrice" placeholder="e.g. 3,000" required=""&gt;<br>                    &lt;/div&gt;<br>                    &lt;div class="admin-input-group"&gt;<br>                        &lt;label&gt;Discount Tag&lt;/label&gt;<br>                        &lt;input type="text" id="admDiscount" placeholder="e.g. -48%" required=""&gt;<br>                    &lt;/div&gt;<br>                &lt;/div&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Image URL 1 (Main Display)&lt;/label&gt;<br>                    &lt;input type="url" id="admImg1" placeholder="Paste image link here..." required=""&gt;<br>                &lt;/div&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Image URL 2 (Optional Slider)&lt;/label&gt;<br>                    &lt;input type="url" id="admImg2" placeholder="Paste image link here..."&gt;<br>                &lt;/div&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Image URL 3 (Optional Slider)&lt;/label&gt;<br>                    &lt;input type="url" id="admImg3" placeholder="Paste image link here..."&gt;<br>                &lt;/div&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Image URL 4 (Optional Slider)&lt;/label&gt;<br>                    &lt;input type="url" id="admImg4" placeholder="Paste image link here..."&gt;<br>                &lt;/div&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Short Description&lt;/label&gt;<br>                    &lt;textarea id="admDesc" rows="2" placeholder="Write sizing or important updates here..."&gt;&lt;/textarea&gt;<br>                &lt;/div&gt;<br>                &lt;div class="admin-input-group"&gt;<br>                    &lt;label&gt;Product Overview (Use bullet points or separate lines)&lt;/label&gt;<br>                    &lt;textarea id="admOverview" rows="4" placeholder="• Fabric: Fleece<br>• Size: Small, Medium, Large" required=""&gt;&lt;/textarea&gt;<br>                &lt;/div&gt;<br>                &lt;button type="submit" class="admin-action-btn"&gt;✨ Save Product &amp;amp; Sync System&lt;/button&gt;<br>            &lt;/form&gt;<br>            <br>            &lt;button class="admin-action-btn" id="exportBtn" style="background: #0f172a; margin-top: 12px; display: none;" onclick="copyUpdatedWebsiteCode()"&gt;📋 Copy Full Website Code for Production&lt;/button&gt;<br>            &lt;div class="code-export-box" id="codeExportBox"&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br><br>    &lt;div class="bottom-nav-bar"&gt;<br>        &lt;div class="bottom-tab active" id="homeTab"&gt;<br>            &lt;i class="fa-solid fa-house-user"&gt;&lt;/i&gt;<br>            &lt;span&gt;Home&lt;/span&gt;<br>        &lt;/div&gt;<br>        &lt;div class="bottom-tab" onclick="alert('Categories active!')"&gt;<br>            &lt;i class="fa-solid fa-border-all"&gt;&lt;/i&gt;<br>            &lt;span&gt;Categories&lt;/span&gt;<br>        &lt;/div&gt;<br>        &lt;div class="bottom-tab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"&gt;<br>            &lt;i class="fa-solid fa-arrow-up-to-line"&gt;&lt;/i&gt;<br>            &lt;span&gt;Top&lt;/span&gt;<br>        &lt;/div&gt;<br>        &lt;div class="bottom-tab" onclick="triggerSecretAdminAuth()"&gt;<br>            &lt;i class="fa-solid fa-user-lock" style="opacity: 0.4;"&gt;&lt;/i&gt;<br>            &lt;span&gt;Portal&lt;/span&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br><br>    &lt;script&gt;<br>        // --- ACTIVATED BUSINESS WHATSAPP NUMBER FRAMEWORK ---<br>        const MY_BUSINESS_WHATSAPP = "923422531403"; <br><br>        // --- PRODUCTS DATA ARRAY (UNLIMITED IMAGES &amp; OVERVIEW ARCHITECTURE) ---<br>        const PRODUCTS_DATA = [<br>            {<br>                id: 1,<br>                title: "Women Katan Silk Printed Maxi Suit Set 3 Piece Regular",<br>                category: "ladies-fashion",<br>                price: "1,924",<br>                oldPrice: "2,499",<br>                discount: "-36%",<br>                images: [<br>                    "https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg",<br>                    "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg",<br>                    "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg",<br>                    "https://i.postimg.cc/rsXqrhw5/MZ71000001ALJTC-media-3.jpg"<br>                ],<br>                description: "Premium Men's Black Sports Watch with dynamic 12-Hour Display design and ultra comfortable rubber strap system.",<br>                overview: "• Fabric: Katan Silk\n• Color: Matte Black\n• Strap Material: High-Grade Flexible Rubber\n• Water Resistance: Splash Proof\n• Weight: Lightweight Sport Ergonomics"<br>            },<br>            {<br>                id: 2,<br>                title: "Navy Gold Fleece Track Suit for Men Winter Slim Fit",<br>                category: "men-fashion",<br>                price: "1,690",<br>                oldPrice: "3,000",<br>                discount: "-48%",<br>                images: [<br>                    "https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp",<br>                    "https://i.postimg.cc/W3Gy7s2G/MZ1009200116RN-media-2.webp",<br>                    "https://i.postimg.cc/pTfSBP2B/MZ1009200116RN-media-3.webp",<br>                    "https://i.postimg.cc/FRy6xh9D/MZ1009200116RN-media-4.webp"<br>                ],<br>                description: "ISME SMALL &amp; X-LARGE SIZE AVAIBLE HY SIZE WHATSAPP PR ZARUR BATAY",<br>                overview: "• Gender: Men's \n•Fabric: Fleece \n•Pattern: Embroidered \n•Neck Type: Collar \n•Sizes: Small, Medium, Large, X-Large \n• Number Of Pieces: 2 Pcs\n•Color: Blue\n•Package Includes: 1 x Zipper Track Suit \n•Shirt Length: 25 Inches\n•Shirt Chest: 19 Inches \n•Shirt Shoulder: 5 Inches\n•Arm Length: 23 Inches \n•Trouser Length: 41 Inches\n•Trouser Waist: 34 Inches \n•Shorts Length: 25 Inches\n•Trouser Hip: 34 Inches \n•Set Composition: Includes a zip-up bomber-style jacket and matching drawstring joggers.\n•Color Palette: A deep navy blue base paired with high-contrast metallic gold accents. \n•Decorative Details: Elaborate baroque-style floral embroidery or prints on the sleeves of the jacket and the lower side of the pants."<br>            },<br>            {<br>                id: 3,<br>                title: "Audi Logo Track Suit Black Slim Fit 2-Piece Set for Men",<br>                category: "men-fashion",<br>                price: "1,690",<br>                oldPrice: "3000",<br>                discount: "-48%",<br>                images: [<br>                    "https://i.postimg.cc/VL8CTmzS/MZ1009200153RN-media-1.webp",<br>                    "https://i.postimg.cc/qMT3Y4py/MZ1009200153RN-media-2.webp",<br>                    "https://i.postimg.cc/Kv2MVxmL/MZ1009200153RN-media-3.webp",<br>                    "https://i.postimg.cc/TY6DSfTr/MZ1009200153RN-media-4.webp",<br>                    "https://i.postimg.cc/c4Snj0d3/MZ1009200153RN-media-5.webp"<br>                ],<br>                description: "",<br>                overview: "This stylish 2-piece set is perfect for the hot Pakistani summers, offering maximum breathability and comfort without sacrificing fashion. The premium cotton fabric ensures durability and softness, making it ideal for daily wear, travel, or gym sessions. The iconic ring logo design adds a bold, modern touch that suits any casual or semi-formal occasion. The set includes a short-sleeve T-shirt with a round neck and slim-fit joggers with cuffed ankles. The elastic waistband with drawstring allows for a customizable, comfortable fit. Designed for all-day wear, the breathable material keeps you cool and relaxed. Whether you’re heading to the office, meeting friends, or lounging at home, this set delivers both style and comfort. - Premium quality cotton fabric for long-lasting wear - Stylish Audi ring logo printed on chest and thigh - Breathable and soft material for all-day comfort - Elastic waistband with drawstring for adjustable fit - Slim-fit joggers with cuffed ankles for a modern look - Best price in Pakistan for this new arrival set • \n•Fabric: Cotton \n•Gender: Men's"<br>            },<br>            {<br>                id: 4,<br>                title: "Maroon Embroidered 3-Piece Suit for Women",<br>                category: "ladies-fashion",<br>                price: "3,300",<br>                oldPrice: "4,500",<br>                discount: "-28%",<br>                images: [<br>                    "https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp",<br>                    "https://i.postimg.cc/JnS2mtPq/MZ2199200260BICN-media-2.webp"<br>                ],<br>                description: "This stunning maroon embroidered suit is perfect for Eid, weddings, or any festive occasion where you want to look elegant and confident. Designed for Pakistani women who value both style and comfort, this 3-piece set combines traditional craftsmanship with modern fit, making it ideal for celebrations or special events. The rich maroon color exudes sophistication, while the intricate white embroidery adds a touch of luxury that stands out in any setting. Crafted with premium quality materials, this suit is built to last. The organza shirt and dupatta offer a light, flowing feel that’s comfortable even during long events, while the malai trousers provide a sturdy, flattering fit. The embroidery is detailed and durable, ensuring the design remains vibrant with wear. The U-neck and flared sleeves add a graceful silhouette, while the attached inner lining in the shirt ensures comfort and modesty. This set is not just stylish—it’s practical for daily wear or special occasions. - Premium Quality Organza and Malai Fabric for Long-Lasting Wear - Stylish Maroon Color with Heavy White Embroidery for Festive Appeal - Includes 1 Shirt, 1 Trouser, and 1 Dupatta for Complete Look - Perfect Fit for Pakistani Women with Standard Size Measurements - Ideal for Eid, Weddings, Parties, and Other Celebrations - New Arrival with Best Price in Pakistan for Value and Style",<br>                overview: "•Fabric: Organza \n•Pattern: Embroidered \n•Neck Type: U-Neck \n•Shirt Pattern: Embroidered \n• Trouser Fabric: Malai\n•Trouser Pattern: Embroidered \n•Dupatta Fabric: Organza \n•Dupatta Pattern: Embroidered \n•Available Sizes: Standard Size\n•Number Of Pieces: 3 Pcs \n•Package Includes: 1 x Shirt, 1 x Trouser, 1 x Dupatta \n• Shirt Length: 40 Inches\n•Shirt Chest: 21 Inches\n•Shirt Shoulder: 15 Inches \n•Arm Length: 11 Inches \n• Trouser Length: 37 Inches\n•Trouser Waist: 20 Inches\n•Trouser Hip: 24 Inches \n•Dupatta Dimensions: 2.5 Yards \n•Color: Maroon \n•Neck,Sleeves Front Heavy Embroidered Shirt With Emb Trouser Dupatta 3pec\n•Size Measurement \n•Chest Size 20/21 \n•Shirt Length 39/40 \n•Shirt Stuff Organza\n• (With Inner Attached)\n• Emb Trouser Length 39\n•Stuff Crepe \n•Embroidered Dupatta\n•Size 2.5 Yards \n•Stuff Organza \n•Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects."<br>            },<br>            {<br>                id: 5,<br>                title: "Realme Buds Q2 Wireless Bass-Boost Noise Isolation",<br>                category: "accessories",<br>                price: "3,199",<br>                oldPrice: "5,499",<br>                discount: "-42%",<br>                images: [<br>                    "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&amp;fit=crop&amp;w=400&amp;q=80"<br>                ],<br>                description: "Intense bass boost technology with 20 hours total playback time, environmental noise cancellation (ENC) for crystal clear calling.",<br>                overview: "• Playtime: Up to 20 Hours total\n• Drivers: 10mm Large Bass Boost Driver\n• Connection: Bluetooth 5.0 Instant Pair\n• Latency: 88ms Super Low Latency Gaming Mode"<br>            },<br>            {<br>                id: 6,<br>                title: "Advanced Niacinamide 10% Glow Face Serum",<br>                category: "beauty",<br>                price: "1,850",<br>                oldPrice: "2,999",<br>                discount: "-38%",<br>                images: [<br>                    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&amp;fit=crop&amp;w=400&amp;q=80"<br>                ],<br>                description: "Premium skin restoration serum formulated with 10% Pure Niacinamide and Zinc PCA.",<br>                overview: "• Net Volume: 30ml\n• Skin Type: Suitable for all skin profiles\n• Key Benefits: Minimizes pores, clears blemishes, regulates sebum flow"<br>            },<br>            {<br>                id: 7,<br>                title: "Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit",<br>                category: "ladies-fashion",<br>                price: "3,450",<br>                oldPrice: "4,999",<br>                discount: "-31%",<br>                images: [<br>                    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&amp;fit=crop&amp;w=400&amp;q=80"<br>                ],<br>                description: "Premium collection luxury embroidered lawn suit with pure chiffon dupatta and dyed trousers.",<br>                overview: "• Fabric: High-density Summer Lawn\n• Pieces: 3 Piece Unstitched Combo\n• Dupatta: Pure Chiffon Embroidered\n• Shirt: Heavy Front Neckline Work"<br>            }<br>        ];<br><br>        // --- CATEGORIES LIST FRAMEWORK ---<br>        const CATEGORIES = [<br>            { id: "all", name: "All Categories", icon: "fa-grip" },<br>            { id: "electronic", name: "Electronic Devices", icon: "fa-desktop" },<br>            { id: "accessories", name: "Accessories", icon: "fa-headphones" },<br>            { id: "beauty", name: "Beauty", icon: "fa-wand-magic-sparkles" },<br>            { id: "men-fashion", name: "Men's Fashion", icon: "fa-shirt" },<br>            { id: "ladies-fashion", name: "Ladies' Fashion", icon: "fa-person-dress" }<br>        ];<br><br>        let selectedCategory = "all";<br>        let activeProduct = null;<br>        let selectedLabel = "Home"; <br><br>        function renderCategories() {<br>            const desktopBox = document.getElementById("desktopCats");<br>            const mobileBox = document.getElementById("mobileCats");<br>            desktopBox.innerHTML = ""; mobileBox.innerHTML = "";<br><br>            CATEGORIES.forEach(cat =&gt; {<br>                const dDiv = document.createElement("div");<br>                dDiv.className = cat.id === selectedCategory ? "active" : "";<br>                dDiv.innerHTML = `&lt;i class="fa-solid ${cat.icon}"&gt;&lt;/i&gt; ${cat.name}`;<br>                dDiv.onclick = () =&gt; filterCategory(cat.id);<br>                desktopBox.appendChild(dDiv);<br><br>                const mDiv = document.createElement("div");<br>                mDiv.className = `mobile-cat-item ${cat.id === selectedCategory ? 'active' : ''}`;<br>                mDiv.innerHTML = `&lt;div class="circle-icon"&gt;&lt;i class="fa-solid ${cat.icon}"&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;${cat.name.split(' ')[0]}&lt;/span&gt;`;<br>                mDiv.onclick = () =&gt; filterCategory(cat.id);<br>                mobileBox.appendChild(mDiv);<br>            });<br>        }<br><br>        function renderProducts(productsToRender) {<br>            const container = document.getElementById("productsContainer");<br>            container.innerHTML = "";<br>            productsToRender.forEach(prod =&gt; {<br>                const card = document.createElement("div");<br>                card.className = "product-card";<br>                card.onclick = () =&gt; openProductDetails(prod);<br>                card.innerHTML = `<br>                    &lt;div class="img-wrapper"&gt;&lt;img src="${prod.images[0]}" alt="${prod.title}"&gt;&lt;/div&gt;<br>                    &lt;div class="product-title"&gt;${prod.title}&lt;/div&gt;<br>                    &lt;div class="price-container"&gt;<br>                        &lt;span class="product-price"&gt;Rs. ${prod.price}&lt;/span&gt;<br>                        &lt;div class="old-price-row"&gt;<br>                            &lt;span class="old-price"&gt;Rs. ${prod.oldPrice}&lt;/span&gt;<br>                            &lt;span class="discount-tag"&gt;${prod.discount}&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                `;<br>                container.appendChild(card);<br>            });<br>        }<br><br>        function selectAddressLabel(labelType) {<br>            selectedLabel = labelType;<br>            document.getElementById("chipHome").classList.remove("selected");<br>            document.getElementById("chipOffice").classList.remove("selected");<br>            if(labelType === 'Home') document.getElementById("chipHome").classList.add("selected");<br>            else document.getElementById("chipOffice").classList.add("selected");<br>        }<br><br>        // --- CAROUSEL ENGINE INTEGRATED WITH OVERVIEW LOCK ---<br>        function openProductDetails(product) {<br>            activeProduct = product;<br>            <br>            document.getElementById("modalTitle").innerText = product.title;<br>            document.getElementById("modalPrice").innerText = `Rs. ${product.price}`;<br>            document.getElementById("modalOldPrice").innerText = `Rs. ${product.oldPrice}`;<br>            document.getElementById("modalDiscount").innerText = product.discount;<br>            document.getElementById("modalDesc").innerText = product.description;<br>            <br>            // Render Dynamic Overview or Default Text if Empty<br>            document.getElementById("modalOverview").innerText = product.overview || "No overview details listed for this item.";<br><br>            const sliderBox = document.getElementById("modalSliderBox");<br>            sliderBox.innerHTML = "";<br>            <br>            product.images.forEach((imgUrl) =&gt; {<br>                const slide = document.createElement("div");<br>                slide.className = "modal-slide-item";<br>                slide.innerHTML = `&lt;img src="${imgUrl}" alt=""&gt;`;<br>                sliderBox.appendChild(slide);<br>            });<br><br>            document.getElementById("imageIndexLabel").innerText = `1 / ${product.images.length}`;<br><br>            const thumbGallery = document.getElementById("modalThumbGallery");<br>            thumbGallery.innerHTML = "";<br>            <br>            if(product.images.length &gt; 1) {<br>                thumbGallery.style.display = "flex";<br>                product.images.forEach((imgUrl, idx) =&gt; {<br>                    const thumb = document.createElement("div");<br>                    thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;<br>                    thumb.id = `modal-thumb-${idx}`;<br>                    thumb.innerHTML = `&lt;img src="${imgUrl}" alt=""&gt;`;<br>                    <br>                    thumb.onclick = function() {<br>                        const width = sliderBox.clientWidth;<br>                        sliderBox.scrollTo({ left: width * idx, behavior: 'smooth' });<br>                        updateActiveThumbnail(idx);<br>                    };<br>                    thumbGallery.appendChild(thumb);<br>                });<br>            } else {<br>                thumbGallery.style.display = "none";<br>            }<br><br>            sliderBox.onscroll = function() {<br>                const width = sliderBox.clientWidth;<br>                if(width === 0) return;<br>                const activeIndex = Math.round(sliderBox.scrollLeft / width);<br>                document.getElementById("imageIndexLabel").innerText = `${activeIndex + 1} / ${product.images.length}`;<br>                updateActiveThumbnail(activeIndex);<br>            };<br><br>            if(localStorage.getItem("hamviro_pro_name")) {<br>                document.getElementById("custName").value = localStorage.getItem("hamviro_pro_name");<br>                document.getElementById("custPhone").value = localStorage.getItem("hamviro_pro_phone");<br>                document.getElementById("custProvince").value = localStorage.getItem("hamviro_pro_province");<br>                document.getElementById("custCity").value = localStorage.getItem("hamviro_pro_city");<br>                document.getElementById("custAddress").value = localStorage.getItem("hamviro_pro_address");<br>                selectAddressLabel(localStorage.getItem("hamviro_pro_label") || "Home");<br>            }<br><br>            document.getElementById("productModal").style.display = "flex";<br>            document.body.style.overflow = "hidden";<br>            <br>            setTimeout(() =&gt; { sliderBox.scrollLeft = 0; }, 50);<br>        }<br><br>        function updateActiveThumbnail(index) {<br>            document.querySelectorAll('.thumb-item').forEach(t =&gt; t.classList.remove('active'));<br>            const currentThumb = document.getElementById(`modal-thumb-${index}`);<br>            if(currentThumb) currentThumb.classList.add('active');<br>        }<br><br>        function closeModal() {<br>            document.getElementById("productModal").style.display = "none";<br>            document.body.style.overflow = "auto";<br>        }<br><br>        document.getElementById("checkoutForm").onsubmit = function(e) {<br>            e.preventDefault();<br><br>            const name = document.getElementById("custName").value.trim();<br>            const phone = document.getElementById("custPhone").value.trim();<br>            const province = document.getElementById("custProvince").value;<br>            const city = document.getElementById("custCity").value.trim();<br>            const address = document.getElementById("custAddress").value.trim();<br><br>            localStorage.setItem("hamviro_pro_name", name);<br>            localStorage.setItem("hamviro_pro_phone", phone);<br>            localStorage.setItem("hamviro_pro_province", province);<br>            localStorage.setItem("hamviro_pro_city", city);<br>            localStorage.setItem("hamviro_pro_address", address);<br>            localStorage.setItem("hamviro_pro_label", selectedLabel);<br><br>            const textBill = `📦 *NEW ORDER - HAMVIRO*\n\n` +<br>                             `⚙️ *PRODUCT SPECIFICATION:*\n` +<br>                             `• *Item:* ${activeProduct.title}\n` +<br>                             `• *Selling Price:* Rs. ${activeProduct.price}\n` +<br>                             `• *Product Image:* ${activeProduct.images[0]}\n\n` +<br>                             `🚚 *SHIPPING ADDRESS DETAILS:*\n` +<br>                             `• *Receiver Name:* ${name}\n` +<br>                             `• *Contact Number:* ${phone}\n` +<br>                             `• *Province:* ${province}\n` +<br>                             `• *City:* ${city}\n` +<br>                             `• *Full Address:* ${address}\n` +<br>                             `• *Address Tag:* [ ${selectedLabel.toUpperCase()} ]\n\n` +<br>                             `⚡ _Order process karne ke liye detail verify karden._`;<br><br>            const encodedMsg = encodeURIComponent(textBill);<br>            const nativeWhatsAppUrl = `https://wa.me/${MY_BUSINESS_WHATSAPP}?text=${encodedMsg}`;<br><br>            closeModal();<br>            window.open(nativeWhatsAppUrl, '_blank');<br>        };<br><br>        document.getElementById("closeModalBtn").onclick = closeModal;<br>        document.getElementById("productModal").onclick = function(e) { if(e.target === this) closeModal(); };<br><br>        function filterCategory(catId) {<br>            selectedCategory = catId; renderCategories();<br>            document.getElementById("sectionTitle").innerText = catId === "all" ? "All Products" : `${catId.charAt(0).toUpperCase() + catId.slice(1).replace('-', ' ')} Deals`;<br>            if(catId === "all") renderProducts(PRODUCTS_DATA);<br>            else renderProducts(PRODUCTS_DATA.filter(p =&gt; p.category === catId));<br>        }<br><br>        function executeSearch() {<br>            const query = document.getElementById("searchInput").value.toLowerCase().trim();<br>            if(query === "") { filterCategory("all"); return; }<br>            renderProducts(PRODUCTS_DATA.filter(p =&gt; p.title.toLowerCase().includes(query)));<br>        }<br><br>        document.getElementById("searchBtn").onclick = executeSearch;<br>        document.getElementById("searchInput").onkeyup = (e) =&gt; { if(e.key === "Enter") executeSearch(); };<br>        document.getElementById("brandLogo").onclick = () =&gt; { filterCategory("all"); document.getElementById("searchInput").value=""; };<br>        document.getElementById("homeTab").onclick = () =&gt; { filterCategory("all"); document.getElementById("searchInput").value=""; };<br>        document.getElementById("bannerBtn").onclick = () =&gt; { window.scrollTo({top: document.getElementById("productsContainer").offsetTop - 100, behavior: "smooth"}); };<br><br>        function runCountdown() {<br>            let hours = 2, minutes = 14, seconds = 20;<br>            setInterval(() =&gt; {<br>                seconds--;<br>                if(seconds &lt; 0) { seconds = 59; minutes--; }<br>                if(minutes &lt; 0) { minutes = 59; hours--; }<br>                document.getElementById("liveTimer").innerText = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;<br>            }, 1000);<br>        }<br><br>        /* --- EXCLUSIVE NATIVE CODE INJECTION FOR PRO ADMIN STUDIO ENGINE --- */<br>        function triggerSecretAdminAuth() {<br>            const pass = prompt("Enter Secret Admin Authentication Key:");<br>            if (pass === "admin123") {<br>                document.getElementById("adminOverlay").style.display = "flex";<br>                document.body.style.overflow = "hidden";<br>            } else if (pass !== null) {<br>                alert("Access Denied. Wrong Security Token.");<br>            }<br>        }<br><br>        function closeAdminPanel() {<br>            document.getElementById("adminOverlay").style.display = "none";<br>            document.body.style.overflow = "auto";<br>        }<br><br>        function handleAdminAddProduct(e) {<br>            e.preventDefault();<br>            <br>            const imgs = [];<br>            const img1 = document.getElementById("admImg1").value.trim();<br>            const img2 = document.getElementById("admImg2").value.trim();<br>            const img3 = document.getElementById("admImg3").value.trim();<br>            const img4 = document.getElementById("admImg4").value.trim();<br>            <br>            if(img1) imgs.push(img1);<br>            if(img2) imgs.push(img2);<br>            if(img3) imgs.push(img3);<br>            if(img4) imgs.push(img4);<br><br>            const newProduct = {<br>                id: PRODUCTS_DATA.length + 1,<br>                title: document.getElementById("admTitle").value.trim(),<br>                category: document.getElementById("admCategory").value,<br>                price: document.getElementById("admPrice").value.trim(),<br>                oldPrice: document.getElementById("admOldPrice").value.trim(),<br>                discount: document.getElementById("admDiscount").value.trim(),<br>                images: imgs,<br>                description: document.getElementById("admDesc").value.trim(),<br>                overview: document.getElementById("admOverview").value.trim()<br>            };<br><br>            // Insert into local runtime array to preview instantly<br>            PRODUCTS_DATA.unshift(newProduct);<br>            filterCategory("all");<br>            <br>            // Format array explicitly to update source code securely<br>            const formattedArrayText = JSON.stringify(PRODUCTS_DATA, null, 12);<br>            <br>            // Generate full clean updated code structure<br>            let currentFullSource = document.documentElement.outerHTML;<br>            <br>            // Clean dynamic injection traces for clean export code<br>            const exportBox = document.getElementById("codeExportBox");<br>            const exportBtn = document.getElementById("exportBtn");<br>            <br>            exportBox.innerText = `&lt;!DOCTYPE html&gt;\n&lt;html lang="en"&gt;\n` + document.documentElement.innerHTML + `\n&lt;/html&gt;`;<br>            exportBox.style.display = "block";<br>            exportBtn.style.display = "block";<br>            <br>            alert("Success! Product synchronized to screen preview. Now click the black button below to copy your production ready file code!");<br>        }<br><br>        function copyUpdatedWebsiteCode() {<br>            const codeText = document.getElementById("codeExportBox").innerText;<br>            navigator.clipboard.writeText(codeText).then(() =&gt; {<br>                alert("Excellent! Your updated production index.html code is copied to clipboard. Paste this into your file on GitHub/Netlify/Hosting panel and the changes are permanent!");<br>                closeAdminPanel();<br>            }).catch(err =&gt; {<br>                alert("Error copying code. Please select the text inside the black box manually and copy it.");<br>            });<br>        }<br><br>        window.onload = () =&gt; { renderCategories(); renderProducts(PRODUCTS_DATA); runCountdown(); };<br>    &lt;/script&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</div>
+            <div class="code-export-box" id="codeExportBox"></div>
         </div>
     </div>
 
     <div class="bottom-nav-bar">
-        <div class="bottom-tab active" id="homeTab">
-            <i class="fa-solid fa-house-user"></i>
-            <span>Home</span>
-        </div>
-        <div class="bottom-tab" onclick="alert('Categories active!')">
-            <i class="fa-solid fa-border-all"></i>
-            <span>Categories</span>
-        </div>
-        <div class="bottom-tab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
-            <i class="fa-solid fa-arrow-up-to-line"></i>
-            <span>Top</span>
-        </div>
-        <div class="bottom-tab" onclick="triggerSecretAdminAuth()">
-            <i class="fa-solid fa-user-lock" style="opacity: 0.4;"></i>
-            <span>Portal</span>
-        </div>
+        <div class="bottom-tab active" id="homeTab"><i class="fa-solid fa-house-user"></i><span>Home</span></div>
+        <div class="bottom-tab" onclick="alert('Categories active!')"><i class="fa-solid fa-border-all"></i><span>Categories</span></div>
+        <div class="bottom-tab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"><i class="fa-solid fa-arrow-up-to-line"></i><span>Top</span></div>
+        <div class="bottom-tab" onclick="triggerSecretAdminAuth()"><i class="fa-solid fa-user-lock" style="opacity: 0.4;"></i><span>Portal</span></div>
     </div>
 
     <script>
-        // --- ACTIVATED BUSINESS WHATSAPP NUMBER FRAMEWORK ---
         const MY_BUSINESS_WHATSAPP = "923422531403"; 
 
-        // --- PRODUCTS DATA ARRAY (UNLIMITED IMAGES & OVERVIEW ARCHITECTURE) ---
+        // ==========================================
+        // KHABARDAAR: APNE NAYE PRODUCTS KA CODE NICHY WALI LINE KE FAURAN BAAD PASTE KAREIN!
+        // ==========================================
         const PRODUCTS_DATA = [
             {
                 id: 1,
@@ -1117,14 +627,9 @@
                 price: "1,924",
                 oldPrice: "2,499",
                 discount: "-36%",
-                images: [
-                    "https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg",
-                    "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg",
-                    "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg",
-                    "https://i.postimg.cc/rsXqrhw5/MZ71000001ALJTC-media-3.jpg"
-                ],
-                description: "Premium Men's Black Sports Watch with dynamic 12-Hour Display design and ultra comfortable rubber strap system.",
-                overview: "• Fabric: Katan Silk\n• Color: Matte Black\n• Strap Material: High-Grade Flexible Rubber\n• Water Resistance: Splash Proof\n• Weight: Lightweight Sport Ergonomics"
+                images: ["https://i.postimg.cc/zvZqgdG1/MZ71000001ALJTC-media-1.jpg", "https://i.postimg.cc/mkfTHdgQ/MZ71000001ALJTC-media-2.jpg", "https://i.postimg.cc/rsXqrhw5/MZ71000001ALJTC-media-3.jpg"],
+                description: "Premium Silk Maxi Outfit.",
+                overview: "• Fabric: Katan Silk\n• Color: Beautiful Print\n• Standard Fit"
             },
             {
                 id: 2,
@@ -1133,14 +638,9 @@
                 price: "1,690",
                 oldPrice: "3,000",
                 discount: "-48%",
-                images: [
-                    "https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp",
-                    "https://i.postimg.cc/W3Gy7s2G/MZ1009200116RN-media-2.webp",
-                    "https://i.postimg.cc/pTfSBP2B/MZ1009200116RN-media-3.webp",
-                    "https://i.postimg.cc/FRy6xh9D/MZ1009200116RN-media-4.webp"
-                ],
+                images: ["https://i.postimg.cc/HxwNtTp5/MZ1009200116RN-media-1.webp", "https://i.postimg.cc/W3Gy7s2G/MZ1009200116RN-media-2.webp", "https://i.postimg.cc/pTfSBP2B/MZ1009200116RN-media-3.webp"],
                 description: "ISME SMALL & X-LARGE SIZE AVAIBLE HY SIZE WHATSAPP PR ZARUR BATAY",
-                overview: "• Gender: Men's \n•Fabric: Fleece \n•Pattern: Embroidered \n•Neck Type: Collar \n•Sizes: Small, Medium, Large, X-Large \n• Number Of Pieces: 2 Pcs\n•Color: Blue\n•Package Includes: 1 x Zipper Track Suit \n•Shirt Length: 25 Inches\n•Shirt Chest: 19 Inches \n•Shirt Shoulder: 5 Inches\n•Arm Length: 23 Inches \n•Trouser Length: 41 Inches\n•Trouser Waist: 34 Inches \n•Shorts Length: 25 Inches\n•Trouser Hip: 34 Inches \n•Set Composition: Includes a zip-up bomber-style jacket and matching drawstring joggers.\n•Color Palette: A deep navy blue base paired with high-contrast metallic gold accents. \n•Decorative Details: Elaborate baroque-style floral embroidery or prints on the sleeves of the jacket and the lower side of the pants."
+                overview: "• Gender: Men's \n• Fabric: Fleece \n• Sizes: Small, Medium, Large"
             },
             {
                 id: 3,
@@ -1149,15 +649,9 @@
                 price: "1,690",
                 oldPrice: "3000",
                 discount: "-48%",
-                images: [
-                    "https://i.postimg.cc/VL8CTmzS/MZ1009200153RN-media-1.webp",
-                    "https://i.postimg.cc/qMT3Y4py/MZ1009200153RN-media-2.webp",
-                    "https://i.postimg.cc/Kv2MVxmL/MZ1009200153RN-media-3.webp",
-                    "https://i.postimg.cc/TY6DSfTr/MZ1009200153RN-media-4.webp",
-                    "https://i.postimg.cc/c4Snj0d3/MZ1009200153RN-media-5.webp"
-                ],
-                description: "",
-                overview: "This stylish 2-piece set is perfect for the hot Pakistani summers, offering maximum breathability and comfort without sacrificing fashion. The premium cotton fabric ensures durability and softness, making it ideal for daily wear, travel, or gym sessions. The iconic ring logo design adds a bold, modern touch that suits any casual or semi-formal occasion. The set includes a short-sleeve T-shirt with a round neck and slim-fit joggers with cuffed ankles. The elastic waistband with drawstring allows for a customizable, comfortable fit. Designed for all-day wear, the breathable material keeps you cool and relaxed. Whether you’re heading to the office, meeting friends, or lounging at home, this set delivers both style and comfort. - Premium quality cotton fabric for long-lasting wear - Stylish Audi ring logo printed on chest and thigh - Breathable and soft material for all-day comfort - Elastic waistband with drawstring for adjustable fit - Slim-fit joggers with cuffed ankles for a modern look - Best price in Pakistan for this new arrival set • \n•Fabric: Cotton \n•Gender: Men's"
+                images: ["https://i.postimg.cc/VL8CTmzS/MZ1009200153RN-media-1.webp", "https://i.postimg.cc/qMT3Y4py/MZ1009200153RN-media-2.webp"],
+                description: "Premium stretchable summer suit.",
+                overview: "• Fabric: Cotton\n• Design: Audi Logo Printed"
             },
             {
                 id: 4,
@@ -1166,55 +660,12 @@
                 price: "3,300",
                 oldPrice: "4,500",
                 discount: "-28%",
-                images: [
-                    "https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp",
-                    "https://i.postimg.cc/JnS2mtPq/MZ2199200260BICN-media-2.webp"
-                ],
-                description: "This stunning maroon embroidered suit is perfect for Eid, weddings, or any festive occasion where you want to look elegant and confident. Designed for Pakistani women who value both style and comfort, this 3-piece set combines traditional craftsmanship with modern fit, making it ideal for celebrations or special events. The rich maroon color exudes sophistication, while the intricate white embroidery adds a touch of luxury that stands out in any setting. Crafted with premium quality materials, this suit is built to last. The organza shirt and dupatta offer a light, flowing feel that’s comfortable even during long events, while the malai trousers provide a sturdy, flattering fit. The embroidery is detailed and durable, ensuring the design remains vibrant with wear. The U-neck and flared sleeves add a graceful silhouette, while the attached inner lining in the shirt ensures comfort and modesty. This set is not just stylish—it’s practical for daily wear or special occasions. - Premium Quality Organza and Malai Fabric for Long-Lasting Wear - Stylish Maroon Color with Heavy White Embroidery for Festive Appeal - Includes 1 Shirt, 1 Trouser, and 1 Dupatta for Complete Look - Perfect Fit for Pakistani Women with Standard Size Measurements - Ideal for Eid, Weddings, Parties, and Other Celebrations - New Arrival with Best Price in Pakistan for Value and Style",
-                overview: "•Fabric: Organza \n•Pattern: Embroidered \n•Neck Type: U-Neck \n•Shirt Pattern: Embroidered \n• Trouser Fabric: Malai\n•Trouser Pattern: Embroidered \n•Dupatta Fabric: Organza \n•Dupatta Pattern: Embroidered \n•Available Sizes: Standard Size\n•Number Of Pieces: 3 Pcs \n•Package Includes: 1 x Shirt, 1 x Trouser, 1 x Dupatta \n• Shirt Length: 40 Inches\n•Shirt Chest: 21 Inches\n•Shirt Shoulder: 15 Inches \n•Arm Length: 11 Inches \n• Trouser Length: 37 Inches\n•Trouser Waist: 20 Inches\n•Trouser Hip: 24 Inches \n•Dupatta Dimensions: 2.5 Yards \n•Color: Maroon \n•Neck,Sleeves Front Heavy Embroidered Shirt With Emb Trouser Dupatta 3pec\n•Size Measurement \n•Chest Size 20/21 \n•Shirt Length 39/40 \n•Shirt Stuff Organza\n• (With Inner Attached)\n• Emb Trouser Length 39\n•Stuff Crepe \n•Embroidered Dupatta\n•Size 2.5 Yards \n•Stuff Organza \n•Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects."
-            },
-            {
-                id: 5,
-                title: "Realme Buds Q2 Wireless Bass-Boost Noise Isolation",
-                category: "accessories",
-                price: "3,199",
-                oldPrice: "5,499",
-                discount: "-42%",
-                images: [
-                    "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80"
-                ],
-                description: "Intense bass boost technology with 20 hours total playback time, environmental noise cancellation (ENC) for crystal clear calling.",
-                overview: "• Playtime: Up to 20 Hours total\n• Drivers: 10mm Large Bass Boost Driver\n• Connection: Bluetooth 5.0 Instant Pair\n• Latency: 88ms Super Low Latency Gaming Mode"
-            },
-            {
-                id: 6,
-                title: "Advanced Niacinamide 10% Glow Face Serum",
-                category: "beauty",
-                price: "1,850",
-                oldPrice: "2,999",
-                discount: "-38%",
-                images: [
-                    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80"
-                ],
-                description: "Premium skin restoration serum formulated with 10% Pure Niacinamide and Zinc PCA.",
-                overview: "• Net Volume: 30ml\n• Skin Type: Suitable for all skin profiles\n• Key Benefits: Minimizes pores, clears blemishes, regulates sebum flow"
-            },
-            {
-                id: 7,
-                title: "Ladies Premium Embroidered Lawn 3-Piece Unstitched Suit",
-                category: "ladies-fashion",
-                price: "3,450",
-                oldPrice: "4,999",
-                discount: "-31%",
-                images: [
-                    "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=400&q=80"
-                ],
-                description: "Premium collection luxury embroidered lawn suit with pure chiffon dupatta and dyed trousers.",
-                overview: "• Fabric: High-density Summer Lawn\n• Pieces: 3 Piece Unstitched Combo\n• Dupatta: Pure Chiffon Embroidered\n• Shirt: Heavy Front Neckline Work"
+                images: ["https://i.postimg.cc/wBfrfwJz/MZ2199200260BICN-media-1.webp", "https://i.postimg.cc/JnS2mtPq/MZ2199200260BICN-media-2.webp"],
+                description: "Traditional maroon embroidery work dress.",
+                overview: "• Fabric: Organza & Malai\n• Number of Pieces: 3 Pcs"
             }
         ];
 
-        // --- CATEGORIES LIST FRAMEWORK ---
         const CATEGORIES = [
             { id: "all", name: "All Categories", icon: "fa-grip" },
             { id: "electronic", name: "Electronic Devices", icon: "fa-desktop" },
@@ -1224,242 +675,107 @@
             { id: "ladies-fashion", name: "Ladies' Fashion", icon: "fa-person-dress" }
         ];
 
-        let selectedCategory = "all";
-        let activeProduct = null;
-        let selectedLabel = "Home"; 
+        let selectedCategory = "all"; let activeProduct = null; let selectedLabel = "Home";
 
         function renderCategories() {
-            const desktopBox = document.getElementById("desktopCats");
-            const mobileBox = document.getElementById("mobileCats");
-            desktopBox.innerHTML = ""; mobileBox.innerHTML = "";
-
+            const dBox = document.getElementById("desktopCats"); const mBox = document.getElementById("mobileCats");
+            dBox.innerHTML = ""; mBox.innerHTML = "";
             CATEGORIES.forEach(cat => {
-                const dDiv = document.createElement("div");
-                dDiv.className = cat.id === selectedCategory ? "active" : "";
-                dDiv.innerHTML = `<i class="fa-solid ${cat.icon}"></i> ${cat.name}`;
-                dDiv.onclick = () => filterCategory(cat.id);
-                desktopBox.appendChild(dDiv);
-
-                const mDiv = document.createElement("div");
-                mDiv.className = `mobile-cat-item ${cat.id === selectedCategory ? 'active' : ''}`;
-                mDiv.innerHTML = `<div class="circle-icon"><i class="fa-solid ${cat.icon}"></i></div><span>${cat.name.split(' ')[0]}</span>`;
-                mDiv.onclick = () => filterCategory(cat.id);
-                mobileBox.appendChild(mDiv);
+                const dDiv = document.createElement("div"); dDiv.className = cat.id === selectedCategory ? "active" : ""; dDiv.innerHTML = `<i class="fa-solid ${cat.icon}"></i> ${cat.name}`; dDiv.onclick = () => filterCategory(cat.id); dBox.appendChild(dDiv);
+                const mDiv = document.createElement("div"); mDiv.className = `mobile-cat-item ${cat.id === selectedCategory ? 'active' : ''}`; mDiv.innerHTML = `<div class="circle-icon"><i class="fa-solid ${cat.icon}"></i></div><span>${cat.name.split(' ')[0]}</span>`; mDiv.onclick = () => filterCategory(cat.id); mBox.appendChild(mDiv);
             });
         }
 
         function renderProducts(productsToRender) {
-            const container = document.getElementById("productsContainer");
-            container.innerHTML = "";
+            const container = document.getElementById("productsContainer"); container.innerHTML = "";
             productsToRender.forEach(prod => {
-                const card = document.createElement("div");
-                card.className = "product-card";
-                card.onclick = () => openProductDetails(prod);
-                card.innerHTML = `
-                    <div class="img-wrapper"><img src="${prod.images[0]}" alt="${prod.title}"></div>
-                    <div class="product-title">${prod.title}</div>
-                    <div class="price-container">
-                        <span class="product-price">Rs. ${prod.price}</span>
-                        <div class="old-price-row">
-                            <span class="old-price">Rs. ${prod.oldPrice}</span>
-                            <span class="discount-tag">${prod.discount}</span>
-                        </div>
-                    </div>
-                `;
+                const card = document.createElement("div"); card.className = "product-card"; card.onclick = () => openProductDetails(prod);
+                card.innerHTML = `<div class="img-wrapper"><img src="${prod.images[0]}"></div><div class="product-title">${prod.title}</div><div class="price-container"><span class="product-price">Rs. ${prod.price}</span><div class="old-price-row"><span class="old-price">Rs. ${prod.oldPrice}</span><span class="discount-tag">${prod.discount}</span></div></div>`;
                 container.appendChild(card);
             });
         }
 
-        function selectAddressLabel(labelType) {
-            selectedLabel = labelType;
-            document.getElementById("chipHome").classList.remove("selected");
-            document.getElementById("chipOffice").classList.remove("selected");
-            if(labelType === 'Home') document.getElementById("chipHome").classList.add("selected");
-            else document.getElementById("chipOffice").classList.add("selected");
-        }
-
-        // --- CAROUSEL ENGINE INTEGRATED WITH OVERVIEW LOCK ---
         function openProductDetails(product) {
             activeProduct = product;
-            
             document.getElementById("modalTitle").innerText = product.title;
             document.getElementById("modalPrice").innerText = `Rs. ${product.price}`;
             document.getElementById("modalOldPrice").innerText = `Rs. ${product.oldPrice}`;
             document.getElementById("modalDiscount").innerText = product.discount;
             document.getElementById("modalDesc").innerText = product.description;
-            
-            // Render Dynamic Overview or Default Text if Empty
-            document.getElementById("modalOverview").innerText = product.overview || "No overview details listed for this item.";
+            document.getElementById("modalOverview").innerText = product.overview || "";
 
-            const sliderBox = document.getElementById("modalSliderBox");
-            sliderBox.innerHTML = "";
-            
-            product.images.forEach((imgUrl) => {
-                const slide = document.createElement("div");
-                slide.className = "modal-slide-item";
-                slide.innerHTML = `<img src="${imgUrl}" alt="">`;
-                sliderBox.appendChild(slide);
-            });
-
+            const sliderBox = document.getElementById("modalSliderBox"); sliderBox.innerHTML = "";
+            product.images.forEach(img => { sliderBox.innerHTML += `<div class="modal-slide-item"><img src="${img}"></div>`; });
             document.getElementById("imageIndexLabel").innerText = `1 / ${product.images.length}`;
 
-            const thumbGallery = document.getElementById("modalThumbGallery");
-            thumbGallery.innerHTML = "";
-            
+            const tg = document.getElementById("modalThumbGallery"); tg.innerHTML = "";
             if(product.images.length > 1) {
-                thumbGallery.style.display = "flex";
-                product.images.forEach((imgUrl, idx) => {
-                    const thumb = document.createElement("div");
-                    thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-                    thumb.id = `modal-thumb-${idx}`;
-                    thumb.innerHTML = `<img src="${imgUrl}" alt="">`;
-                    
-                    thumb.onclick = function() {
-                        const width = sliderBox.clientWidth;
-                        sliderBox.scrollTo({ left: width * idx, behavior: 'smooth' });
-                        updateActiveThumbnail(idx);
-                    };
-                    thumbGallery.appendChild(thumb);
+                tg.style.display = "flex";
+                product.images.forEach((img, idx) => {
+                    tg.innerHTML += `<div class="thumb-item ${idx===0?'active':''}" id="modal-thumb-${idx}" onclick="document.getElementById('modalSliderBox').scrollTo({left: document.getElementById('modalSliderBox').clientWidth * ${idx}, behavior: 'smooth'}); updateActiveThumbnail(${idx});"><img src="${img}"></div>`;
                 });
-            } else {
-                thumbGallery.style.display = "none";
-            }
+            } else { tg.style.display = "none"; }
 
             sliderBox.onscroll = function() {
-                const width = sliderBox.clientWidth;
-                if(width === 0) return;
-                const activeIndex = Math.round(sliderBox.scrollLeft / width);
-                document.getElementById("imageIndexLabel").innerText = `${activeIndex + 1} / ${product.images.length}`;
-                updateActiveThumbnail(activeIndex);
+                const w = sliderBox.clientWidth; if(w === 0) return;
+                const idx = Math.round(sliderBox.scrollLeft / w);
+                document.getElementById("imageIndexLabel").innerText = `${idx + 1} / ${product.images.length}`;
+                updateActiveThumbnail(idx);
             };
-
-            if(localStorage.getItem("hamviro_pro_name")) {
-                document.getElementById("custName").value = localStorage.getItem("hamviro_pro_name");
-                document.getElementById("custPhone").value = localStorage.getItem("hamviro_pro_phone");
-                document.getElementById("custProvince").value = localStorage.getItem("hamviro_pro_province");
-                document.getElementById("custCity").value = localStorage.getItem("hamviro_pro_city");
-                document.getElementById("custAddress").value = localStorage.getItem("hamviro_pro_address");
-                selectAddressLabel(localStorage.getItem("hamviro_pro_label") || "Home");
-            }
 
             document.getElementById("productModal").style.display = "flex";
             document.body.style.overflow = "hidden";
-            
-            setTimeout(() => { sliderBox.scrollLeft = 0; }, 50);
         }
 
-        function updateActiveThumbnail(index) {
+        function updateActiveThumbnail(idx) {
             document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
-            const currentThumb = document.getElementById(`modal-thumb-${index}`);
-            if(currentThumb) currentThumb.classList.add('active');
+            const th = document.getElementById(`modal-thumb-${idx}`); if(th) th.classList.add('active');
         }
 
-        function closeModal() {
-            document.getElementById("productModal").style.display = "none";
-            document.body.style.overflow = "auto";
+        function selectAddressLabel(lbl) {
+            selectedLabel = lbl; document.getElementById("chipHome").classList.remove("selected"); document.getElementById("chipOffice").classList.remove("selected");
+            if(lbl === 'Home') document.getElementById("chipHome").classList.add("selected"); else document.getElementById("chipOffice").classList.add("selected");
         }
+
+        function closeModal() { document.getElementById("productModal").style.display = "none"; document.body.style.overflow = "auto"; }
+        document.getElementById("closeModalBtn").onclick = closeModal;
 
         document.getElementById("checkoutForm").onsubmit = function(e) {
             e.preventDefault();
-
-            const name = document.getElementById("custName").value.trim();
-            const phone = document.getElementById("custPhone").value.trim();
-            const province = document.getElementById("custProvince").value;
-            const city = document.getElementById("custCity").value.trim();
-            const address = document.getElementById("custAddress").value.trim();
-
-            localStorage.setItem("hamviro_pro_name", name);
-            localStorage.setItem("hamviro_pro_phone", phone);
-            localStorage.setItem("hamviro_pro_province", province);
-            localStorage.setItem("hamviro_pro_city", city);
-            localStorage.setItem("hamviro_pro_address", address);
-            localStorage.setItem("hamviro_pro_label", selectedLabel);
-
             const textBill = `📦 *NEW ORDER - HAMVIRO*\n\n` +
-                             `⚙️ *PRODUCT SPECIFICATION:*\n` +
-                             `• *Item:* ${activeProduct.title}\n` +
-                             `• *Selling Price:* Rs. ${activeProduct.price}\n` +
-                             `• *Product Image:* ${activeProduct.images[0]}\n\n` +
-                             `🚚 *SHIPPING ADDRESS DETAILS:*\n` +
-                             `• *Receiver Name:* ${name}\n` +
-                             `• *Contact Number:* ${phone}\n` +
-                             `• *Province:* ${province}\n` +
-                             `• *City:* ${city}\n` +
-                             `• *Full Address:* ${address}\n` +
-                             `• *Address Tag:* [ ${selectedLabel.toUpperCase()} ]\n\n` +
-                             `⚡ _Order process karne ke liye detail verify karden._`;
-
-            const encodedMsg = encodeURIComponent(textBill);
-            const nativeWhatsAppUrl = `https://wa.me/${MY_BUSINESS_WHATSAPP}?text=${encodedMsg}`;
-
-            closeModal();
-            window.open(nativeWhatsAppUrl, '_blank');
+                             `⚙️ *PRODUCT:* ${activeProduct.title}\n` +
+                             `• *Price:* Rs. ${activeProduct.price}\n\n` +
+                             `🚚 *DELIVERY ADDRESS:*\n` +
+                             `• *Name:* ${document.getElementById("custName").value}\n` +
+                             `• *Phone:* ${document.getElementById("custPhone").value}\n` +
+                             `• *Address:* ${document.getElementById("custAddress").value}, ${document.getElementById("custCity").value} (${document.getElementById("custProvince").value})\n` +
+                             `• *Label:* ${selectedLabel}`;
+            window.open(`https://wa.me/${MY_BUSINESS_WHATSAPP}?text=${encodeURIComponent(textBill)}`, '_blank');
         };
-
-        document.getElementById("closeModalBtn").onclick = closeModal;
-        document.getElementById("productModal").onclick = function(e) { if(e.target === this) closeModal(); };
 
         function filterCategory(catId) {
             selectedCategory = catId; renderCategories();
-            document.getElementById("sectionTitle").innerText = catId === "all" ? "All Products" : `${catId.charAt(0).toUpperCase() + catId.slice(1).replace('-', ' ')} Deals`;
             if(catId === "all") renderProducts(PRODUCTS_DATA);
             else renderProducts(PRODUCTS_DATA.filter(p => p.category === catId));
         }
 
-        function executeSearch() {
-            const query = document.getElementById("searchInput").value.toLowerCase().trim();
-            if(query === "") { filterCategory("all"); return; }
-            renderProducts(PRODUCTS_DATA.filter(p => p.title.toLowerCase().includes(query)));
-        }
-
-        document.getElementById("searchBtn").onclick = executeSearch;
-        document.getElementById("searchInput").onkeyup = (e) => { if(e.key === "Enter") executeSearch(); };
-        document.getElementById("brandLogo").onclick = () => { filterCategory("all"); document.getElementById("searchInput").value=""; };
-        document.getElementById("homeTab").onclick = () => { filterCategory("all"); document.getElementById("searchInput").value=""; };
-        document.getElementById("bannerBtn").onclick = () => { window.scrollTo({top: document.getElementById("productsContainer").offsetTop - 100, behavior: "smooth"}); };
-
-        function runCountdown() {
-            let hours = 2, minutes = 14, seconds = 20;
-            setInterval(() => {
-                seconds--;
-                if(seconds < 0) { seconds = 59; minutes--; }
-                if(minutes < 0) { minutes = 59; hours--; }
-                document.getElementById("liveTimer").innerText = `${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        /* --- EXCLUSIVE NATIVE CODE INJECTION FOR PRO ADMIN STUDIO ENGINE --- */
         function triggerSecretAdminAuth() {
-            const pass = prompt("Enter Secret Admin Authentication Key:");
-            if (pass === "admin123") {
+            if (prompt("Enter Admin Password:") === "admin123") {
                 document.getElementById("adminOverlay").style.display = "flex";
-                document.body.style.overflow = "hidden";
-            } else if (pass !== null) {
-                alert("Access Denied. Wrong Security Token.");
-            }
+            } else { alert("Access Denied."); }
         }
-
-        function closeAdminPanel() {
-            document.getElementById("adminOverlay").style.display = "none";
-            document.body.style.overflow = "auto";
-        }
+        function closeAdminPanel() { document.getElementById("adminOverlay").style.display = "none"; }
 
         function handleAdminAddProduct(e) {
             e.preventDefault();
-            
             const imgs = [];
-            const img1 = document.getElementById("admImg1").value.trim();
-            const img2 = document.getElementById("admImg2").value.trim();
-            const img3 = document.getElementById("admImg3").value.trim();
-            const img4 = document.getElementById("admImg4").value.trim();
-            
-            if(img1) imgs.push(img1);
-            if(img2) imgs.push(img2);
-            if(img3) imgs.push(img3);
-            if(img4) imgs.push(img4);
+            if(document.getElementById("admImg1").value) imgs.push(document.getElementById("admImg1").value.trim());
+            if(document.getElementById("admImg2").value) imgs.push(document.getElementById("admImg2").value.trim());
+            if(document.getElementById("admImg3").value) imgs.push(document.getElementById("admImg3").value.trim());
+            if(document.getElementById("admImg4").value) imgs.push(document.getElementById("admImg4").value.trim());
 
-            const newProduct = {
-                id: PRODUCTS_DATA.length + 1,
+            // Create Clean Object
+            const prodObj = {
                 title: document.getElementById("admTitle").value.trim(),
                 category: document.getElementById("admCategory").value,
                 price: document.getElementById("admPrice").value.trim(),
@@ -1470,40 +786,26 @@
                 overview: document.getElementById("admOverview").value.trim()
             };
 
-            // Insert into local runtime array to preview instantly
-            PRODUCTS_DATA.unshift(newProduct);
-            filterCategory("all");
+            // Format as text block
+            const formattedCode = `            {\n` +
+                `                title: "${prodObj.title}",\n` +
+                `                category: "${prodObj.category}",\n` +
+                `                price: "${prodObj.price}",\n` +
+                `                oldPrice: "${prodObj.oldPrice}",\n` +
+                `                discount: "${prodObj.discount}",\n` +
+                `                images: ${JSON.stringify(prodObj.images)},\n` +
+                `                description: "${prodObj.description}",\n` +
+                `                overview: ${JSON.stringify(prodObj.overview)}\n` +
+                `            },`;
+
+            const box = document.getElementById("codeExportBox");
+            box.innerText = formattedCode;
+            box.style.display = "block";
             
-            // Format array explicitly to update source code securely
-            const formattedArrayText = JSON.stringify(PRODUCTS_DATA, null, 12);
-            
-            // Generate full clean updated code structure
-            let currentFullSource = document.documentElement.outerHTML;
-            
-            // Clean dynamic injection traces for clean export code
-            const exportBox = document.getElementById("codeExportBox");
-            const exportBtn = document.getElementById("exportBtn");
-            
-            exportBox.innerText = `<!DOCTYPE html>\n<html lang="en">\n` + document.documentElement.innerHTML + `\n</html>`;
-            exportBox.style.display = "block";
-            exportBtn.style.display = "block";
-            
-            alert("Success! Product synchronized to screen preview. Now click the black button below to copy your production ready file code!");
+            alert("Zabardast! Naye product ka code niche black box me aa gaya hy. Is box par click kar ke code copy karein aur apni index.html file me 'PRODUCTS_DATA' array ke andar paste kar dein.");
         }
 
-        function copyUpdatedWebsiteCode() {
-            const codeText = document.getElementById("codeExportBox").innerText;
-            navigator.clipboard.writeText(codeText).then(() => {
-                alert("Excellent! Your updated production index.html code is copied to clipboard. Paste this into your file on GitHub/Netlify/Hosting panel and the changes are permanent!");
-                closeAdminPanel();
-            }).catch(err => {
-                alert("Error copying code. Please select the text inside the black box manually and copy it.");
-            });
-        }
-
-        window.onload = () => { renderCategories(); renderProducts(PRODUCTS_DATA); runCountdown(); };
+        window.onload = () => { renderCategories(); renderProducts(PRODUCTS_DATA); };
     </script>
-
-
 </body>
 </html>
