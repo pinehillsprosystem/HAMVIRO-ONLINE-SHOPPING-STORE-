@@ -479,8 +479,8 @@
         <div class="sidebar-categories" id="desktopCats"></div>
         <div class="main-banner">
             <div class="banner-text">
-                <span>EXCLUSIVE STORE</span>
-                <h2>WELCOME TO <br>HAMVIRO</h2>
+                <span>!BEST OFFER ONLY FOR 1 MONTH</span>
+                <h2>5 LADIES SUIT  <br> ONLY IN 2000</h2>
                 <div class="shop-now-btn" id="bannerBtn">Explore Products</div>
             </div>
         </div>
@@ -558,11 +558,16 @@
     </div>
 
     <script>
-        const MY_BUSINESS_WHATSAPP = "923422531403"; 
+        const MY_BUSINESS_WHATSAPP = "923491945830"; 
 
-        // ALL YOUR 54.5KB ORIGINAL BULK PRODUCTS RESTORED PERFECTLY
+        // CATEGORIES LIST
+        const CATEGORIES = [
+            { id: "all", name: "All Products", icon: "fa-border-all" },
+            { id: "mega-offer", name: "MEGA OFFER", icon: "fa-tags" }
+        ];
+        
         const PRODUCTS_DATA = [
-            {
+              {
                 title: "Grey Studded Crossbody Bag with Gold Hardware",
                 category: "beauty",
                 price: "1,499",
@@ -945,6 +950,7 @@
             { id: "beauty", name: "Beauty", icon: "fa-wand-magic-sparkles" },
             { id: "men-fashion", name: "Men's Fashion", icon: "fa-shirt" },
             { id: "ladies-fashion", name: "Ladies' Fashion", icon: "fa-person-dress" }
+            
         ];
 
         let selectedCategory = "all"; let activeProduct = null; let selectedLabel = "Home";
